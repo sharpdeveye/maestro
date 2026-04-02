@@ -2,11 +2,15 @@
 name: calibrate
 description: "Align workflow components to project conventions and established standards. Ensure naming consistency, style alignment, and pattern conformity across prompts, tools, and agents. Use when components are inconsistent or a new team member's work needs standardization."
 argument-hint: "[target area]"
+category: fix
+version: 1.0.0
 user-invocable: true
 ---
 
 ## MANDATORY PREPARATION
 Invoke {{command_prefix}}agent-workflow — it contains workflow principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no workflow context exists yet, you MUST run {{command_prefix}}teach-maestro first.
+Consult the prompt-engineering reference in the agent-workflow skill for naming and style consistency patterns.
+
 
 ---
 

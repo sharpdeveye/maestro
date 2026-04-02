@@ -2,6 +2,8 @@
 name: enrich
 description: "Add knowledge sources, retrieval pipelines (RAG), grounding data, and external context to agent workflows. Use when the agent needs access to information beyond its training data."
 argument-hint: "[knowledge domain or source]"
+category: enhancement
+version: 1.0.0
 user-invocable: true
 ---
 

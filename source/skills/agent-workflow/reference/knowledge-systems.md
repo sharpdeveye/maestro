@@ -62,7 +62,7 @@ Every retrieved passage MUST include:
     "file": "architecture-guide.md",
     "section": "Authentication",
     "page": 12,
-    "last_updated": "2025-01-15"
+    "last_updated": "2026-01-15"
   },
   "relevance_score": 0.87
 }

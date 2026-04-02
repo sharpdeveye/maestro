@@ -2,11 +2,13 @@
 name: teach-maestro
 description: "One-time project context gathering. Interviews the user about their AI workflow setup and saves the context to .maestro.md for use by all other Maestro commands. Run this once per project."
 argument-hint: "[project name]"
+category: utility
+version: 1.0.0
 user-invocable: true
 ---
 
-## WHAT THIS DOES
-Gathers project-specific workflow context and persists it to `.maestro.md` in the project root. All other Maestro commands read this file for project-aware guidance.
+## BOOTSTRAP — First Command to Run
+This is the entry point for Maestro. It creates the `.maestro.md` context file that all other Maestro commands depend on. No other preparation is needed — this IS the preparation.
 
 ---
 

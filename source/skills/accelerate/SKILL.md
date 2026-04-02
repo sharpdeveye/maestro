@@ -2,11 +2,15 @@
 name: accelerate
 description: "Optimize agent workflows for speed, cost, and efficiency. Reduce latency, minimize token usage, implement caching, and choose faster model configurations. Use when the workflow is too slow, too expensive, or both."
 argument-hint: "[target metric]"
+category: enhancement
+version: 1.0.0
 user-invocable: true
 ---
 
 ## MANDATORY PREPARATION
 Invoke {{command_prefix}}agent-workflow — it contains workflow principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no workflow context exists yet, you MUST run {{command_prefix}}teach-maestro first.
+Consult the context-management reference in the agent-workflow skill for window optimization and budget strategies.
+
 
 ---
 

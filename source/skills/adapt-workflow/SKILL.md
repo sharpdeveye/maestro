@@ -2,6 +2,8 @@
 name: adapt-workflow
 description: "Adapt agent workflows for different AI providers, deployment environments, model capabilities, or organizational contexts. Use when the user wants to port workflows between providers, deploy to a new environment, or adapt for different team requirements."
 argument-hint: "[target context]"
+category: utility
+version: 1.0.0
 user-invocable: true
 ---
 

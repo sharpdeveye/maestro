@@ -2,6 +2,8 @@
 name: fortify
 description: "Add error handling, retries, fallbacks, circuit breakers, and recovery paths to agent workflows. Transform happy-path workflows into production-resilient systems. Use when the workflow lacks error handling or has been failing in production."
 argument-hint: "[target area]"
+category: fix
+version: 1.0.0
 user-invocable: true
 ---
 

@@ -2,11 +2,15 @@
 name: streamline
 description: "Remove unnecessary complexity from agent workflows. Flatten over-engineered pipelines, eliminate redundant steps, consolidate overlapping tools, and simplify configuration. Use when the workflow feels too complex or has accumulated cruft."
 argument-hint: "[target area]"
+category: fix
+version: 1.0.0
 user-invocable: true
 ---
 
 ## MANDATORY PREPARATION
 Invoke {{command_prefix}}agent-workflow — it contains workflow principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no workflow context exists yet, you MUST run {{command_prefix}}teach-maestro first.
+Consult the agent-architecture reference in the agent-workflow skill for complexity assessment and topology simplification.
+
 
 ---
 

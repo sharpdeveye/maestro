@@ -2,7 +2,14 @@
 name: turbocharge
 description: "Push agent workflows past conventional limits with advanced techniques — parallel orchestration, streaming pipelines, adaptive routing, self-healing systems, and performance-critical architectures. Use when the user wants to go beyond standard patterns."
 argument-hint: "[target]"
+category: enhancement
+version: 1.0.0
 user-invocable: true
+---
+
+## MANDATORY PREPARATION
+Invoke {{command_prefix}}agent-workflow — it contains workflow principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no workflow context exists yet, you MUST run {{command_prefix}}teach-maestro first.
+
 ---
 
 Start your response with:
@@ -14,13 +21,11 @@ Start your response with:
 
 Push a workflow past conventional limits. This isn't about adding features — it's about making existing capabilities operate at a level users didn't think was possible.
 
-Invoke {{command_prefix}}agent-workflow for the Context Gathering Protocol first.
-
 **EXTRA IMPORTANT**: Context determines what "extraordinary" means. Understand the project's scale before deciding what to turbocharge.
 
 ### Propose Before Building
 1. **Think through 2-3 different directions** with trade-offs
-2. **{{ask_instruction}}** to present directions and get the user's pick before writing code
+2. **Present these options to the user and wait for their selection** before writing code
 3. Only proceed with the confirmed direction
 
 ---

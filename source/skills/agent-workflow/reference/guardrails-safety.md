@@ -90,7 +90,7 @@ Log everything (redacting sensitive data):
 
 ```json
 {
-  "timestamp": "2025-01-15T10:30:00Z",
+  "timestamp": "2026-01-15T10:30:00Z",
   "workflow_id": "wf_abc123",
   "step": "generate_response",
   "model": "gpt-4",

@@ -2,6 +2,8 @@
 name: iterate
 description: "Set up feedback loops, evaluation cycles, and self-correction mechanisms. Build workflows that improve themselves through structured evaluation and refinement. Use when the workflow needs to self-correct or improve over time."
 argument-hint: "[target area]"
+category: enhancement
+version: 1.0.0
 user-invocable: true
 ---
 

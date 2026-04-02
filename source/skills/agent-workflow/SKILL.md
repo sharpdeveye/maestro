@@ -1,6 +1,8 @@
 ---
 name: agent-workflow
 description: "Comprehensive AI agent workflow design skill. Covers prompt engineering, context management, tool orchestration, agent architecture, feedback loops, knowledge systems, and guardrails. This skill is automatically invoked by all Maestro commands."
+category: core
+version: 1.0.0
 user-invocable: false
 ---
 
@@ -172,16 +174,16 @@ production-grade AI agent workflows. All Maestro commands build on these princip
 
 If any of these are true, the workflow needs work:
 
-- [ ] Prompts are unstructured walls of text
-- [ ] No output schema defined — model decides the format
-- [ ] Context window used without budget — everything stuffed in
-- [ ] More than 10 tools exposed to a single agent
-- [ ] No error handling — happy path only
-- [ ] No evaluation — "it seems to work"
-- [ ] Multi-agent system for a single-agent problem
-- [ ] No cost controls — unbounded token usage
-- [ ] Tools have vague one-line descriptions
-- [ ] No logging — can't debug production issues
+- [ ] Prompts are unstructured walls of text → run `/refine`
+- [ ] No output schema defined — model decides the format → run `/refine`
+- [ ] Context window used without budget — everything stuffed in → run `/accelerate`
+- [ ] More than 10 tools exposed to a single agent → run `/streamline`
+- [ ] No error handling — happy path only → run `/fortify`
+- [ ] No evaluation — "it seems to work" → run `/iterate`
+- [ ] Multi-agent system for a single-agent problem → run `/temper`
+- [ ] No cost controls — unbounded token usage → run `/guard`
+- [ ] Tools have vague one-line descriptions → run `/calibrate`
+- [ ] No logging — can't debug production issues → run `/fortify`
 
 **Zero checked = production-ready. 3+ checked = workflow slop.**
 

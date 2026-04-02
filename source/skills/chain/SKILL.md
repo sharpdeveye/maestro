@@ -2,11 +2,15 @@
 name: chain
 description: "Build effective tool chains and multi-step data pipelines. Design sequential, parallel, and conditional tool compositions with proper data flow and error handling. Use when the workflow needs multi-step processing."
 argument-hint: "[pipeline description]"
+category: enhancement
+version: 1.0.0
 user-invocable: true
 ---
 
 ## MANDATORY PREPARATION
 Invoke {{command_prefix}}agent-workflow — it contains workflow principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no workflow context exists yet, you MUST run {{command_prefix}}teach-maestro first.
+Consult the tool-orchestration reference in the agent-workflow skill for composition patterns and error handling.
+
 
 ---
 

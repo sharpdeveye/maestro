@@ -2,6 +2,8 @@
 name: evaluate
 description: "Holistic review of workflow interaction quality. Tests the workflow against realistic scenarios, evaluates user experience, and identifies gaps between intended and actual behavior. Use when the user wants a quality review or interaction audit."
 argument-hint: "[workflow or scenario]"
+category: analysis
+version: 1.0.0
 user-invocable: true
 ---
 

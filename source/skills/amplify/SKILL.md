@@ -2,11 +2,15 @@
 name: amplify
 description: "Boost agent workflow capabilities with better tools, richer context, enhanced prompts, and model features. Use when the workflow works but needs to handle more complex cases or produce higher-quality output."
 argument-hint: "[target area]"
+category: enhancement
+version: 1.0.0
 user-invocable: true
 ---
 
 ## MANDATORY PREPARATION
 Invoke {{command_prefix}}agent-workflow — it contains workflow principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no workflow context exists yet, you MUST run {{command_prefix}}teach-maestro first.
+Consult the tool-orchestration reference in the agent-workflow skill for adding tools effectively.
+
 
 ---
 

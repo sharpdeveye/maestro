@@ -2,6 +2,8 @@
 name: diagnose
 description: "Systematic workflow quality audit. Scores 5 dimensions of workflow health and produces a prioritized action plan. Use when the user wants to find problems, audit quality, or get a health check on their AI workflow."
 argument-hint: "[target area]"
+category: analysis
+version: 1.0.0
 user-invocable: true
 ---
 

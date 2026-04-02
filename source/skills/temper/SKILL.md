@@ -2,11 +2,15 @@
 name: temper
 description: "Reduce over-engineering in agent workflows. Simplify overbuilt multi-agent systems, remove premature optimization, flatten unnecessary abstraction, and bring complexity back in line with actual requirements. Use when the workflow feels over-engineered or too complex."
 argument-hint: "[target]"
+category: enhancement
+version: 1.0.0
 user-invocable: true
 ---
 
 ## MANDATORY PREPARATION
 Invoke {{command_prefix}}agent-workflow — it contains workflow principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no workflow context exists yet, you MUST run {{command_prefix}}teach-maestro first.
+Consult the agent-architecture reference in the agent-workflow skill for topology patterns and when multi-agent is justified.
+
 
 ---
 

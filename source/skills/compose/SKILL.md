@@ -2,6 +2,8 @@
 name: compose
 description: "Design multi-agent orchestration systems with clear boundaries, handoff protocols, and supervisor patterns. Use when a single agent demonstrably cannot handle the task and multi-agent coordination is justified."
 argument-hint: "[workflow description]"
+category: enhancement
+version: 1.0.0
 user-invocable: true
 ---
 
