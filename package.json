@@ -1,0 +1,28 @@
+{
+  "name": "maestro",
+  "version": "1.0.0",
+  "description": "Workflow fluency for AI harnesses. 1 skill, 20 commands, and curated anti-patterns for masterful AI agent workflows.",
+  "keywords": [
+    "ai",
+    "agents",
+    "workflows",
+    "skills",
+    "cursor",
+    "claude",
+    "gemini",
+    "codex",
+    "prompt-engineering",
+    "orchestration"
+  ],
+  "author": "MOHAMMED ZOUAZOU",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sharpdeveye/maestro.git"
+  },
+  "homepage": "https://github.com/sharpdeveye/maestro",
+  "scripts": {
+    "build": "node scripts/build.js",
+    "check": "node scripts/validate.js"
+  }
+}
