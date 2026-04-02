@@ -57,6 +57,14 @@ For each checklist item that fails, provide:
 3. How to fix it (concrete suggestion)
 4. Priority (critical / important / nice-to-have)
 
+### Priority Matrix
+
+| Priority | Criteria | Action |
+|----------|---------|--------|
+| Critical | Affects correctness or safety | Fix before shipping |
+| Important | Affects quality or maintainability | Fix in current cycle |
+| Nice-to-have | Cosmetic or minor inconsistency | Fix when convenient |
+
 **NEVER**:
 - Skip the checklist — go through every item
 - Mark items as passing without checking

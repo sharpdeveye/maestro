@@ -50,6 +50,22 @@ Ensure consistency across all workflow components. Inconsistency creates confusi
 4. **Apply**: Make the changes, ensuring tests still pass.
 5. **Document**: Update `.maestro.md` with the established conventions.
 
+### Consistency Audit Table
+
+| Dimension | Standard | Deviations Found | Priority |
+|-----------|----------|------------------|----------|
+| Tool naming | ? | ? of ? tools | High/Med/Low |
+| Prompt structure | ? | ? of ? prompts | High/Med/Low |
+| Error format | ? | ? of ? tools | High/Med/Low |
+| Log format | ? | ? of ? entries | High/Med/Low |
+
+### Calibration Checklist
+- [ ] Convention standard identified for each dimension
+- [ ] All deviations listed with location
+- [ ] Highest impact deviations fixed first
+- [ ] Tests pass after each calibration change
+- [ ] Updated `.maestro.md` with established conventions
+
 **NEVER**:
 - Invent new conventions when existing ones work
 - Calibrate in a way that changes behavior (this is standardization, not refactoring)

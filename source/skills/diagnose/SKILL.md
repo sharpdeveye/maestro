@@ -80,6 +80,23 @@ RECOMMENDED ACTIONS:
 3. Run /refine for prompt structure improvements (addresses Prompt Quality)
 ```
 
+### Scoring Guide
+
+| Score | Meaning | Action |
+|-------|---------|--------|
+| 5 | Production-excellent | No action needed |
+| 4 | Good with minor gaps | Polish with `/refine` |
+| 3 | Functional but risky | Targeted fix needed |
+| 2 | Significant issues | Immediate attention |
+| 1 | Broken or missing | Rebuild required |
+
+### Diagnostic Checklist
+- [ ] All 5 dimensions scored with specific evidence
+- [ ] Critical findings listed in priority order
+- [ ] Each finding includes specific file/component location
+- [ ] Recommended actions reference specific Maestro commands
+- [ ] Overall score calculated and report generated
+
 **NEVER**:
 - Give all 5s unless the workflow is genuinely production-excellent
 - Skip dimensions — score all 5 even if some seem fine

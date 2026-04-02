@@ -49,6 +49,23 @@ Take a working workflow and make it more capable. Amplification adds new abiliti
 3. **Implement incrementally**: Add one capability at a time
 4. **Verify**: Run the evaluation suite to confirm improvement without regression
 
+### Impact Assessment
+
+| Strategy | Cost Impact | Latency Impact | Quality Impact |
+|----------|-----------|---------------|----------------|
+| Better prompts | None | None | Medium-High |
+| Better tools | Low | Low-Medium | High |
+| Better context (RAG) | Medium | Medium | High |
+| Better models | High | Medium-High | High |
+
+### Amplification Checklist
+- [ ] Gap identified with concrete evidence (not assumption)
+- [ ] Single strategy selected (don't amplify everything at once)
+- [ ] Baseline quality score recorded before change
+- [ ] Change implemented and tested
+- [ ] Quality score improved without regression
+- [ ] Cost/latency impact documented
+
 **NEVER**:
 - Amplify without a specific gap to address (amplification without purpose is bloat)
 - Add capabilities without testing them

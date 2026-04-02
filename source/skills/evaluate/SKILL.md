@@ -63,6 +63,13 @@ Produce a structured report with:
 3. Specific scenario results
 4. Priority improvements with recommended Maestro commands
 
+### Evaluation Checklist
+- [ ] All 5 dimensions tested with concrete scenarios
+- [ ] At least one edge case and one adversarial case tested
+- [ ] Results documented in the scenario table
+- [ ] Overall grade assigned with justification
+- [ ] Improvement actions reference specific Maestro commands
+
 **NEVER**:
 - Evaluate theoretically — run actual scenarios
 - Give an A grade unless the workflow handles all scenario types well

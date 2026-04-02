@@ -8,7 +8,7 @@ user-invocable: true
 ---
 
 ## MANDATORY PREPARATION
-If this is a new project, run {{command_prefix}}teach-maestro first to establish workflow context. If adding to an existing project, invoke {{command_prefix}}agent-workflow for existing context.
+Invoke {{command_prefix}}agent-workflow — it contains workflow principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no workflow context exists yet, you MUST run {{command_prefix}}teach-maestro first.
 
 ---
 

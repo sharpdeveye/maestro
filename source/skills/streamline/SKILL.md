@@ -53,6 +53,22 @@ For each recommendation:
 2. **Why it's safe** — what ensures functionality is preserved
 3. **Expected impact** — latency reduction, cost reduction, or maintainability improvement
 
+### Complexity Score
+
+| Component | Current | Minimal Viable | Action |
+|-----------|---------|---------------|--------|
+| Pipeline steps | ? | ? | Remove/merge ? |
+| Tools | ? | ? | Consolidate ? |
+| Config params | ? | ? | Remove ? |
+| Agent count | ? | ? | Collapse ? |
+
+### Streamlining Checklist
+- [ ] Each component justified with concrete value
+- [ ] Redundant steps identified and marked for removal
+- [ ] Tool usage logs checked for never-used tools
+- [ ] Golden test set passes after each simplification
+- [ ] No safety guardrails, logging, or error handling removed
+
 **NEVER**:
 - Remove error handling in the name of simplicity
 - Streamline without verifying the golden test set still passes

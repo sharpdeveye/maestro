@@ -68,6 +68,22 @@ Generated: [date]
 
 Save this file to the project root as `.maestro.md`.
 
+### Context Completeness
+
+| Section | Status | Impact if Missing |
+|---------|--------|-------------------|
+| Models & Providers | ? | Commands can't tailor advice to your stack |
+| Workflow Architecture | ? | Commands can't assess complexity |
+| Quality & Evaluation | ? | `/iterate` and `/evaluate` less effective |
+| Constraints | ? | `/guard` and `/accelerate` can't set limits |
+| Priorities | ? | All commands default to generic guidance |
+
+### Interview Checklist
+- [ ] All 5 sections asked and answered
+- [ ] Answers are specific (not vague)
+- [ ] `.maestro.md` file generated and saved
+- [ ] User confirmed accuracy of the generated context
+
 **NEVER**:
 - Skip questions — every section matters for downstream commands
 - Make assumptions — ask if unclear
