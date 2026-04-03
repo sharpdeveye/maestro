@@ -3,7 +3,7 @@ name: adapt-workflow
 description: "Adapt agent workflows for different AI providers, deployment environments, model capabilities, or organizational contexts. Use when the user wants to port workflows between providers, deploy to a new environment, or adapt for different team requirements."
 argument-hint: "[target context]"
 category: utility
-version: 1.0.0
+version: 1.1.0
 user-invocable: true
 ---
 
@@ -44,6 +44,9 @@ Adapt a working workflow for a different context.
 - [ ] Guardrails adjusted for target compliance requirements
 - [ ] Tests updated and passing in target environment
 - [ ] Documentation updated for target team
+
+### Recommended Next Step
+After adaptation, run `{{command_prefix}}evaluate` to verify the workflow performs correctly in the target environment, then `{{command_prefix}}diagnose` for a full health check.
 
 **NEVER**:
 - Assume prompts work identically across providers

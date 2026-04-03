@@ -3,7 +3,7 @@ name: chain
 description: "Build effective tool chains and multi-step data pipelines. Design sequential, parallel, and conditional tool compositions with proper data flow and error handling. Use when the workflow needs multi-step processing."
 argument-hint: "[pipeline description]"
 category: enhancement
-version: 1.0.0
+version: 1.1.0
 user-invocable: true
 ---
 
@@ -54,6 +54,9 @@ Max retries per step: 3
 - [ ] Total chain timeout is set
 - [ ] Maximum iteration count is set for loops
 - [ ] Partial results are handled (what if step 2 of 4 fails?)
+
+### Recommended Next Step
+After building the chain, run `{{command_prefix}}fortify` to add error handling at each step, then `{{command_prefix}}evaluate` to test the full pipeline.
 
 **NEVER**:
 - Build chains without defining data contracts between steps

@@ -3,7 +3,7 @@ name: accelerate
 description: "Optimize agent workflows for speed, cost, and efficiency. Reduce latency, minimize token usage, implement caching, and choose faster model configurations. Use when the workflow is too slow, too expensive, or both."
 argument-hint: "[target metric]"
 category: enhancement
-version: 1.0.0
+version: 1.1.0
 user-invocable: true
 ---
 
@@ -66,6 +66,9 @@ For each optimization:
 3. **After**: Latency/cost/tokens after
 4. **Quality impact**: Any quality change (verify with golden tests)
 5. **Trade-off**: What was sacrificed for the improvement
+
+### Recommended Next Step
+After optimization, run `{{command_prefix}}evaluate` to verify quality didn't degrade, or `{{command_prefix}}iterate` to set up continuous monitoring.
 
 **NEVER**:
 - Optimize without measuring first (you need a baseline)

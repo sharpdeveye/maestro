@@ -3,7 +3,7 @@ name: onboard-agent
 description: "Set up new agent configurations, establish project conventions, create initial tool sets, and bootstrap workflow infrastructure. Use when starting a new project, adding a new agent to an existing system, or setting up workflow infrastructure from scratch."
 argument-hint: "[project or agent name]"
 category: utility
-version: 1.0.0
+version: 1.1.0
 user-invocable: true
 ---
 
@@ -61,6 +61,9 @@ project/
 - Run the agent with the golden test case
 - Verify error handling works (send bad input)
 - Verify logging captures useful context
+
+### Recommended Next Step
+After onboarding, run `{{command_prefix}}diagnose` for a baseline health check, then `{{command_prefix}}fortify` to add production-grade error handling.
 
 **NEVER**:
 - Start building without establishing conventions

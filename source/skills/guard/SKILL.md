@@ -3,7 +3,7 @@ name: guard
 description: "Add safety constraints, input validation, output filtering, prompt injection defense, cost ceilings, and security boundaries to agent workflows. Use when deploying to production or handling sensitive data."
 argument-hint: "[threat or area]"
 category: enhancement
-version: 1.0.0
+version: 1.1.0
 user-invocable: true
 ---
 
@@ -78,6 +78,9 @@ For every tool call:
 - [ ] All access logged for audit
 - [ ] Circuit breakers on external services
 - [ ] Rate limits on all endpoints
+
+### Recommended Next Step
+After adding guards, run `{{command_prefix}}evaluate` with adversarial test scenarios to verify guards hold under attack.
 
 **NEVER**:
 - Deploy without input validation

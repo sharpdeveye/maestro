@@ -3,7 +3,7 @@ name: specialize
 description: "Make agent workflows domain-specific by adding domain expertise, industry terminology, compliance requirements, and specialized evaluation criteria. Use when the user wants to tailor a workflow for a specific industry or domain."
 argument-hint: "[domain]"
 category: utility
-version: 1.0.0
+version: 1.1.0
 user-invocable: true
 ---
 
@@ -45,6 +45,9 @@ Transform a general-purpose workflow into a domain expert.
 - **Medical**: "Not medical advice" disclaimer, emergency detection
 - **Financial**: Regulatory disclosures, suitability warnings
 - **Code**: Security scanning, dependency vulnerability checks
+
+### Recommended Next Step
+After specialization, run `{{command_prefix}}evaluate` with domain-specific scenarios, then `{{command_prefix}}guard` to add domain-appropriate safety guardrails.
 
 **NEVER**:
 - Specialize without consulting domain experts or authoritative sources

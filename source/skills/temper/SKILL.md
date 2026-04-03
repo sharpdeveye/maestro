@@ -3,7 +3,7 @@ name: temper
 description: "Reduce over-engineering in agent workflows. Simplify overbuilt multi-agent systems, remove premature optimization, flatten unnecessary abstraction, and bring complexity back in line with actual requirements. Use when the workflow feels over-engineered or too complex."
 argument-hint: "[target]"
 category: enhancement
-version: 1.0.0
+version: 1.1.0
 user-invocable: true
 ---
 
@@ -59,6 +59,9 @@ TEMPERED: config.yaml (20 lines, essential params only, sensible defaults)
 - Input validation — prevents cascading failures
 - Core guardrails — safety is non-negotiable
 - The golden test set — how you know it still works
+
+### Recommended Next Step
+After tempering, run `{{command_prefix}}evaluate` to confirm quality is preserved, or `{{command_prefix}}diagnose` for a full health check.
 
 **NEVER**:
 - Temper without measuring output quality before and after

@@ -3,7 +3,7 @@ name: calibrate
 description: "Align workflow components to project conventions and established standards. Ensure naming consistency, style alignment, and pattern conformity across prompts, tools, and agents. Use when components are inconsistent or a new team member's work needs standardization."
 argument-hint: "[target area]"
 category: fix
-version: 1.0.0
+version: 1.1.0
 user-invocable: true
 ---
 
@@ -65,6 +65,9 @@ Ensure consistency across all workflow components. Inconsistency creates confusi
 - [ ] Highest impact deviations fixed first
 - [ ] Tests pass after each calibration change
 - [ ] Updated `.maestro.md` with established conventions
+
+### Recommended Next Step
+After calibration, run `{{command_prefix}}refine` for a final polish pass, or `{{command_prefix}}evaluate` to verify consistency improvements.
 
 **NEVER**:
 - Invent new conventions when existing ones work

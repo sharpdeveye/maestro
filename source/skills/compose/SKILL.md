@@ -3,7 +3,7 @@ name: compose
 description: "Design multi-agent orchestration systems with clear boundaries, handoff protocols, and supervisor patterns. Use when a single agent demonstrably cannot handle the task and multi-agent coordination is justified."
 argument-hint: "[workflow description]"
 category: enhancement
-version: 1.0.0
+version: 1.1.0
 user-invocable: true
 ---
 
@@ -64,6 +64,9 @@ Every multi-agent system needs a supervisor:
 - [ ] Cost/latency budget accounts for all agents
 - [ ] Failure modes are handled at every handoff point
 - [ ] The system can be understood by reading the topology diagram
+
+### Recommended Next Step
+After composition, run `{{command_prefix}}fortify` to add error handling at every handoff, then `{{command_prefix}}evaluate` to test the multi-agent system end-to-end.
 
 **NEVER**:
 - Build multi-agent for a problem a single agent can handle

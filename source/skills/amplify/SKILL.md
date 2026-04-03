@@ -3,7 +3,7 @@ name: amplify
 description: "Boost agent workflow capabilities with better tools, richer context, enhanced prompts, and model features. Use when the workflow works but needs to handle more complex cases or produce higher-quality output."
 argument-hint: "[target area]"
 category: enhancement
-version: 1.0.0
+version: 1.1.0
 user-invocable: true
 ---
 
@@ -65,6 +65,9 @@ Take a working workflow and make it more capable. Amplification adds new abiliti
 - [ ] Change implemented and tested
 - [ ] Quality score improved without regression
 - [ ] Cost/latency impact documented
+
+### Recommended Next Step
+After amplification, run `{{command_prefix}}evaluate` to verify the new capability works, or `{{command_prefix}}iterate` to set up quality monitoring for the enhanced workflow.
 
 **NEVER**:
 - Amplify without a specific gap to address (amplification without purpose is bloat)

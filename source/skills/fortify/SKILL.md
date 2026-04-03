@@ -3,7 +3,7 @@ name: fortify
 description: "Add error handling, retries, fallbacks, circuit breakers, and recovery paths to agent workflows. Transform happy-path workflows into production-resilient systems. Use when the workflow lacks error handling or has been failing in production."
 argument-hint: "[target area]"
 category: fix
-version: 1.0.0
+version: 1.1.0
 user-invocable: true
 ---
 
@@ -66,6 +66,9 @@ For each component, verify:
 - [ ] Timeout set
 - [ ] Error logged with context
 - [ ] User gets a meaningful error (not a stack trace)
+
+### Recommended Next Step
+After fortification, run `{{command_prefix}}evaluate` to verify error handling works under realistic failure scenarios.
 
 **NEVER**:
 - Retry non-retryable errors (authentication failures, validation errors)

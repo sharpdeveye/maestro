@@ -3,7 +3,7 @@ name: enrich
 description: "Add knowledge sources, retrieval pipelines (RAG), grounding data, and external context to agent workflows. Use when the agent needs access to information beyond its training data."
 argument-hint: "[knowledge domain or source]"
 category: enhancement
-version: 1.0.0
+version: 1.1.0
 user-invocable: true
 ---
 
@@ -59,6 +59,9 @@ For live information:
 - [ ] Fallbacks exist for all external knowledge sources
 - [ ] Knowledge base has a refresh/update strategy
 - [ ] PII is handled appropriately in knowledge sources
+
+### Recommended Next Step
+After enrichment, run `{{command_prefix}}evaluate` to test retrieval quality, or `{{command_prefix}}iterate` to set up continuous monitoring of knowledge freshness.
 
 **NEVER**:
 - Index everything without curation (garbage in = garbage out)

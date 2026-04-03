@@ -3,7 +3,7 @@ name: refine
 description: "Final quality pass on prompts, tool descriptions, error messages, logging, and configuration. The last step before shipping. Use when the workflow works but needs polish, or as the final step in a diagnose → fix → refine cycle."
 argument-hint: "[target area]"
 category: fix
-version: 1.0.0
+version: 1.1.0
 user-invocable: true
 ---
 
@@ -59,11 +59,14 @@ For each checklist item that fails, provide:
 
 ### Priority Matrix
 
-| Priority | Criteria | Action |
-|----------|---------|--------|
-| Critical | Affects correctness or safety | Fix before shipping |
-| Important | Affects quality or maintainability | Fix in current cycle |
-| Nice-to-have | Cosmetic or minor inconsistency | Fix when convenient |
+| Priority | Criteria | Maestro Action |
+|----------|---------|----------------|
+| Critical | Affects correctness or safety | `{{command_prefix}}fortify` or `{{command_prefix}}guard` before shipping |
+| Important | Affects quality or maintainability | `{{command_prefix}}calibrate` in current cycle |
+| Nice-to-have | Cosmetic or minor inconsistency | Note for next `{{command_prefix}}refine` pass |
+
+### Recommended Next Step
+After refinement is complete, run `{{command_prefix}}evaluate` to verify the polished workflow against realistic scenarios.
 
 **NEVER**:
 - Skip the checklist — go through every item

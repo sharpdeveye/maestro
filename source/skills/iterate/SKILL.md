@@ -3,7 +3,7 @@ name: iterate
 description: "Set up feedback loops, evaluation cycles, and self-correction mechanisms. Build workflows that improve themselves through structured evaluation and refinement. Use when the workflow needs to self-correct or improve over time."
 argument-hint: "[target area]"
 category: enhancement
-version: 1.0.0
+version: 1.1.0
 user-invocable: true
 ---
 
@@ -76,6 +76,9 @@ For production workflows:
 - [ ] Golden test set exists with ≥ 10 cases
 - [ ] Regression detection configured for changes
 - [ ] Production monitoring in place
+
+### Recommended Next Step
+After setting up feedback loops, run `{{command_prefix}}evaluate` to validate the loop with real scenarios, then `{{command_prefix}}refine` for final polish.
 
 **NEVER**:
 - Retry with the exact same input (definition of insanity)

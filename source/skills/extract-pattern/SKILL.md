@@ -3,7 +3,7 @@ name: extract-pattern
 description: "Extract reusable patterns, templates, and best practices from working workflows. Turn one-off solutions into repeatable, documented patterns. Use when the user wants to create templates, extract patterns, document solutions, or build a pattern library."
 argument-hint: "[source workflow or area]"
 category: utility
-version: 1.0.0
+version: 1.1.0
 user-invocable: true
 ---
 
@@ -49,6 +49,9 @@ Transform the specific solution into a reusable template:
 | Evaluation approach | Quality assurance pattern with scoring rubric |
 | Context management technique | Context pattern with budget guidance |
 | Agent coordination protocol | Orchestration pattern with handoff templates |
+
+### Recommended Next Step
+After extracting patterns, run `{{command_prefix}}calibrate` to ensure the new patterns are consistent with existing project conventions.
 
 **NEVER**:
 - Extract patterns from workflows that don't work reliably

@@ -3,7 +3,7 @@ name: turbocharge
 description: "Push agent workflows past conventional limits with advanced techniques — parallel orchestration, streaming pipelines, adaptive routing, self-healing systems, and performance-critical architectures. Use when the user wants to go beyond standard patterns."
 argument-hint: "[target]"
 category: enhancement
-version: 1.0.0
+version: 1.1.0
 user-invocable: true
 ---
 
@@ -59,6 +59,9 @@ Every turbocharge technique must degrade gracefully. The workflow without the en
 - **Degradation test**: Disable enhancement — does it still work?
 - **Cost test**: Does improvement justify complexity?
 - **Maintenance test**: Can someone else maintain this in 6 months?
+
+### Recommended Next Step
+After turbocharging, run `{{command_prefix}}evaluate` to verify the enhancement works and degrades gracefully.
 
 **NEVER**:
 - Turbocharge before the workflow is correct (make it right, then make it fast)

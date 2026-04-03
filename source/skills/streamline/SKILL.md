@@ -3,7 +3,7 @@ name: streamline
 description: "Remove unnecessary complexity from agent workflows. Flatten over-engineered pipelines, eliminate redundant steps, consolidate overlapping tools, and simplify configuration. Use when the workflow feels too complex or has accumulated cruft."
 argument-hint: "[target area]"
 category: fix
-version: 1.0.0
+version: 1.1.0
 user-invocable: true
 ---
 
@@ -68,6 +68,9 @@ For each recommendation:
 - [ ] Tool usage logs checked for never-used tools
 - [ ] Golden test set passes after each simplification
 - [ ] No safety guardrails, logging, or error handling removed
+
+### Recommended Next Step
+After streamlining, run `{{command_prefix}}evaluate` to verify functionality is preserved, then `{{command_prefix}}refine` for final polish.
 
 **NEVER**:
 - Remove error handling in the name of simplicity
