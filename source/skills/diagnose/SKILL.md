@@ -3,7 +3,7 @@ name: diagnose
 description: "Systematic workflow quality audit. Scores 5 dimensions of workflow health and produces a prioritized action plan. Use when the user wants to find problems, audit quality, or get a health check on their AI workflow."
 argument-hint: "[target area]"
 category: analysis
-version: 1.0.0
+version: 1.1.0
 user-invocable: true
 ---
 
@@ -37,6 +37,7 @@ Evaluate:
 - Error handling (graceful vs. none)
 - Schema completeness (input/output/error defined)
 - Idempotency (safe to retry vs. side-effect prone)
+- **Scope attribution**: Distinguish between project-configured tools (e.g., custom scripts, project MCP servers) and agent-level tools (e.g., built-in IDE tools, global MCP servers). Only flag tool overhead for tools the project can actually control
 
 ### Dimension 4: Architecture Fitness (1-5)
 Evaluate:
@@ -49,7 +50,7 @@ Evaluate:
 ### Dimension 5: Safety & Reliability (1-5)
 Evaluate:
 - Input validation (present vs. absent)
-- Output filtering (PII, content policy)
+- Output filtering (PII, content policy) — **scope contextually**: data flowing between a user's own frontend and backend (e.g., authenticated sessions, internal APIs) is lower risk than data exposed to external services or third-party APIs
 - Cost controls (ceilings set vs. unbounded)
 - Error recovery (fallbacks vs. crash)
 - Evaluation strategy (golden tests vs. "it seems to work")
@@ -80,21 +81,37 @@ RECOMMENDED ACTIONS:
 3. Run /refine for prompt structure improvements (addresses Prompt Quality)
 ```
 
+### Maestro Command Mapping
+Every recommended action MUST reference the specific Maestro command that addresses it. Use this mapping:
+
+| Dimension Gap | Maestro Command | When to Recommend |
+|---------------|-----------------|-------------------|
+| Prompt structure, clarity, output schema | `{{command_prefix}}refine` | Score ≤ 4 on Prompt Quality |
+| Context budget, attention gradient, memory | `{{command_prefix}}streamline` | Score ≤ 3 on Context Efficiency |
+| Tool errors, missing tools, redundant tools | `{{command_prefix}}fortify` | Score ≤ 3 on Tool Health |
+| Tool count reduction, unused tools | `{{command_prefix}}streamline` | Tool count > 7 or unused tools found |
+| Safety gaps, error recovery, validation | `{{command_prefix}}fortify` | Score ≤ 3 on Safety & Reliability |
+| Test coverage, golden tests, evaluation | `{{command_prefix}}guard` | No automated tests or evaluation strategy |
+| Architecture boundaries, observability | `{{command_prefix}}calibrate` | Score ≤ 3 on Architecture Fitness |
+
+**Do NOT give generic manual actions** (e.g., "Add Vitest", "Create a rollback script") without also specifying which Maestro command the user should run to implement it. The recommended action format is:
+> Run `{{command_prefix}}<command>` to [specific action] (addresses [Dimension] #[gap number])
+
 ### Scoring Guide
 
-| Score | Meaning | Action |
-|-------|---------|--------|
+| Score | Meaning | Maestro Action |
+|-------|---------|----------------|
 | 5 | Production-excellent | No action needed |
-| 4 | Good with minor gaps | Polish with `/refine` |
-| 3 | Functional but risky | Targeted fix needed |
-| 2 | Significant issues | Immediate attention |
-| 1 | Broken or missing | Rebuild required |
+| 4 | Good with minor gaps | `{{command_prefix}}refine` for polish |
+| 3 | Functional but risky | `{{command_prefix}}fortify` or `{{command_prefix}}streamline` for targeted fix |
+| 2 | Significant issues | `{{command_prefix}}fortify` + `{{command_prefix}}guard` — immediate attention |
+| 1 | Broken or missing | `{{command_prefix}}onboard-agent` — rebuild required |
 
 ### Diagnostic Checklist
 - [ ] All 5 dimensions scored with specific evidence
 - [ ] Critical findings listed in priority order
 - [ ] Each finding includes specific file/component location
-- [ ] Recommended actions reference specific Maestro commands
+- [ ] Recommended actions reference specific Maestro commands (see Command Mapping above)
 - [ ] Overall score calculated and report generated
 
 **NEVER**:
@@ -102,3 +119,4 @@ RECOMMENDED ACTIONS:
 - Skip dimensions — score all 5 even if some seem fine
 - Diagnose without reading the actual workflow code/config
 - Recommend changes without specific findings to support them
+- Give generic manual actions without mapping them to a Maestro command
