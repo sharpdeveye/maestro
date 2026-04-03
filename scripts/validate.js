@@ -13,7 +13,7 @@ let errors = 0;
 let warnings = 0;
 
 function validate() {
-  console.log('🔍 Maestro Validation');
+  console.log('Maestro Validation');
   console.log('=====================\n');
 
   const skills = fs.readdirSync(SOURCE_DIR, { withFileTypes: true })
@@ -77,14 +77,14 @@ function validate() {
       }
     }
 
-    console.log(`  ✅ ${skill}`);
+    console.log(`  [OK] ${skill}`);
   }
 
   // Check reference files in agent-workflow
   const refDir = path.join(SOURCE_DIR, 'agent-workflow', 'reference');
   if (fs.existsSync(refDir)) {
     const refs = fs.readdirSync(refDir);
-    console.log(`\n  📚 ${refs.length} reference files in agent-workflow/reference/`);
+    console.log(`\n  ${refs.length} reference files in agent-workflow/reference/`);
     refs.forEach(r => console.log(`     • ${r}`));
   }
 
@@ -92,20 +92,20 @@ function validate() {
   console.log(`Results: ${errors} errors, ${warnings} warnings`);
 
   if (errors > 0) {
-    console.log('\n❌ Validation FAILED');
+    console.log('\n[FAIL] Validation FAILED');
     process.exit(1);
   } else {
-    console.log('\n✅ Validation PASSED');
+    console.log('\n[OK] Validation PASSED');
   }
 }
 
 function error(msg) {
-  console.error(`  ❌ ERROR: ${msg}`);
+  console.error(`  [ERR] ${msg}`);
   errors++;
 }
 
 function warn(msg) {
-  console.warn(`  ⚠️  WARN: ${msg}`);
+  console.warn(`  [WARN] ${msg}`);
   warnings++;
 }
 

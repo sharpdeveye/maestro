@@ -50,12 +50,12 @@ function cleanDir(dir) {
 }
 
 function build() {
-  console.log('🎼 Maestro Build');
+  console.log('Maestro Build');
   console.log('================\n');
 
   // Verify source exists
   if (!fs.existsSync(SOURCE_DIR)) {
-    console.error('❌ Source directory not found:', SOURCE_DIR);
+    console.error('[ERR] Source directory not found:', SOURCE_DIR);
     process.exit(1);
   }
 
@@ -64,7 +64,7 @@ function build() {
     .filter(d => d.isDirectory())
     .map(d => d.name);
 
-  console.log(`📦 Found ${skills.length} skills in source/skills/`);
+  console.log(`Found ${skills.length} skills in source/skills/`);
   skills.forEach(s => console.log(`   • ${s}`));
   console.log('');
 
@@ -79,10 +79,10 @@ function build() {
     // Copy all skills
     copyDirRecursive(SOURCE_DIR, providerDir);
 
-    console.log(`✅ ${providerName.padEnd(15)} → ${skills.length} skills copied`);
+    console.log(`[OK] ${providerName.padEnd(15)} -> ${skills.length} skills copied`);
   }
 
-  console.log(`\n🎉 Build complete! ${PROVIDERS.length} providers × ${skills.length} skills = ${PROVIDERS.length * skills.length} skill copies`);
+  console.log(`\nBuild complete! ${PROVIDERS.length} providers x ${skills.length} skills = ${PROVIDERS.length * skills.length} skill copies`);
 }
 
 build();
