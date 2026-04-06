@@ -1,6 +1,6 @@
 ---
 name: guard
-description: "Add safety constraints, input validation, output filtering, prompt injection defense, cost ceilings, and security boundaries to agent workflows. Use when deploying to production or handling sensitive data."
+description: "Use when deploying to production, handling sensitive data, or the workflow needs safety constraints, input validation, and security boundaries."
 argument-hint: "[threat or area]"
 category: enhancement
 version: 1.1.0

@@ -1,6 +1,6 @@
 ---
 name: refine
-description: "Final quality pass on prompts, tool descriptions, error messages, logging, and configuration. The last step before shipping. Use when the workflow works but needs polish, or as the final step in a diagnose → fix → refine cycle."
+description: "Use when the workflow works but needs polish, or as the final step in a diagnose → fix → refine cycle before shipping."
 argument-hint: "[target area]"
 category: fix
 version: 1.1.0

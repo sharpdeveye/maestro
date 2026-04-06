@@ -1,6 +1,6 @@
 ---
 name: specialize
-description: "Make agent workflows domain-specific by adding domain expertise, industry terminology, compliance requirements, and specialized evaluation criteria. Use when the user wants to tailor a workflow for a specific industry or domain."
+description: "Use when the user wants to tailor a workflow for a specific industry, domain, or vertical with specialized expertise, terminology, and guardrails."
 argument-hint: "[domain]"
 category: utility
 version: 1.1.0

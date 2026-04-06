@@ -1,6 +1,6 @@
 ---
 name: amplify
-description: "Boost agent workflow capabilities with better tools, richer context, enhanced prompts, and model features. Use when the workflow works but needs to handle more complex cases or produce higher-quality output."
+description: "Use when the workflow works but needs to handle more complex cases or produce higher-quality output through better tools, context, prompts, or models."
 argument-hint: "[target area]"
 category: enhancement
 version: 1.1.0

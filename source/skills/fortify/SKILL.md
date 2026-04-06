@@ -1,6 +1,6 @@
 ---
 name: fortify
-description: "Add error handling, retries, fallbacks, circuit breakers, and recovery paths to agent workflows. Transform happy-path workflows into production-resilient systems. Use when the workflow lacks error handling or has been failing in production."
+description: "Use when the workflow lacks error handling, has been failing in production, or needs retry logic, fallback strategies, and circuit breakers."
 argument-hint: "[target area]"
 category: fix
 version: 1.1.0
@@ -9,6 +9,7 @@ user-invocable: true
 
 ## MANDATORY PREPARATION
 Invoke {{command_prefix}}agent-workflow — it contains workflow principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no workflow context exists yet, you MUST run {{command_prefix}}teach-maestro first.
+Consult the guardrails-safety reference in the agent-workflow skill for defense-in-depth patterns and error boundary design.
 
 ---
 

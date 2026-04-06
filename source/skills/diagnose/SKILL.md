@@ -1,6 +1,6 @@
 ---
 name: diagnose
-description: "Systematic workflow quality audit. Scores 5 dimensions of workflow health and produces a prioritized action plan. Use when the user wants to find problems, audit quality, or get a health check on their AI workflow."
+description: "Use when the user wants to find problems, audit workflow quality, or get a comprehensive health check on their AI workflow."
 argument-hint: "[target area]"
 category: analysis
 version: 1.1.0
@@ -113,6 +113,9 @@ Every recommended action MUST reference the specific Maestro command that addres
 - [ ] Each finding includes specific file/component location
 - [ ] Recommended actions reference specific Maestro commands (see Command Mapping above)
 - [ ] Overall score calculated and report generated
+
+### Recommended Next Step
+After diagnosis, run the command mapped to your lowest-scoring dimension. For a general improvement sequence: `{{command_prefix}}fortify` → `{{command_prefix}}streamline` → `{{command_prefix}}refine`.
 
 **NEVER**:
 - Give all 5s unless the workflow is genuinely production-excellent

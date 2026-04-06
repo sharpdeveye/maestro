@@ -1,6 +1,6 @@
 ---
 name: calibrate
-description: "Align workflow components to project conventions and established standards. Ensure naming consistency, style alignment, and pattern conformity across prompts, tools, and agents. Use when components are inconsistent or a new team member's work needs standardization."
+description: "Use when workflow components are inconsistent, naming conventions vary, or a new team member's work needs alignment to project standards."
 argument-hint: "[target area]"
 category: fix
 version: 1.1.0

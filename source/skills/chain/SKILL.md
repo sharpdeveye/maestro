@@ -1,6 +1,6 @@
 ---
 name: chain
-description: "Build effective tool chains and multi-step data pipelines. Design sequential, parallel, and conditional tool compositions with proper data flow and error handling. Use when the workflow needs multi-step processing."
+description: "Use when the workflow needs multi-step processing with sequential, parallel, or conditional tool compositions and proper data flow."
 argument-hint: "[pipeline description]"
 category: enhancement
 version: 1.1.0

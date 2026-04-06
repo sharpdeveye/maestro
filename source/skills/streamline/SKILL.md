@@ -1,6 +1,6 @@
 ---
 name: streamline
-description: "Remove unnecessary complexity from agent workflows. Flatten over-engineered pipelines, eliminate redundant steps, consolidate overlapping tools, and simplify configuration. Use when the workflow feels too complex or has accumulated cruft."
+description: "Use when the workflow feels too complex, has accumulated cruft, or has redundant steps and overlapping tools that need consolidation."
 argument-hint: "[target area]"
 category: fix
 version: 1.1.0

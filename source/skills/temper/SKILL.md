@@ -1,6 +1,6 @@
 ---
 name: temper
-description: "Reduce over-engineering in agent workflows. Simplify overbuilt multi-agent systems, remove premature optimization, flatten unnecessary abstraction, and bring complexity back in line with actual requirements. Use when the workflow feels over-engineered or too complex."
+description: "Use when the workflow feels over-engineered, has premature optimizations, unnecessary abstraction layers, or complexity beyond actual requirements."
 argument-hint: "[target]"
 category: enhancement
 version: 1.1.0

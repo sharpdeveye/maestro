@@ -1,8 +1,8 @@
 ---
 name: agent-workflow
-description: "Comprehensive AI agent workflow design skill. Covers prompt engineering, context management, tool orchestration, agent architecture, feedback loops, knowledge systems, and guardrails. This skill is automatically invoked by all Maestro commands."
+description: "Use when any Maestro command is invoked — provides foundational workflow design principles across prompt engineering, context management, tool orchestration, agent architecture, feedback loops, knowledge systems, and guardrails."
 category: core
-version: 1.0.0
+version: 1.1.0
 user-invocable: false
 ---
 

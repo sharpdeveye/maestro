@@ -1,6 +1,6 @@
 ---
 name: compose
-description: "Design multi-agent orchestration systems with clear boundaries, handoff protocols, and supervisor patterns. Use when a single agent demonstrably cannot handle the task and multi-agent coordination is justified."
+description: "Use when a single agent demonstrably cannot handle the task and multi-agent coordination is justified."
 argument-hint: "[workflow description]"
 category: enhancement
 version: 1.1.0
@@ -9,12 +9,13 @@ user-invocable: true
 
 ## MANDATORY PREPARATION
 Invoke {{command_prefix}}agent-workflow — it contains workflow principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no workflow context exists yet, you MUST run {{command_prefix}}teach-maestro first.
+Consult the agent-architecture reference in the agent-workflow skill for topology patterns and when multi-agent is justified.
 
 ---
 
 Design a multi-agent system. But first — are you sure you need one?
 
-### Pre-Composition Check
+### Step 1: Pre-Composition Check
 
 Answer these before proceeding:
 1. **Has a single agent been tried and failed?** (If no, try single agent first)
@@ -24,6 +25,7 @@ Answer these before proceeding:
 If you can't articulate a specific limitation, use {{command_prefix}}amplify on the single agent instead.
 
 ### Step 2: Design the Topology
+
 Choose the right architecture pattern (consult the agent-architecture reference in the agent-workflow skill):
 
 For each agent in the system, define:

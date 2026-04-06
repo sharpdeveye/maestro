@@ -1,6 +1,6 @@
 ---
 name: extract-pattern
-description: "Extract reusable patterns, templates, and best practices from working workflows. Turn one-off solutions into repeatable, documented patterns. Use when the user wants to create templates, extract patterns, document solutions, or build a pattern library."
+description: "Use when the user wants to create templates, extract reusable patterns, document solutions, or build a pattern library from working workflows."
 argument-hint: "[source workflow or area]"
 category: utility
 version: 1.1.0

@@ -1,6 +1,6 @@
 ---
 name: turbocharge
-description: "Push agent workflows past conventional limits with advanced techniques — parallel orchestration, streaming pipelines, adaptive routing, self-healing systems, and performance-critical architectures. Use when the user wants to go beyond standard patterns."
+description: "Use when the user wants to push past conventional workflow limits with advanced performance techniques like parallel orchestration, streaming pipelines, or adaptive routing."
 argument-hint: "[target]"
 category: enhancement
 version: 1.1.0

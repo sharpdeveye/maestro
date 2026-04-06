@@ -1,14 +1,15 @@
 ---
 name: evaluate
-description: "Holistic review of workflow interaction quality. Tests the workflow against realistic scenarios, evaluates user experience, and identifies gaps between intended and actual behavior. Use when the user wants a quality review or interaction audit."
+description: "Use when the user wants a quality review, interaction audit, or to test the workflow against realistic scenarios."
 argument-hint: "[workflow or scenario]"
 category: analysis
-version: 1.0.0
+version: 1.1.0
 user-invocable: true
 ---
 
 ## MANDATORY PREPARATION
 Invoke {{command_prefix}}agent-workflow — it contains workflow principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no workflow context exists yet, you MUST run {{command_prefix}}teach-maestro first.
+Consult the feedback-loops reference in the agent-workflow skill for evaluation patterns, golden test sets, and regression detection.
 
 ---
 
@@ -69,6 +70,9 @@ Produce a structured report with:
 - [ ] Results documented in the scenario table
 - [ ] Overall grade assigned with justification
 - [ ] Improvement actions reference specific Maestro commands
+
+### Recommended Next Step
+After evaluation, run `{{command_prefix}}fortify` to address error behavior gaps, `{{command_prefix}}refine` for output quality improvements, or `{{command_prefix}}iterate` to set up continuous quality monitoring.
 
 **NEVER**:
 - Evaluate theoretically — run actual scenarios

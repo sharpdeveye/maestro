@@ -1,6 +1,6 @@
 ---
 name: enrich
-description: "Add knowledge sources, retrieval pipelines (RAG), grounding data, and external context to agent workflows. Use when the agent needs access to information beyond its training data."
+description: "Use when the agent needs access to information beyond its training data — knowledge sources, RAG pipelines, or grounding data."
 argument-hint: "[knowledge domain or source]"
 category: enhancement
 version: 1.1.0
@@ -9,6 +9,7 @@ user-invocable: true
 
 ## MANDATORY PREPARATION
 Invoke {{command_prefix}}agent-workflow — it contains workflow principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no workflow context exists yet, you MUST run {{command_prefix}}teach-maestro first.
+Consult the knowledge-systems reference in the agent-workflow skill for RAG architecture, chunking strategies, and retrieval patterns.
 
 ---
 

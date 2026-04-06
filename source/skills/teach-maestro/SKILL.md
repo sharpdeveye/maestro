@@ -1,9 +1,9 @@
 ---
 name: teach-maestro
-description: "One-time project context gathering. Interviews the user about their AI workflow setup and saves the context to .maestro.md for use by all other Maestro commands. Run this once per project."
+description: "Use when starting a new project with Maestro or when no .maestro.md context file exists yet. Run once per project."
 argument-hint: "[project name]"
 category: utility
-version: 1.0.0
+version: 1.1.0
 user-invocable: true
 ---
 
@@ -83,6 +83,9 @@ Save this file to the project root as `.maestro.md`.
 - [ ] Answers are specific (not vague)
 - [ ] `.maestro.md` file generated and saved
 - [ ] User confirmed accuracy of the generated context
+
+### Recommended Next Step
+After creating `.maestro.md`, run `{{command_prefix}}diagnose` for a baseline health check of your workflow.
 
 **NEVER**:
 - Skip questions — every section matters for downstream commands
