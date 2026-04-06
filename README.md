@@ -1,6 +1,8 @@
 <div align="center">
 
-# 🎼 Maestro
+<img src="assets/logo.svg" alt="Maestro" width="80" />
+
+# Maestro
 
 **Workflow fluency for AI coding agents.**
 
