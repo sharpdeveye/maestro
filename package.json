@@ -1,7 +1,7 @@
 {
   "name": "maestro",
-  "version": "1.0.0",
-  "description": "Workflow fluency for AI harnesses. 1 skill, 20 commands, and curated anti-patterns for masterful AI agent workflows.",
+  "version": "1.1.0",
+  "description": "Workflow fluency for AI coding agents. 1 skill, 20 commands, 7 references, and curated anti-patterns.",
   "keywords": [
     "ai",
     "agents",
