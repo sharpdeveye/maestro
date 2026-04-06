@@ -2,7 +2,7 @@
 
 ### The RAG Stack
 
-```
+```text
 ┌─────────────────────────────────────┐
 │ 1. INGEST    — Documents → Chunks   │
 │ 2. EMBED     — Chunks → Vectors     │
@@ -23,6 +23,7 @@
 | Document-aware | PDFs, HTML | By structural element |
 
 **Rules**:
+
 - Chunks should be self-contained (meaningful without surrounding context)
 - Include metadata with every chunk (source, page, section, date)
 - Test chunk quality before building the full pipeline
@@ -41,20 +42,24 @@ Choose based on your documents:
 ### Retrieval Strategies
 
 **Semantic search**: Query embedding → nearest neighbors
+
 - Best for: natural language questions
 - Weakness: misses exact keyword matches
 
 **Keyword search**: BM25, TF-IDF
+
 - Best for: exact term matches, technical queries
 - Weakness: misses semantic similarity
 
 **Hybrid** (recommended): Semantic + keyword with score fusion
+
 - Best for: most production systems
 - Implementation: Run both, normalize scores, weighted combination
 
 ### Source Attribution
 
 Every retrieved passage MUST include:
+
 ```json
 {
   "content": "The retrieved text...",
@@ -69,6 +74,7 @@ Every retrieved passage MUST include:
 ```
 
 Why attribution matters:
+
 - Users can verify the information
 - You can detect when the model adds unsupported claims
 - Stale sources can be identified and updated

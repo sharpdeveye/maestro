@@ -8,6 +8,7 @@ user-invocable: true
 ---
 
 ## MANDATORY PREPARATION
+
 Invoke {{command_prefix}}agent-workflow — it contains workflow principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no workflow context exists yet, you MUST run {{command_prefix}}teach-maestro first.
 Consult the tool-orchestration reference in the agent-workflow skill for adding tools effectively.
 
@@ -19,24 +20,28 @@ Take a working workflow and make it more capable. Amplification adds new abiliti
 ### Amplification Strategies
 
 **Better Prompts**
+
 - Add few-shot examples for edge cases the model currently mishandles
 - Add chain-of-thought for tasks where reasoning quality matters
 - Add negative instructions for common mistakes
 - Upgrade output schema with more structured fields
 
 **Better Tools**
+
 - Add tools for capabilities the model currently lacks
 - Improve existing tool descriptions for better selection accuracy
 - Add confirmation steps for high-stakes operations
 - Add tools for verification/validation of outputs
 
 **Better Context**
+
 - Add RAG for domain-specific knowledge
 - Add real-time data sources for current information
 - Add user profile/history for personalization
 - Add project documentation as reference context
 
 **Better Models**
+
 - Upgrade to a more capable model for critical steps
 - Use model cascading (cheap model for simple, capable model for complex)
 - Add vision capabilities if processing images/documents
@@ -59,6 +64,7 @@ Take a working workflow and make it more capable. Amplification adds new abiliti
 | Better models | High | Medium-High | High |
 
 ### Amplification Checklist
+
 - [ ] Gap identified with concrete evidence (not assumption)
 - [ ] Single strategy selected (don't amplify everything at once)
 - [ ] Baseline quality score recorded before change
@@ -67,9 +73,11 @@ Take a working workflow and make it more capable. Amplification adds new abiliti
 - [ ] Cost/latency impact documented
 
 ### Recommended Next Step
+
 After amplification, run `{{command_prefix}}evaluate` to verify the new capability works, or `{{command_prefix}}iterate` to set up quality monitoring for the enhanced workflow.
 
 **NEVER**:
+
 - Amplify without a specific gap to address (amplification without purpose is bloat)
 - Add capabilities without testing them
 - Upgrade models without recalculating cost

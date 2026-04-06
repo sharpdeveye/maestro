@@ -8,6 +8,7 @@ user-invocable: true
 ---
 
 ## MANDATORY PREPARATION
+
 Invoke {{command_prefix}}agent-workflow — it contains workflow principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no workflow context exists yet, you MUST run {{command_prefix}}teach-maestro first.
 
 ---
@@ -15,6 +16,7 @@ Invoke {{command_prefix}}agent-workflow — it contains workflow principles, ant
 Bootstrap a new agent workflow from scratch, or add a new agent to an existing system.
 
 ### Step 1: Establish Conventions
+
 ```markdown
 ## Workflow Conventions
 ### Prompt Format
@@ -39,7 +41,8 @@ Bootstrap a new agent workflow from scratch, or add a new agent to an existing s
 ```
 
 ### Step 2: Create Initial Structure
-```
+
+```text
 project/
 ├── prompts/          # System prompts, versioned
 ├── tools/            # Tool definitions
@@ -50,6 +53,7 @@ project/
 ```
 
 ### Step 3: Create the First Agent
+
 1. **System prompt**: Role definition with constraints
 2. **2-3 essential tools**: Start with the minimum viable tool set
 3. **Output schema**: Define expected output format
@@ -58,14 +62,17 @@ project/
 6. **Logging**: Structured log output for each run
 
 ### Step 4: Verify
+
 - Run the agent with the golden test case
 - Verify error handling works (send bad input)
 - Verify logging captures useful context
 
 ### Recommended Next Step
+
 After onboarding, run `{{command_prefix}}diagnose` for a baseline health check, then `{{command_prefix}}fortify` to add production-grade error handling.
 
 **NEVER**:
+
 - Start building without establishing conventions
 - Create tools without descriptions
 - Skip the golden test case

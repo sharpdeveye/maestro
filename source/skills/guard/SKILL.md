@@ -8,6 +8,7 @@ user-invocable: true
 ---
 
 ## MANDATORY PREPARATION
+
 Invoke {{command_prefix}}agent-workflow — it contains workflow principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no workflow context exists yet, you MUST run {{command_prefix}}teach-maestro first.
 
 Consult the guardrails-safety reference in the agent-workflow skill for the full defense-in-depth framework.
@@ -17,6 +18,7 @@ Consult the guardrails-safety reference in the agent-workflow skill for the full
 Add safety boundaries to a workflow. Guards protect against malicious inputs, unintended outputs, data leakage, cost explosion, and all the ways an autonomous system can go wrong in the real world.
 
 ### Threat Assessment
+
 Before adding guards, understand what you're protecting against:
 
 | Threat | Risk Level | Guard Type |
@@ -31,7 +33,8 @@ Before adding guards, understand what you're protecting against:
 ### Guard Implementation
 
 **Input Guards**
-```
+
+```text
 Before processing any input:
 1. Validate against schema (reject malformed)
 2. Check size limits (reject oversized)
@@ -41,7 +44,8 @@ Before processing any input:
 ```
 
 **Output Guards**
-```
+
+```text
 Before returning any output:
 1. Schema validation (format correct?)
 2. PII scan (names, emails, SSNs, etc.)
@@ -51,7 +55,8 @@ Before returning any output:
 ```
 
 **Cost Guards**
-```
+
+```text
 Before every model/API call:
 1. Check remaining budget
 2. Estimate request cost
@@ -61,7 +66,8 @@ Before every model/API call:
 ```
 
 **Permission Guards**
-```
+
+```text
 For every tool call:
 1. Is this tool allowed for this user/context?
 2. Is this a destructive operation? → require confirmation
@@ -70,6 +76,7 @@ For every tool call:
 ```
 
 ### Guard Checklist
+
 - [ ] All inputs validated before processing
 - [ ] PII detection on all outputs
 - [ ] Cost ceiling set with enforcement
@@ -80,9 +87,11 @@ For every tool call:
 - [ ] Rate limits on all endpoints
 
 ### Recommended Next Step
+
 After adding guards, run `{{command_prefix}}evaluate` with adversarial test scenarios to verify guards hold under attack.
 
 **NEVER**:
+
 - Deploy without input validation
 - Trust model output for high-stakes decisions without verification
 - Run without cost controls

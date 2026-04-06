@@ -1,6 +1,7 @@
 ## Tool Design Principles
 
 ### The Tool Count Problem
+
 More tools = more confusion. Models perform best with focused tool sets:
 
 | Tool Count | Model Performance | Recommendation |
@@ -15,13 +16,15 @@ More tools = more confusion. Models perform best with focused tool sets:
 Tool descriptions are prompts. Write them like prompts:
 
 **Bad** (vague):
-```
+
+```yaml
 name: process_data
 description: Processes data
 ```
 
 **Good** (specific):
-```
+
+```yaml
 name: search_documents
 description: |
   Search the document index for relevant passages.
@@ -35,6 +38,7 @@ description: |
 ### Tool Schema Design
 
 Every tool needs:
+
 1. **Clear input schema** — typed parameters with descriptions
 2. **Clear output schema** — what the tool returns on success
 3. **Error schema** — what the tool returns on failure
@@ -44,7 +48,7 @@ Every tool needs:
 
 Tools WILL fail. Plan for it:
 
-```
+```text
 Success response:
   { "status": "success", "data": { ... } }
 
@@ -58,6 +62,7 @@ Unexpected failure (e.g., service down):
 ### Idempotency
 
 Make tools idempotent where possible:
+
 - **Reads**: Always idempotent (search, fetch, list)
 - **Creates**: Use idempotency keys to prevent duplicates
 - **Updates**: Use conditional updates (if-match / version checks)
@@ -66,18 +71,22 @@ Make tools idempotent where possible:
 ### Tool Composition Patterns
 
 **Sequential chain**: Tool A output → Tool B input → Tool C input
+
 - Use when each step depends on the previous
 - Verify output schema compatibility between tools
 
 **Parallel fan-out**: Input → [Tool A, Tool B, Tool C] → Merge results
+
 - Use when steps are independent
 - Define merge strategy before executing
 
 **Conditional routing**: Input → Decision → Tool A OR Tool B
+
 - Use when different inputs need different tools
 - Define clear routing criteria
 
 **Iterative loop**: Input → Tool A → Check → (if not done) → Tool A again
+
 - Use when convergence is needed
 - ALWAYS set a maximum iteration count
 - Define convergence criteria explicitly

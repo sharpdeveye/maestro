@@ -1,9 +1,10 @@
 ## Context Window Optimization
 
 ### The Attention Gradient
+
 Models don't pay equal attention to all parts of the context:
 
-```
+```text
 ┌─────────────────────────────────────┐
 │ HIGH ATTENTION — Start of context   │  ← System prompt, role, critical rules
 │                                     │
@@ -27,6 +28,7 @@ Before building a workflow, calculate your context budget:
 | 200K+ models | 200,000+ tokens | ~140,000 usable |
 
 **Why "practical budget"?** Because you need to reserve:
+
 - 20-30% for the model's response
 - A safety margin for tokenization variance
 - Space for tool call results (which are unpredictable in size)
@@ -43,7 +45,8 @@ Prioritize what goes into context:
 ### Sliding Window for Conversations
 
 For multi-turn conversations:
-```
+
+```text
 Turn 1: Full context
 Turn 2: System prompt + Turn 1 summary + Turn 2 input
 Turn 3: System prompt + Turns 1-2 summary + Turn 3 input
@@ -55,6 +58,7 @@ Summarize aggressively. Keep the system prompt and current turn at full fidelity
 ### State Management Patterns
 
 **Explicit state**: Pass workflow state as structured data
+
 ```json
 {
   "workflow_id": "abc123",

@@ -1,44 +1,56 @@
 ## Agent Topology Patterns
 
 ### Pattern 1: Single Agent (Start Here)
-```
+
+```text
 User → Agent → Output
 ```
+
 Use for: Most tasks. Seriously — most tasks don't need multiple agents.
 When to upgrade: When a single agent demonstrably can't handle the task due to conflicting roles, context limits, or tool count explosion.
 
 ### Pattern 2: Router + Specialists
-```
+
+```text
 User → Router Agent → [Specialist A | Specialist B | Specialist C] → Output
 ```
+
 Use for: Tasks with clearly distinct categories (e.g., "code question" vs. "documentation question" vs. "deployment question").
 Key design: Router must have clear routing criteria. If routing is ambiguous, the pattern breaks.
 
 ### Pattern 3: Pipeline (Sequential)
-```
+
+```text
 User → Agent A → Agent B → Agent C → Output
 ```
+
 Use for: Multi-step processes where each step transforms the input (e.g., extract → analyze → summarize).
 Key design: Define the data contract between each step. Agent B should not need to know how Agent A works.
 
 ### Pattern 4: Supervisor + Workers
-```
+
+```text
 User → Supervisor → [Worker A, Worker B, Worker C] → Supervisor → Output
 ```
+
 Use for: Complex tasks that can be parallelized (e.g., research multiple topics simultaneously).
 Key design: Supervisor must be able to evaluate worker output and retry/redirect if quality is insufficient.
 
 ### Pattern 5: Evaluator Loop
-```
+
+```text
 User → Generator Agent → Evaluator Agent → (if quality < threshold) → Generator Agent (retry) → Output
 ```
+
 Use for: Tasks where output quality is critical and evaluatable (e.g., code generation, content creation).
 Key design: Evaluator must have clear quality criteria. Max retry count is mandatory.
 
 ### Pattern 6: Hierarchical
-```
+
+```text
 User → Orchestrator → [Manager A → [Worker A1, A2], Manager B → [Worker B1, B2]] → Output
 ```
+
 Use for: Large-scale systems with distinct domains and sub-tasks.
 Key design: Each level should have clear authority boundaries. Over-design risk is highest here.
 
@@ -46,7 +58,7 @@ Key design: Each level should have clear authority boundaries. Over-design risk 
 
 When agents communicate, define the handoff explicitly:
 
-```
+```text
 Handoff contract:
   From: [Agent A name and role]
   To: [Agent B name and role]

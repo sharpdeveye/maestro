@@ -7,6 +7,7 @@ user-invocable: false
 ---
 
 ## MANDATORY — Context Gathering Protocol
+
 Before applying any workflow guidance, gather context:
 
 1. **Check for `.maestro.md`** in the project root
@@ -29,6 +30,7 @@ This skill provides the foundational knowledge for designing, building, and main
 production-grade AI agent workflows. All Maestro commands build on these principles.
 
 ## Core Principles
+
 1. **Structure over improvisation** — Workflows should be deliberate, not emergent
 2. **Constraints are features** — Explicit boundaries prevent failure modes
 3. **Measure, don't assume** — Every workflow needs evaluation, not just testing
@@ -38,7 +40,9 @@ production-grade AI agent workflows. All Maestro commands build on these princip
 ---
 
 ## 1. Prompt Engineering
+
 **DO**:
+
 - Use structured prompts with clear sections (role, context, instructions, output format)
 - Define output schemas explicitly (JSON schema, markdown template, typed response)
 - Use few-shot examples for ambiguous tasks
@@ -46,6 +50,7 @@ production-grade AI agent workflows. All Maestro commands build on these princip
 - Keep system prompts focused — one clear role per prompt
 
 **DON'T**:
+
 - Write wall-of-text prompts with no structure
 - Assume the model understands implicit output format
 - Use the same prompt for fundamentally different tasks
@@ -57,7 +62,9 @@ production-grade AI agent workflows. All Maestro commands build on these princip
 ---
 
 ## 2. Context Management
+
 **DO**:
+
 - Budget context window usage (system prompt, examples, user input, tool results, output)
 - Place critical information at the start AND end of context (attention gradient)
 - Use retrieval (RAG) instead of stuffing full documents
@@ -65,6 +72,7 @@ production-grade AI agent workflows. All Maestro commands build on these princip
 - Summarize long histories instead of passing raw transcripts
 
 **DON'T**:
+
 - Dump entire codebases, databases, or documents into context
 - Ignore context window limits until you hit them
 - Assume the model pays equal attention to all context
@@ -76,7 +84,9 @@ production-grade AI agent workflows. All Maestro commands build on these princip
 ---
 
 ## 3. Tool Orchestration
+
 **DO**:
+
 - Give tools clear, specific names and descriptions
 - Define input/output schemas for every tool
 - Handle tool errors gracefully (the tool WILL fail eventually)
@@ -84,6 +94,7 @@ production-grade AI agent workflows. All Maestro commands build on these princip
 - Make tools idempotent where possible
 
 **DON'T**:
+
 - Expose 30+ tools and hope the model picks the right one
 - Use vague tool descriptions ("does stuff with data")
 - Skip error handling in tool implementations
@@ -95,7 +106,9 @@ production-grade AI agent workflows. All Maestro commands build on these princip
 ---
 
 ## 4. Agent Architecture
+
 **DO**:
+
 - Start with a single agent — add agents only when a single agent demonstrably fails
 - Define clear boundaries and responsibilities for each agent
 - Use structured handoff protocols between agents
@@ -103,6 +116,7 @@ production-grade AI agent workflows. All Maestro commands build on these princip
 - Design for observability — log agent decisions, not just outputs
 
 **DON'T**:
+
 - Build multi-agent systems for problems a single agent handles
 - Create agents without clear boundaries (overlapping responsibilities = conflicts)
 - Use unstructured communication between agents
@@ -114,7 +128,9 @@ production-grade AI agent workflows. All Maestro commands build on these princip
 ---
 
 ## 5. Feedback Loops
+
 **DO**:
+
 - Build evaluation into the workflow from day one
 - Create golden test sets with known-good inputs and outputs
 - Use automated evaluators for consistent quality scoring
@@ -122,6 +138,7 @@ production-grade AI agent workflows. All Maestro commands build on these princip
 - Implement self-correction loops for critical outputs
 
 **DON'T**:
+
 - Ship without evaluation ("it seems to work" is not evaluation)
 - Rely solely on human review at scale
 - Use the same model to evaluate its own output without structure
@@ -133,7 +150,9 @@ production-grade AI agent workflows. All Maestro commands build on these princip
 ---
 
 ## 6. Knowledge Systems
+
 **DO**:
+
 - Choose retrieval strategy based on query type (semantic, keyword, hybrid)
 - Chunk documents thoughtfully (semantic boundaries, not arbitrary token counts)
 - Include source attribution in every retrieved result
@@ -141,6 +160,7 @@ production-grade AI agent workflows. All Maestro commands build on these princip
 - Version your knowledge base — know what the model has access to
 
 **DON'T**:
+
 - Build RAG without testing retrieval quality first
 - Use fixed chunk sizes for all document types
 - Skip source attribution (hallucination without attribution is undetectable)
@@ -152,7 +172,9 @@ production-grade AI agent workflows. All Maestro commands build on these princip
 ---
 
 ## 7. Guardrails & Safety
+
 **DO**:
+
 - Validate inputs before processing (schema validation, size limits)
 - Filter outputs for sensitive content, PII, and policy violations
 - Set hard cost ceilings (max tokens, max API calls, max spend per run)
@@ -160,6 +182,7 @@ production-grade AI agent workflows. All Maestro commands build on these princip
 - Log everything for audit trails
 
 **DON'T**:
+
 - Deploy without input validation (prompt injection is real)
 - Trust model output without verification for high-stakes decisions
 - Run without cost controls (one runaway loop can cost thousands)

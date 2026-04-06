@@ -1,12 +1,14 @@
 ## Evaluation-Driven Development
 
 ### Why Evaluation Matters
+
 "It seems to work" is not evaluation. Models are probabilistic — the same input can produce different outputs. Without systematic evaluation, you're shipping randomness.
 
 ### The Golden Test Set
+
 Every workflow needs a golden test set:
 
-```
+```text
 Golden test: {
   id: "test_001",
   input: [known input],
@@ -29,7 +31,8 @@ Golden test: {
 
 **Self-check** (fast, cheap, less reliable):
 The same model checks its own output.
-```
+
+```text
 Given this task: [original task]
 And this output: [generated output]
 Rate the output on: accuracy (1-5), completeness (1-5), format (1-5).
@@ -38,7 +41,8 @@ If any score is below 3, explain what's wrong and provide a corrected version.
 
 **Cross-model evaluation** (slower, moderate cost, more reliable):
 A different model evaluates the output.
-```
+
+```text
 Generator: Model A (fast, cheap)
 Evaluator: Model B (slower, more capable)
 Use when: Quality is more important than speed/cost
@@ -46,7 +50,8 @@ Use when: Quality is more important than speed/cost
 
 **Rule-based validation** (fast, free, limited scope):
 Programmatic checks on the output.
-```
+
+```text
 - Output is valid JSON? ✓/✗
 - Required fields present? ✓/✗
 - Values within expected ranges? ✓/✗
@@ -56,7 +61,8 @@ Programmatic checks on the output.
 
 **Human-in-the-loop** (slowest, most expensive, most reliable):
 Human review for critical decisions.
-```
+
+```text
 Use when: High-stakes decisions, legal/medical/financial content, edge cases
 Don't use when: High-volume, low-stakes tasks (doesn't scale)
 ```
@@ -65,7 +71,7 @@ Don't use when: High-volume, low-stakes tasks (doesn't scale)
 
 When quality is insufficient:
 
-```
+```python
 attempt = 0
 max_attempts = 3
 
@@ -82,6 +88,7 @@ return fallback_or_escalate()
 ```
 
 **Critical**: The input to the retry MUST be different from the original. Retrying with the same input is the definition of insanity. Enrich with:
+
 - The evaluator's feedback
 - Additional context
 - Modified instructions
@@ -91,7 +98,7 @@ return fallback_or_escalate()
 
 When you change prompts, models, or tools:
 
-```
+```text
 1. Run the golden test set with the OLD configuration → baseline scores
 2. Run the golden test set with the NEW configuration → new scores
 3. Compare dimension by dimension:
@@ -107,6 +114,7 @@ When you change prompts, models, or tools:
 ### Continuous Monitoring
 
 For production workflows:
+
 - Log every input/output pair (redact PII)
 - Sample 1-5% of outputs for automated evaluation
 - Track quality scores over time — alert on trends, not just thresholds

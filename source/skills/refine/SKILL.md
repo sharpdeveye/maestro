@@ -8,6 +8,7 @@ user-invocable: true
 ---
 
 ## MANDATORY PREPARATION
+
 Invoke {{command_prefix}}agent-workflow — it contains workflow principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no workflow context exists yet, you MUST run {{command_prefix}}teach-maestro first.
 
 ---
@@ -17,6 +18,7 @@ This is the final quality pass. The workflow works — now make it excellent.
 ### Refinement Checklist
 
 **Prompts**
+
 - [ ] Every prompt follows the 4-zone pattern (role, context, instructions, output)
 - [ ] Output schemas are explicit and validated
 - [ ] Negative instructions clarify what NOT to do
@@ -25,18 +27,21 @@ This is the final quality pass. The workflow works — now make it excellent.
 - [ ] Chain-of-thought used for multi-step reasoning tasks
 
 **Tool Descriptions**
+
 - [ ] Every tool has a multi-line description: what, when to use, when NOT to use, returns
 - [ ] Input parameters have descriptions and types
 - [ ] Error responses are documented
 - [ ] At least one example input/output in the description
 
 **Error Messages**
+
 - [ ] Error messages are specific (not "an error occurred")
 - [ ] Error messages suggest corrective action
 - [ ] Errors include context (what was being attempted)
 - [ ] Errors are structured (code + message + details)
 
 **Logging**
+
 - [ ] Every model call is logged (input tokens, output tokens, latency, cost)
 - [ ] Tool calls are logged with inputs and outputs
 - [ ] Errors are logged with full context
@@ -44,6 +49,7 @@ This is the final quality pass. The workflow works — now make it excellent.
 - [ ] Workflow ID traces through all log entries
 
 **Configuration**
+
 - [ ] All magic numbers are named constants
 - [ ] Environment-specific values are in config, not code
 - [ ] Defaults are sensible — config is for overrides
@@ -51,7 +57,9 @@ This is the final quality pass. The workflow works — now make it excellent.
 - [ ] Timeout values are set for all external calls
 
 ### Output
+
 For each checklist item that fails, provide:
+
 1. What's wrong (specific finding)
 2. Where it is (file, line, or component)
 3. How to fix it (concrete suggestion)
@@ -66,9 +74,11 @@ For each checklist item that fails, provide:
 | Nice-to-have | Cosmetic or minor inconsistency | Note for next `{{command_prefix}}refine` pass |
 
 ### Recommended Next Step
+
 After refinement is complete, run `{{command_prefix}}evaluate` to verify the polished workflow against realistic scenarios.
 
 **NEVER**:
+
 - Skip the checklist — go through every item
 - Mark items as passing without checking
 - Suggest changes that alter behavior (this is polish, not redesign)

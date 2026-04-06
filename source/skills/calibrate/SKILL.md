@@ -8,6 +8,7 @@ user-invocable: true
 ---
 
 ## MANDATORY PREPARATION
+
 Invoke {{command_prefix}}agent-workflow — it contains workflow principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no workflow context exists yet, you MUST run {{command_prefix}}teach-maestro first.
 Consult the prompt-engineering reference in the agent-workflow skill for naming and style consistency patterns.
 
@@ -19,24 +20,28 @@ Ensure consistency across all workflow components. Inconsistency creates confusi
 ### Calibration Dimensions
 
 **Naming Conventions**
+
 - Tool names follow consistent pattern (verb_noun, noun.verb, or camelCase — pick one)
 - Agent names follow consistent pattern
 - Configuration keys follow consistent pattern
 - File names follow consistent pattern
 
 **Prompt Style**
+
 - All prompts use the same structural pattern (4-zone)
 - Consistent delimiter style (XML tags, markdown headers, triple-dash)
 - Consistent output schema format (JSON schema, markdown template)
 - Consistent instruction style (imperative, numbered steps)
 
 **Error Handling**
+
 - All tools return errors in the same format
 - Error codes follow consistent scheme
 - Error messages follow consistent tone
 - Retry logic uses consistent strategy
 
 **Logging**
+
 - All logs use the same format (JSON structured, text, etc.)
 - Consistent field names across all log entries
 - Consistent log levels (debug, info, warn, error)
@@ -60,6 +65,7 @@ Ensure consistency across all workflow components. Inconsistency creates confusi
 | Log format | ? | ? of ? entries | High/Med/Low |
 
 ### Calibration Checklist
+
 - [ ] Convention standard identified for each dimension
 - [ ] All deviations listed with location
 - [ ] Highest impact deviations fixed first
@@ -67,9 +73,11 @@ Ensure consistency across all workflow components. Inconsistency creates confusi
 - [ ] Updated `.maestro.md` with established conventions
 
 ### Recommended Next Step
+
 After calibration, run `{{command_prefix}}refine` for a final polish pass, or `{{command_prefix}}evaluate` to verify consistency improvements.
 
 **NEVER**:
+
 - Invent new conventions when existing ones work
 - Calibrate in a way that changes behavior (this is standardization, not refactoring)
 - Skip test verification after calibration

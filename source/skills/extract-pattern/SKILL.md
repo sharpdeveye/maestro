@@ -8,6 +8,7 @@ user-invocable: true
 ---
 
 ## MANDATORY PREPARATION
+
 Invoke {{command_prefix}}agent-workflow — it contains workflow principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no workflow context exists yet, you MUST run {{command_prefix}}teach-maestro first.
 
 ---
@@ -15,16 +16,20 @@ Invoke {{command_prefix}}agent-workflow — it contains workflow principles, ant
 Turn working solutions into reusable patterns. Every successful workflow contains patterns that are applicable beyond their original context.
 
 ### Step 1: Identify What Worked
+
 Review the workflow and identify components that:
+
 - Solved a common problem in a particularly effective way
 - Would be useful in other workflows or projects
 - Required significant iteration to get right
 - Represent a non-obvious solution
 
 ### Step 2: Generalize the Pattern
+
 Transform the specific solution into a reusable template:
 
 **From specific** → **To general pattern**:
+
 ```markdown
 ## Pattern: [Name]
 **Problem**: What recurring problem does this solve?
@@ -37,6 +42,7 @@ Transform the specific solution into a reusable template:
 ```
 
 ### Step 3: Test Reusability
+
 - Apply the template to a different but analogous problem
 - Confirm the customization points are sufficient
 - Verify the documentation is clear enough for someone unfamiliar with the original
@@ -51,9 +57,11 @@ Transform the specific solution into a reusable template:
 | Agent coordination protocol | Orchestration pattern with handoff templates |
 
 ### Recommended Next Step
+
 After extracting patterns, run `{{command_prefix}}calibrate` to ensure the new patterns are consistent with existing project conventions.
 
 **NEVER**:
+
 - Extract patterns from workflows that don't work reliably
 - Over-generalize (if it only applies to one case, document it as a solution, not a pattern)
 - Skip the "when NOT to use" section

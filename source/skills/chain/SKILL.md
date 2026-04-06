@@ -8,6 +8,7 @@ user-invocable: true
 ---
 
 ## MANDATORY PREPARATION
+
 Invoke {{command_prefix}}agent-workflow — it contains workflow principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no workflow context exists yet, you MUST run {{command_prefix}}teach-maestro first.
 Consult the tool-orchestration reference in the agent-workflow skill for composition patterns and error handling.
 
@@ -26,6 +27,7 @@ Design tool chains that do complex work reliably. A chain is only as strong as i
 ### Chain Design Process
 
 For each chain, define:
+
 ```markdown
 ## Chain: [Name]
 
@@ -49,6 +51,7 @@ Max retries per step: 3
 ```
 
 ### Chain Validation
+
 - [ ] Data schemas are compatible between connected steps
 - [ ] Every step has error handling
 - [ ] Total chain timeout is set
@@ -56,9 +59,11 @@ Max retries per step: 3
 - [ ] Partial results are handled (what if step 2 of 4 fails?)
 
 ### Recommended Next Step
+
 After building the chain, run `{{command_prefix}}fortify` to add error handling at each step, then `{{command_prefix}}evaluate` to test the full pipeline.
 
 **NEVER**:
+
 - Build chains without defining data contracts between steps
 - Create loops without maximum iteration counts
 - Skip error handling at any step (the chain breaks at the weakest link)

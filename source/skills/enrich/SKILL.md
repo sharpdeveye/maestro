@@ -8,6 +8,7 @@ user-invocable: true
 ---
 
 ## MANDATORY PREPARATION
+
 Invoke {{command_prefix}}agent-workflow — it contains workflow principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no workflow context exists yet, you MUST run {{command_prefix}}teach-maestro first.
 Consult the knowledge-systems reference in the agent-workflow skill for RAG architecture, chunking strategies, and retrieval patterns.
 
@@ -28,6 +29,7 @@ Identify what knowledge the workflow needs:
 | Historical | Logs, past interactions | Daily | Time-range query |
 
 ### Add RAG Pipeline
+
 For document-based knowledge (consult the knowledge-systems reference in the agent-workflow skill):
 
 1. **Select documents**: Identify the authoritative source documents
@@ -38,6 +40,7 @@ For document-based knowledge (consult the knowledge-systems reference in the age
 6. **Inject**: Add retrieved context to the prompt with source attribution
 
 ### Add Structured Data
+
 For database-backed knowledge:
 
 1. **Define the query interface**: Natural language → structured query
@@ -46,6 +49,7 @@ For database-backed knowledge:
 4. **Attribute**: Include data source and freshness in the context
 
 ### Add Real-Time Data
+
 For live information:
 
 1. **Identify APIs**: What external services provide the needed data
@@ -54,6 +58,7 @@ For live information:
 4. **Attribution**: Include data timestamp and source
 
 ### Enrichment Checklist
+
 - [ ] Every knowledge source has attribution (source, date, confidence)
 - [ ] Retrieval quality tested independently of generation quality
 - [ ] Chunk sizes tested and optimized for the document types
@@ -62,9 +67,11 @@ For live information:
 - [ ] PII is handled appropriately in knowledge sources
 
 ### Recommended Next Step
+
 After enrichment, run `{{command_prefix}}evaluate` to test retrieval quality, or `{{command_prefix}}iterate` to set up continuous monitoring of knowledge freshness.
 
 **NEVER**:
+
 - Index everything without curation (garbage in = garbage out)
 - Skip source attribution (hallucination without attribution is undetectable)
 - Build RAG without testing retrieval quality first

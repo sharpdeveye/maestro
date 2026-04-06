@@ -8,6 +8,7 @@ user-invocable: true
 ---
 
 ## MANDATORY PREPARATION
+
 Invoke {{command_prefix}}agent-workflow — it contains workflow principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no workflow context exists yet, you MUST run {{command_prefix}}teach-maestro first.
 
 Consult the feedback-loops reference in the agent-workflow skill for evaluation patterns and self-correction strategies.
@@ -19,6 +20,7 @@ Set up feedback loops that make workflows self-correcting and continuously impro
 ### Feedback Loop Design
 
 ### Step 1: Define Quality Criteria
+
 What does "good output" look like? Score dimensions:
 
 | Dimension | Weight | Threshold | Measurement |
@@ -29,6 +31,7 @@ What does "good output" look like? Score dimensions:
 | Tone | 0.1 | ≥ 0.6 | Appropriate for audience |
 
 ### Step 2: Choose Evaluator Type
+
 Match evaluator to requirements:
 
 - **Rule-based**: Schema validation, field presence, value ranges (fast, free)
@@ -39,7 +42,7 @@ Match evaluator to requirements:
 
 ### Step 3: Design the Correction Loop
 
-```
+```text
 generate(input) → evaluate(output) → score
   if score ≥ threshold → return output
   if score < threshold AND attempts < max →
@@ -49,6 +52,7 @@ generate(input) → evaluate(output) → score
 ```
 
 **Critical**: The retry input MUST be different from the original. Include:
+
 - The evaluator's specific feedback
 - What was wrong and why
 - A suggestion for how to fix it
@@ -56,6 +60,7 @@ generate(input) → evaluate(output) → score
 ### Step 4: Set Up Regression Detection
 
 When changing prompts, models, or tools:
+
 1. Run golden test set with OLD config → baseline scores
 2. Run golden test set with NEW config → new scores
 3. Compare: improvement ≥ 5% → accept; regression ≥ 5% → reject
@@ -63,12 +68,14 @@ When changing prompts, models, or tools:
 ### Step 5: Continuous Monitoring
 
 For production workflows:
+
 - Sample 1-5% of outputs for automated evaluation
 - Track quality scores over time
 - Alert on downward trends
 - A/B test changes before full rollout
 
 ### Iteration Checklist
+
 - [ ] Quality criteria defined with weights and thresholds
 - [ ] Evaluator selected and configured
 - [ ] Correction loop has max attempts limit
@@ -78,9 +85,11 @@ For production workflows:
 - [ ] Production monitoring in place
 
 ### Recommended Next Step
+
 After setting up feedback loops, run `{{command_prefix}}evaluate` to validate the loop with real scenarios, then `{{command_prefix}}refine` for final polish.
 
 **NEVER**:
+
 - Retry with the exact same input (definition of insanity)
 - Use the same weak model to both generate and evaluate
 - Skip the max attempts limit (infinite loops are real)
