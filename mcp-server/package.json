@@ -4,7 +4,7 @@
   "description": "MCP server for Maestro — exposes 21 workflow skills as tools, prompts, and resources for any MCP-compatible AI client",
   "type": "module",
   "bin": {
-    "maestro-workflow-mcp": "./dist/index.js"
+    "maestro-workflow-mcp": "dist/index.js"
   },
   "main": "dist/index.js",
   "scripts": {
