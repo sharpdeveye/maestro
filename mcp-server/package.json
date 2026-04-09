@@ -1,0 +1,51 @@
+{
+  "name": "maestro-workflow-mcp",
+  "version": "1.1.0",
+  "description": "MCP server for Maestro — exposes 21 workflow skills as tools, prompts, and resources for any MCP-compatible AI client",
+  "type": "module",
+  "bin": {
+    "maestro-workflow-mcp": "./dist/index.js"
+  },
+  "main": "dist/index.js",
+  "scripts": {
+    "bundle": "node ../scripts/bundle-skills.js",
+    "build": "npm run bundle && tsc",
+    "start": "node dist/index.js",
+    "start:http": "node dist/index.js --http --port 3001"
+  },
+  "keywords": [
+    "mcp",
+    "maestro",
+    "ai",
+    "workflow",
+    "skills",
+    "agents",
+    "model-context-protocol"
+  ],
+  "author": "MOHAMMED ZOUAZOU",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sharpdeveye/maestro.git",
+    "directory": "mcp-server"
+  },
+  "homepage": "https://github.com/sharpdeveye/maestro",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0",
+    "express": "^5.1.0",
+    "zod": "^3.24.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.0.0",
+    "typescript": "^5.7.0"
+  },
+  "files": [
+    "dist/",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

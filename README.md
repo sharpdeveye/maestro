@@ -157,6 +157,45 @@ The skill includes explicit guidance on what to avoid:
 
 ---
 
+## MCP Server
+
+Use Maestro as a live MCP server instead of static skill files. Any MCP-compatible client can connect — no file copying required.
+
+### Local (stdio)
+
+Add to your MCP client config (Claude Desktop, Cursor, VS Code, etc.):
+
+```json
+{
+  "mcpServers": {
+    "maestro": {
+      "command": "npx",
+      "args": ["-y", "maestro-workflow-mcp"]
+    }
+  }
+}
+```
+
+### Remote (HTTP)
+
+Host Maestro as a public MCP endpoint:
+
+```bash
+npx maestro-workflow-mcp --http --port 3001
+```
+
+Clients connect to `http://your-server:3001/mcp`.
+
+### What the MCP Server Exposes
+
+| Type | Count | Description |
+|------|-------|-------------|
+| **Prompts** | 20 | One per command — select from the prompt picker |
+| **Tools** | 4 | `list_commands`, `run_command`, `read_context`, `init` |
+| **Resources** | 8 | Core skill + 7 domain references |
+
+---
+
 ## Manual Installation
 
 If `npx skills add` doesn't work for your setup, copy the appropriate provider directory to your project root:
@@ -198,8 +237,17 @@ maestro/
 │   ├── onboard-agent/
 │   ├── specialize/
 │   └── teach-maestro/
+├── mcp-server/              # MCP server package
+│   ├── src/
+│   │   ├── index.ts         # Entry point (stdio + HTTP)
+│   │   ├── http.ts          # HTTP transport wrapper
+│   │   ├── tools.ts         # 4 MCP tools
+│   │   ├── prompts.ts       # 20 MCP prompts
+│   │   └── resources.ts     # 8 MCP resources
+│   └── package.json
 ├── scripts/
 │   ├── build.js             # Multi-provider build pipeline
+│   ├── bundle-skills.js     # MCP skill bundler
 │   └── validate.js          # Skill validation checks
 └── package.json
 ```
