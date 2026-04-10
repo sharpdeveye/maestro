@@ -1,6 +1,7 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
 import { skills } from "./generated/skills-data.js";
+import { resolveTemplates } from "./tools.js";
 
 /**
  * Register all 20 user-invocable command skills as MCP prompt templates.
@@ -26,7 +27,7 @@ export function registerPrompts(server: McpServer): void {
           text += `Focus area: ${focus}\n\n---\n\n`;
         }
 
-        text += skill.content;
+        text += resolveTemplates(skill.content);
 
         return {
           messages: [

@@ -5,10 +5,11 @@ import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
 import { registerTools } from "./tools.js";
 import { registerPrompts } from "./prompts.js";
 import { registerResources } from "./resources.js";
+import { VERSION, SERVER_NAME } from "./version.js";
 
 const server = new McpServer({
-  name: "maestro-workflow-mcp",
-  version: "1.1.0",
+  name: SERVER_NAME,
+  version: VERSION,
 });
 
 // Register all MCP capabilities

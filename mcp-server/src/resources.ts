@@ -1,5 +1,6 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { skills, references } from "./generated/skills-data.js";
+import { resolveTemplates } from "./tools.js";
 
 /**
  * Register all reference documents and the core skill as MCP resources.
@@ -22,7 +23,7 @@ export function registerResources(server: McpServer): void {
           {
             uri: "maestro://skill/agent-workflow",
             mimeType: "text/markdown",
-            text: coreSkill.content,
+            text: resolveTemplates(coreSkill.content),
           },
         ],
       }),

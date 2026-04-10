@@ -44,6 +44,15 @@ function buildCommandListing(): string {
 }
 
 /**
+ * Resolve all template variables in skill content.
+ */
+export function resolveTemplates(content: string): string {
+  return content
+    .replaceAll("{{command_prefix}}", "/")
+    .replaceAll("{{available_commands}}", buildCommandListing());
+}
+
+/**
  * Find a skill by name.
  */
 function findSkill(name: string): SkillData | undefined {
@@ -125,8 +134,7 @@ export function registerTools(server: McpServer): void {
       }
 
       // Resolve template variables for MCP context
-      const resolved = skill.content.replaceAll("{{command_prefix}}", "/");
-      text += resolved;
+      text += resolveTemplates(skill.content);
 
       text += `\n\n---\n_To run a referenced command, use the \`maestro_run_command\` tool with the command name (e.g. "fortify", "guard")._`;
 

@@ -1,6 +1,7 @@
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/streamableHttp.js";
 import express from "express";
+import { VERSION, SERVER_NAME } from "./version.js";
 
 /**
  * Start the MCP server with Streamable HTTP transport.
@@ -34,8 +35,8 @@ export async function startHttpTransport(
   app.get("/health", (_req, res) => {
     res.json({
       status: "ok",
-      server: "maestro-workflow-mcp",
-      version: "1.1.0",
+      server: SERVER_NAME,
+      version: VERSION,
     });
   });
 
