@@ -123,7 +123,12 @@ export function registerTools(server: McpServer): void {
       if (focus) {
         text += `**Focus area**: ${focus}\n\n---\n\n`;
       }
-      text += skill.content;
+
+      // Resolve template variables for MCP context
+      const resolved = skill.content.replaceAll("{{command_prefix}}", "/");
+      text += resolved;
+
+      text += `\n\n---\n_To run a referenced command, use the \`maestro_run_command\` tool with the command name (e.g. "fortify", "guard")._`;
 
       return { content: [{ type: "text", text }] };
     },
