@@ -90,7 +90,7 @@ export function registerTools(server: McpServer): void {
   // --- maestro_list_commands ---
   server.tool(
     "maestro_list_commands",
-    "List all 20 Maestro commands grouped by category with descriptions",
+    "List all 21 Maestro commands grouped by category with descriptions",
     {},
     async () => ({
       content: [{ type: "text", text: buildCommandListing() }],

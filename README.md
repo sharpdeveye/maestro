@@ -7,16 +7,16 @@
 **Workflow fluency for AI coding agents.**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/version-1.2.0-brightgreen.svg)](https://github.com/sharpdeveye/maestro/releases)
+[![Version](https://img.shields.io/badge/version-1.3.0-brightgreen.svg)](https://github.com/sharpdeveye/maestro/releases)
 [![npm](https://img.shields.io/npm/v/maestro-workflow-mcp.svg?label=npm&color=cb3837)](https://www.npmjs.com/package/maestro-workflow-mcp)
 [![MCP](https://img.shields.io/badge/MCP-Compatible-00D4AA?logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjIiPjxwYXRoIGQ9Ik0xMiAyTDIgN3Y1YzAgNS41IDQuMyAxMC40IDEwIDEyIDUuNy0xLjYgMTAtNi41IDEwLTEyVjdsLTEwLTV6Ii8+PC9zdmc+)](https://modelcontextprotocol.io)
-[![Skills](https://img.shields.io/badge/skills-21-blueviolet.svg)](#the-skill-agent-workflow)
-[![Commands](https://img.shields.io/badge/commands-20-orange.svg)](#20-commands)
+[![Skills](https://img.shields.io/badge/skills-22-blueviolet.svg)](#the-skill-agent-workflow)
+[![Commands](https://img.shields.io/badge/commands-21-orange.svg)](#21-commands)
 [![10 Providers](https://img.shields.io/badge/providers-10-teal.svg)](#supported-tools)
 
-1 core skill · 20 commands · 7 domain references · curated anti-patterns
+1 core skill · 21 commands · 7 domain references · curated anti-patterns
 
-[Quick Start](#quick-start) · [Commands](#20-commands) · [Supported Tools](#supported-tools) · [Contributing](#contributing)
+[Quick Start](#quick-start) · [Commands](#21-commands) · [Supported Tools](#supported-tools) · [Contributing](#contributing)
 
 </div>
 
@@ -29,7 +29,7 @@ AI agents are only as good as the workflows they operate in. Without guidance, y
 Maestro fights that pattern with:
 
 - A comprehensive **agent-workflow** skill with 7 domain-specific reference files ([view source](source/skills/agent-workflow))
-- **20 commands** to diagnose, evaluate, refine, streamline, fortify, and more
+- **21 commands** to diagnose, evaluate, refine, streamline, fortify, and more
 - Curated **anti-patterns** that explicitly tell the AI what NOT to do
 - A **context gathering protocol** (`.maestro.md`) that ensures every command has project-specific awareness
 - **Every command recommends a next step** — no dead ends
@@ -84,7 +84,7 @@ A comprehensive workflow design skill with 7 domain references ([view skill](sou
 
 ---
 
-## 20 Commands
+## 21 Commands
 
 ### Analysis — read-only, generate reports
 
@@ -101,6 +101,7 @@ A comprehensive workflow design skill with 7 domain references ([view skill](sou
 | [`/streamline`](source/skills/streamline/SKILL.md) | Remove unnecessary complexity, flatten over-engineering |
 | [`/calibrate`](source/skills/calibrate/SKILL.md) | Align workflow components to project conventions |
 | [`/fortify`](source/skills/fortify/SKILL.md) | Add error handling, retries, fallbacks, circuit breakers |
+| [`/zero-defect`](source/skills/zero-defect/SKILL.md) | Activate maximum precision mode — zero mistakes allowed |
 
 ### Enhancement — add capabilities
 
@@ -192,7 +193,7 @@ Clients connect to `http://your-server:3001/mcp`.
 
 | Type | Count | Description |
 |------|-------|-------------|
-| **Prompts** | 20 | One per command — select from the prompt picker |
+| **Prompts** | 21 | One per command — select from the prompt picker |
 | **Tools** | 4 | `list_commands`, `run_command`, `read_context`, `init` |
 | **Resources** | 8 | Core skill + 7 domain references |
 
@@ -216,7 +217,7 @@ cp -r .cursor/skills/ your-project/.cursor/skills/
 
 ```text
 maestro/
-├── source/skills/           # 21 source skill definitions
+├── source/skills/           # 22 source skill definitions
 │   ├── agent-workflow/      # Core skill + 7 reference files
 │   │   └── reference/       # Domain-specific guidance
 │   ├── diagnose/            # Analysis commands
@@ -225,6 +226,7 @@ maestro/
 │   ├── streamline/
 │   ├── calibrate/
 │   ├── fortify/
+│   ├── zero-defect/
 │   ├── amplify/             # Enhancement commands
 │   ├── compose/
 │   ├── enrich/
@@ -244,7 +246,7 @@ maestro/
 │   │   ├── index.ts         # Entry point (stdio + HTTP)
 │   │   ├── http.ts          # HTTP transport wrapper
 │   │   ├── tools.ts         # 4 MCP tools
-│   │   ├── prompts.ts       # 20 MCP prompts
+│   │   ├── prompts.ts       # 21 MCP prompts
 │   │   └── resources.ts     # 8 MCP resources
 │   └── package.json
 ├── scripts/

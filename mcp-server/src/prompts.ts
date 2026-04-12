@@ -4,7 +4,7 @@ import { skills } from "./generated/skills-data.js";
 import { resolveTemplates } from "./tools.js";
 
 /**
- * Register all 20 user-invocable command skills as MCP prompt templates.
+ * Register all 21 user-invocable command skills as MCP prompt templates.
  * Users can select these from the prompt picker in their MCP client.
  */
 export function registerPrompts(server: McpServer): void {
