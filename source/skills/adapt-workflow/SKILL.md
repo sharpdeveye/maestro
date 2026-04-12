@@ -3,7 +3,7 @@ name: adapt-workflow
 description: "Use when porting a workflow to a different AI provider, deployment environment, model tier, or organizational context."
 argument-hint: "[target context]"
 category: utility
-version: 1.1.0
+version: 1.3.1
 user-invocable: true
 ---
 

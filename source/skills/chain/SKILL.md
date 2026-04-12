@@ -3,7 +3,7 @@ name: chain
 description: "Use when the workflow needs multi-step processing with sequential, parallel, or conditional tool compositions and proper data flow."
 argument-hint: "[pipeline description]"
 category: enhancement
-version: 1.1.0
+version: 1.3.1
 user-invocable: true
 ---
 

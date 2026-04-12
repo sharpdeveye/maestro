@@ -1,6 +1,6 @@
 {
   "name": "maestro",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "Workflow fluency for AI coding agents. 1 skill, 21 commands, 7 references, and curated anti-patterns.",
   "keywords": [
     "ai",
@@ -14,7 +14,7 @@
     "prompt-engineering",
     "orchestration"
   ],
-  "author": "MOHAMMED ZOUAZOU",
+  "author": "sharpdeveye",
   "license": "MIT",
   "repository": {
     "type": "git",

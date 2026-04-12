@@ -2,7 +2,7 @@
 name: agent-workflow
 description: "Use when any Maestro command is invoked — provides foundational workflow design principles across prompt engineering, context management, tool orchestration, agent architecture, feedback loops, knowledge systems, and guardrails."
 category: core
-version: 1.1.0
+version: 1.3.1
 user-invocable: false
 ---
 

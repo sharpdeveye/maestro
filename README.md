@@ -7,7 +7,7 @@
 **Workflow fluency for AI coding agents.**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/version-1.3.0-brightgreen.svg)](https://github.com/sharpdeveye/maestro/releases)
+[![Version](https://img.shields.io/badge/version-1.3.1-brightgreen.svg)](https://github.com/sharpdeveye/maestro/releases)
 [![npm](https://img.shields.io/npm/v/maestro-workflow-mcp.svg?label=npm&color=cb3837)](https://www.npmjs.com/package/maestro-workflow-mcp)
 [![MCP](https://img.shields.io/badge/MCP-Compatible-00D4AA?logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjIiPjxwYXRoIGQ9Ik0xMiAyTDIgN3Y1YzAgNS41IDQuMyAxMC40IDEwIDEyIDUuNy0xLjYgMTAtNi41IDEwLTEyVjdsLTEwLTV6Ii8+PC9zdmc+)](https://modelcontextprotocol.io)
 [![Skills](https://img.shields.io/badge/skills-22-blueviolet.svg)](#the-skill-agent-workflow)
@@ -101,7 +101,7 @@ A comprehensive workflow design skill with 7 domain references ([view skill](sou
 | [`/streamline`](source/skills/streamline/SKILL.md) | Remove unnecessary complexity, flatten over-engineering |
 | [`/calibrate`](source/skills/calibrate/SKILL.md) | Align workflow components to project conventions |
 | [`/fortify`](source/skills/fortify/SKILL.md) | Add error handling, retries, fallbacks, circuit breakers |
-| [`/zero-defect`](source/skills/zero-defect/SKILL.md) | Activate maximum precision mode — zero mistakes allowed |
+| [`/zero-defect`](source/skills/zero-defect/SKILL.md) | 🆕 Activate maximum precision mode — zero mistakes allowed |
 
 ### Enhancement — add capabilities
 
@@ -275,6 +275,6 @@ MIT — see [LICENSE](LICENSE).
 
 <div align="center">
 
-Created by [MOHAMMED ZOUAZOU](https://github.com/sharpdeveye)
+Created by [sharpdeveye](https://github.com/sharpdeveye)
 
 </div>

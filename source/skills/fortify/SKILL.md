@@ -3,7 +3,7 @@ name: fortify
 description: "Use when the workflow lacks error handling, has been failing in production, or needs retry logic, fallback strategies, and circuit breakers."
 argument-hint: "[target area]"
 category: fix
-version: 1.1.0
+version: 1.3.1
 user-invocable: true
 ---
 

@@ -3,7 +3,7 @@ name: specialize
 description: "Use when the user wants to tailor a workflow for a specific industry, domain, or vertical with specialized expertise, terminology, and guardrails."
 argument-hint: "[domain]"
 category: utility
-version: 1.1.0
+version: 1.3.1
 user-invocable: true
 ---
 

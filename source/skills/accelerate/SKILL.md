@@ -3,7 +3,7 @@ name: accelerate
 description: "Use when the workflow is too slow, too expensive, or both and needs latency, cost, or token usage optimization."
 argument-hint: "[target metric]"
 category: enhancement
-version: 1.1.0
+version: 1.3.1
 user-invocable: true
 ---
 

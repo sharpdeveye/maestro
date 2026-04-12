@@ -3,7 +3,7 @@ name: teach-maestro
 description: "Use when starting a new project with Maestro or when no .maestro.md context file exists yet. Run once per project."
 argument-hint: "[project name]"
 category: utility
-version: 1.1.0
+version: 1.3.1
 user-invocable: true
 ---
 

@@ -3,7 +3,7 @@ name: temper
 description: "Use when the workflow feels over-engineered, has premature optimizations, unnecessary abstraction layers, or complexity beyond actual requirements."
 argument-hint: "[target]"
 category: enhancement
-version: 1.1.0
+version: 1.3.1
 user-invocable: true
 ---
 

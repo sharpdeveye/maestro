@@ -3,7 +3,7 @@ name: extract-pattern
 description: "Use when the user wants to create templates, extract reusable patterns, document solutions, or build a pattern library from working workflows."
 argument-hint: "[source workflow or area]"
 category: utility
-version: 1.1.0
+version: 1.3.1
 user-invocable: true
 ---
 

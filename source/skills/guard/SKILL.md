@@ -3,7 +3,7 @@ name: guard
 description: "Use when deploying to production, handling sensitive data, or the workflow needs safety constraints, input validation, and security boundaries."
 argument-hint: "[threat or area]"
 category: enhancement
-version: 1.1.0
+version: 1.3.1
 user-invocable: true
 ---
 

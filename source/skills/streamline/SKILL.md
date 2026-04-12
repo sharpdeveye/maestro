@@ -3,7 +3,7 @@ name: streamline
 description: "Use when the workflow feels too complex, has accumulated cruft, or has redundant steps and overlapping tools that need consolidation."
 argument-hint: "[target area]"
 category: fix
-version: 1.1.0
+version: 1.3.1
 user-invocable: true
 ---
 

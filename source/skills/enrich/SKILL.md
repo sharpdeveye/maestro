@@ -3,7 +3,7 @@ name: enrich
 description: "Use when the agent needs access to information beyond its training data — knowledge sources, RAG pipelines, or grounding data."
 argument-hint: "[knowledge domain or source]"
 category: enhancement
-version: 1.1.0
+version: 1.3.1
 user-invocable: true
 ---
 

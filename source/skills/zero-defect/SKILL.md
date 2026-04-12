@@ -3,7 +3,7 @@ name: zero-defect
 description: "Use when you need maximum precision on a critical task — production deployments, security-sensitive code, financial calculations, or any work where mistakes are unacceptable."
 argument-hint: "[task or area]"
 category: fix
-version: 1.1.0
+version: 1.3.1
 user-invocable: true
 ---
 

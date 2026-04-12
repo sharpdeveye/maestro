@@ -3,7 +3,7 @@ name: iterate
 description: "Use when the workflow needs to self-correct, improve over time, or establish feedback loops and evaluation cycles."
 argument-hint: "[target area]"
 category: enhancement
-version: 1.1.0
+version: 1.3.1
 user-invocable: true
 ---
 
