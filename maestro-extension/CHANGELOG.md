@@ -5,6 +5,19 @@ All notable changes to the **Maestro — AI Workflow Fluency** extension will be
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.4.0] - 2026-04-16
+
+### Added
+- **Quick Pick command palette** — `Maestro: Quick Pick` to search and run any command, with recent commands shown first
+- **Command history** — tracks last 10 executed commands in globalState for quick re-access
+- **Session indicators** — green/gray dot on each command card showing which commands have been used this session
+- **Integration test suite** — Mocha + @vscode/test-electron scaffold with activation, command registration, and toggle tests
+- **GitHub Actions CI/CD** — auto-build extension on push, auto-publish MCP server on tag
+
+### Changed
+- **Marketplace README** — complete rewrite with install badges, feature sections, screenshots, and ecosystem links
+- **CHANGELOG** — added to extension for Marketplace "Changelog" tab
+
 ## [1.3.1] - 2026-04-16
 
 ### Added

@@ -2,7 +2,7 @@
   "name": "maestro-workflow",
   "displayName": "Maestro — AI Workflow Fluency",
   "description": "21 commands for production-grade AI agent workflows. Auto-inject precision rules, browse commands, and manage workflow context.",
-  "version": "1.3.1",
+  "version": "1.4.0",
   "publisher": "sharpdeveye",
   "license": "MIT",
   "icon": "media/maestro-icon.png",
