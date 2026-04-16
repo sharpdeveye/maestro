@@ -8,19 +8,22 @@ const MARKER_END = '<!-- maestro:zero-defect:end -->';
 /**
  * Detects the current editor environment.
  */
-export function detectEditor(): 'vscode' | 'cursor' | 'claude-code' {
+export type EditorType = 'vscode' | 'cursor' | 'antigravity' | 'claude-code';
+
+export function detectEditor(): EditorType {
   const config = vscode.workspace
     .getConfiguration('maestro')
     .get<string>('editorAdapter');
 
   if (config && config !== 'auto') {
-    return config as 'vscode' | 'cursor' | 'claude-code';
+    return config as EditorType;
   }
 
   // Auto-detect based on app name
   const appName = vscode.env.appName.toLowerCase();
   if (appName.includes('cursor')) return 'cursor';
-  // Default to vscode (covers VS Code, Antigravity, Windsurf)
+  if (appName.includes('antigravity')) return 'antigravity';
+  // Default to vscode (covers VS Code, Windsurf, etc.)
   return 'vscode';
 }
 
@@ -89,4 +92,30 @@ export async function syncClaudeMd(
   active: boolean
 ): Promise<void> {
   await injectIntoFile('CLAUDE.md', zeroDefectContent, active);
+}
+
+/**
+ * Sync zero-defect rules to Antigravity's rules system.
+ * Writes .agents/rules/maestro-zero-defect.md with YAML frontmatter.
+ *
+ * - active=true  → trigger: always_on (injected into every prompt)
+ * - active=false → trigger: manual (only when explicitly invoked)
+ */
+export async function syncAntigravityRule(
+  zeroDefectContent: string,
+  active: boolean
+): Promise<void> {
+  const workspaceRoot = vscode.workspace.workspaceFolders?.[0]?.uri.fsPath;
+  if (!workspaceRoot) return;
+
+  const rulesDir = path.join(workspaceRoot, '.agents', 'rules');
+  const rulePath = path.join(rulesDir, 'maestro-zero-defect.md');
+
+  const trigger = active ? 'always_on' : 'manual';
+  const fileContent = `---\ntrigger: ${trigger}\n---\n\n${zeroDefectContent}\n`;
+
+  if (!fs.existsSync(rulesDir)) {
+    fs.mkdirSync(rulesDir, { recursive: true });
+  }
+  fs.writeFileSync(rulePath, fileContent, 'utf-8');
 }

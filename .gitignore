@@ -5,6 +5,7 @@ node_modules/
 *.log
 dist/
 .env
+.cmd
 
 # MCP server build artifacts
 mcp-server/dist/

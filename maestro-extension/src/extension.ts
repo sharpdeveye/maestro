@@ -8,6 +8,7 @@ import {
   detectEditor,
   syncCursorRules,
   syncClaudeMd,
+  syncAntigravityRule,
 } from './adapters/editor';
 import { registerChatParticipant } from './chat/participant';
 
@@ -23,6 +24,9 @@ export async function activate(
   const ctxManager = new ContextManager();
 
   await ctxManager.initialize();
+
+  // --- Auto-install Maestro skills into the workspace ---
+  await autoInstallSkills(context, skills);
 
   // --- Status Bar ---
   statusBar = new StatusBarManager();
@@ -59,12 +63,14 @@ export async function activate(
       statusBar.update(active, ctxManager.isDetected());
       sidebarProvider.syncState();
 
-      // Sync to editor-specific files
       const zeroDefectContent = skills.getContent('zero-defect') || '';
       const editor = detectEditor();
 
       if (editor === 'cursor') {
         await syncCursorRules(zeroDefectContent, active);
+      }
+      if (editor === 'antigravity') {
+        await syncAntigravityRule(zeroDefectContent, active);
       }
       // Always sync CLAUDE.md if it exists or if activating
       await syncClaudeMd(zeroDefectContent, active);
@@ -83,43 +89,26 @@ export async function activate(
     })
   );
 
-  // Initialize .maestro.md — opens chat with teach-maestro prompt
+  // Initialize .maestro.md
   context.subscriptions.push(
     vscode.commands.registerCommand('maestro.initContext', async () => {
-      const teachContent = skills.getContent('teach-maestro');
-      if (!teachContent) return;
-
-      // Prepend .maestro.md context if available
-      const maestroContext = ctxManager.getContent();
-      let fullContent = teachContent;
-      if (maestroContext) {
-        fullContent = `## Project Context\n\n${maestroContext}\n\n---\n\n${teachContent}`;
-      }
-
-      await insertIntoChat(fullContent);
+      await injectSlashCommand('teach-maestro');
     })
   );
 
-  // Register all skill commands
+  // Register all skill commands — each injects its slash command
   const invocableSkills = skills.getInvocable();
   for (const skill of invocableSkills) {
     const commandId = `maestro.${toCamelCase(skill.name)}`;
     context.subscriptions.push(
       vscode.commands.registerCommand(commandId, async () => {
-        let fullContent = skill.content;
-
-        // Prepend .maestro.md context if available
-        const maestroContext = ctxManager.getContent();
-        if (maestroContext) {
-          fullContent = `## Project Context\n\n${maestroContext}\n\n---\n\n${fullContent}`;
-        }
-
-        await insertIntoChat(fullContent);
+        await injectSlashCommand(skill.name);
       })
     );
   }
 
   // --- Chat Participant (@maestro) ---
+  // registerChatParticipant has its own guard: if (!vscode.chat?.createChatParticipant) return;
   registerChatParticipant(context, skills, ctxManager, state);
 
   // --- Context cleanup ---
@@ -127,14 +116,109 @@ export async function activate(
 }
 
 /**
- * Insert text into the active AI chat panel.
- * Uses workbench.action.chat.open with { query } — works in VS Code and Antigravity.
+ * Install Maestro skills into the workspace on every activation.
+ * Writes bundled skill files directly to .agents/skills/ — no CLI, no prompts.
  */
-async function insertIntoChat(content: string): Promise<void> {
-  await vscode.commands.executeCommand('workbench.action.chat.open', {
-    query: content,
-    isPartialQuery: true,
-  });
+async function autoInstallSkills(
+  _context: vscode.ExtensionContext,
+  skills: SkillLoader
+): Promise<void> {
+  const workspaceRoot = vscode.workspace.workspaceFolders?.[0]?.uri.fsPath;
+  if (!workspaceRoot) return;
+
+  try {
+    const allSkills = skills.getAll();
+    const fs = await import('fs');
+    const path = await import('path');
+
+    for (const skill of allSkills) {
+      const skillDir = path.join(workspaceRoot, '.agents', 'skills', skill.name);
+      if (!fs.existsSync(skillDir)) {
+        fs.mkdirSync(skillDir, { recursive: true });
+      }
+
+      // Reconstruct SKILL.md with frontmatter
+      const frontmatter = [
+        '---',
+        `name: ${skill.name}`,
+        `description: "${skill.description}"`,
+        `category: ${skill.category}`,
+        `version: ${skill.version}`,
+        `user-invocable: ${skill.userInvocable}`,
+        skill.argumentHint ? `argument-hint: "${skill.argumentHint}"` : null,
+        '---',
+      ].filter(Boolean).join('\n');
+
+      const fileContent = `${frontmatter}\n\n${skill.content}\n`;
+      fs.writeFileSync(path.join(skillDir, 'SKILL.md'), fileContent, 'utf-8');
+    }
+
+    vscode.window.showInformationMessage(
+      `Maestro: ${allSkills.length} skills installed to .agents/skills/`
+    );
+  } catch (err) {
+    vscode.window.showWarningMessage(
+      `Maestro: Failed to install skills. Error: ${err}`
+    );
+  }
+}
+
+/**
+ * Inject a slash command into the AI chat and submit it.
+ *
+ * - VS Code:       workbench.action.chat.open with @maestro /command
+ * - Antigravity:   antigravity.sendPromptToAgentPanel (native injection + submit)
+ * - Cursor:        workbench.action.chat.open with fallback
+ */
+async function injectSlashCommand(commandName: string): Promise<void> {
+  const editor = detectEditor();
+  const slashCommand = `/${commandName}`;
+
+  switch (editor) {
+    case 'antigravity': {
+      // Antigravity native command — sends prompt directly to the agent panel
+      await vscode.commands.executeCommand(
+        'antigravity.sendPromptToAgentPanel',
+        slashCommand
+      );
+      break;
+    }
+
+    case 'vscode': {
+      await vscode.commands.executeCommand('workbench.action.chat.open', {
+        query: `@maestro ${slashCommand}`,
+        isPartialQuery: false,
+      });
+      break;
+    }
+
+    case 'cursor': {
+      try {
+        await vscode.commands.executeCommand('workbench.action.chat.open', {
+          query: slashCommand,
+          isPartialQuery: false,
+        });
+      } catch {
+        vscode.window.showErrorMessage(
+          `Maestro: Could not inject ${slashCommand} into chat.`
+        );
+      }
+      break;
+    }
+
+    default: {
+      try {
+        await vscode.commands.executeCommand('workbench.action.chat.open', {
+          query: slashCommand,
+          isPartialQuery: false,
+        });
+      } catch {
+        vscode.window.showErrorMessage(
+          `Maestro: Could not inject ${slashCommand} into chat.`
+        );
+      }
+    }
+  }
 }
 
 function toCamelCase(name: string): string {
@@ -144,5 +228,3 @@ function toCamelCase(name: string): string {
 export function deactivate(): void {
   // Cleanup handled by disposables
 }
-
-

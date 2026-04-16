@@ -1,0 +1,115 @@
+{
+  "version": 1,
+  "skills": {
+    "accelerate": {
+      "source": "sharpdeveye/maestro",
+      "sourceType": "github",
+      "computedHash": "3862143fa65b8ba9763e1687d8b8b15d526db1a68e7c3667446f3baa9f4371e2"
+    },
+    "adapt-workflow": {
+      "source": "sharpdeveye/maestro",
+      "sourceType": "github",
+      "computedHash": "c994571e36091d216e4263e8d973b87a211e04760beb54d9515262153f55a5d5"
+    },
+    "agent-workflow": {
+      "source": "sharpdeveye/maestro",
+      "sourceType": "github",
+      "computedHash": "a99dd183b33c808440fe9b40815fa5ed1355338de98596366625094576e6e9be"
+    },
+    "amplify": {
+      "source": "sharpdeveye/maestro",
+      "sourceType": "github",
+      "computedHash": "850abee228a57a4df2ef7fe369a60376650ca99fb951c2b7221dc5de48d6e4b1"
+    },
+    "calibrate": {
+      "source": "sharpdeveye/maestro",
+      "sourceType": "github",
+      "computedHash": "15318c76287050cff976c3dea89aa2655da9fa86dc696de40e4ddd3ed30a10ee"
+    },
+    "chain": {
+      "source": "sharpdeveye/maestro",
+      "sourceType": "github",
+      "computedHash": "1940129fb68904b6ab77039c65e04bc653818a391ef7132356910dc48087752f"
+    },
+    "compose": {
+      "source": "sharpdeveye/maestro",
+      "sourceType": "github",
+      "computedHash": "0be41827416b58fedeb848762071f84a82a774a1f42524b5b65d72a586cd67eb"
+    },
+    "diagnose": {
+      "source": "sharpdeveye/maestro",
+      "sourceType": "github",
+      "computedHash": "3b7f767d74807a7c26cf317b5bb1815295d7c39aa805986bc7215016aa4cdf67"
+    },
+    "enrich": {
+      "source": "sharpdeveye/maestro",
+      "sourceType": "github",
+      "computedHash": "1ac5fc499d5ce17944d061b2d10d9c146fd8233772db0b3a33eff214676311d6"
+    },
+    "evaluate": {
+      "source": "sharpdeveye/maestro",
+      "sourceType": "github",
+      "computedHash": "72ad1f7a7b9c2c0439dbffde867aeb0e986941845412a318d59d2d797873422d"
+    },
+    "extract-pattern": {
+      "source": "sharpdeveye/maestro",
+      "sourceType": "github",
+      "computedHash": "f75ff1d5feb342f8dc50ba98c918e16090fc7fc9e548cede882154b624f3005b"
+    },
+    "fortify": {
+      "source": "sharpdeveye/maestro",
+      "sourceType": "github",
+      "computedHash": "5103e9fbba9c788b625b984f124b7fa108238030aa7cfcec7f0f82aea67dd3ad"
+    },
+    "guard": {
+      "source": "sharpdeveye/maestro",
+      "sourceType": "github",
+      "computedHash": "ab27f273c6b945cb6ded31eab74710250b436b0cc27f336352ed3c6f74e98377"
+    },
+    "iterate": {
+      "source": "sharpdeveye/maestro",
+      "sourceType": "github",
+      "computedHash": "8320474f2f1d12fe12c28da3adcbf7d0dfdef2e7e3475863ee657df7e9c35343"
+    },
+    "onboard-agent": {
+      "source": "sharpdeveye/maestro",
+      "sourceType": "github",
+      "computedHash": "a00c0b72297c12cd13682e6ca0412697132a6ff4ec473d2239d08c31bb0ede45"
+    },
+    "refine": {
+      "source": "sharpdeveye/maestro",
+      "sourceType": "github",
+      "computedHash": "382dfdab86acbdf167fcef09621b814df69324d954603e0509388d9a249a0209"
+    },
+    "specialize": {
+      "source": "sharpdeveye/maestro",
+      "sourceType": "github",
+      "computedHash": "028f851cfac51a00deb6e51696cb2430577fd4ed8c44e90203f994a4a2f3e6ba"
+    },
+    "streamline": {
+      "source": "sharpdeveye/maestro",
+      "sourceType": "github",
+      "computedHash": "69dd1274edbd36e0dbc281381a3ec73f7df2c990aa2e58133af8359392aa0963"
+    },
+    "teach-maestro": {
+      "source": "sharpdeveye/maestro",
+      "sourceType": "github",
+      "computedHash": "54e771cf349fa7ac6f6bc016da82d4431ec3ffd6e967b7d76a7f0794509763b2"
+    },
+    "temper": {
+      "source": "sharpdeveye/maestro",
+      "sourceType": "github",
+      "computedHash": "fa8e10077ec4f2b8872c7b6b86b596fa867ed6e750afeace7cce751af7703027"
+    },
+    "turbocharge": {
+      "source": "sharpdeveye/maestro",
+      "sourceType": "github",
+      "computedHash": "83f20b3095ca06cec283db94defe1b77f3c5d97092a9357ee4aabf62954df451"
+    },
+    "zero-defect": {
+      "source": "sharpdeveye/maestro",
+      "sourceType": "github",
+      "computedHash": "82372e3262dae02ef91f5d43d12a4a3ef68c39e5b11aa7efdb077543a32bffa6"
+    }
+  }
+}

@@ -76,7 +76,8 @@
       { "command": "maestro.adaptWorkflow", "title": "Maestro: Adapt — Port to different provider" },
       { "command": "maestro.specialize", "title": "Maestro: Specialize — Domain expertise" },
       { "command": "maestro.extractPattern", "title": "Maestro: Extract Pattern — Build templates" },
-      { "command": "maestro.temper", "title": "Maestro: Temper — Remove over-engineering" }
+      { "command": "maestro.temper", "title": "Maestro: Temper — Remove over-engineering" },
+      { "command": "maestro.debugChatCommands", "title": "Maestro: Debug — Show available chat commands" }
     ],
     "chatParticipants": [
       {
@@ -120,7 +121,7 @@
         },
         "maestro.editorAdapter": {
           "type": "string",
-          "enum": ["auto", "vscode", "cursor", "claude-code"],
+          "enum": ["auto", "vscode", "cursor", "antigravity", "claude-code"],
           "default": "auto",
           "description": "Which editor adapter to use for AI integration."
         }
