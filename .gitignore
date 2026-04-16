@@ -6,6 +6,7 @@ node_modules/
 dist/
 .env
 .cmd
+*DE.md
 
 # MCP server build artifacts
 mcp-server/dist/
