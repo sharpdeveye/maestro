@@ -1,84 +1,133 @@
+<div align="center">
+
+<img src="media/maestro-icon.png" alt="Maestro" width="128" />
+
 # Maestro — AI Workflow Fluency
 
-[![Version](https://img.shields.io/visual-studio-marketplace/v/sharpdeveye.maestro-workflow?color=blue)](https://marketplace.visualstudio.com/items?itemName=sharpdeveye.maestro-workflow)
+**21 commands for production-grade AI agent workflows.**
+
+[![VS Code](https://img.shields.io/visual-studio-marketplace/v/sharpdeveye.maestro-workflow?label=Marketplace&color=007ACC&logo=visual-studio-code)](https://marketplace.visualstudio.com/items?itemName=sharpdeveye.maestro-workflow)
+[![Installs](https://img.shields.io/visual-studio-marketplace/i/sharpdeveye.maestro-workflow?color=blue)](https://marketplace.visualstudio.com/items?itemName=sharpdeveye.maestro-workflow)
 [![License](https://img.shields.io/badge/license-MIT-green)](./LICENSE)
+[![MCP](https://img.shields.io/badge/MCP-Compatible-00D4AA)](https://www.npmjs.com/package/maestro-workflow-mcp)
 
-**21 commands for production-grade AI agent workflows.** Auto-inject precision rules, browse commands from the sidebar, and manage your workflow context — all from your editor.
+[Install](vscode:extension/sharpdeveye.maestro-workflow) · [Website](https://maestroskills.dev) · [GitHub](https://github.com/sharpdeveye/maestro) · [MCP Server](https://www.npmjs.com/package/maestro-workflow-mcp)
 
-Works in **VS Code**, **Cursor**, **Antigravity**, and **Windsurf**.
+</div>
 
-## Features
+---
 
-### Command Center Sidebar
+## ✨ Features
 
-Browse all 21 Maestro commands organized by category — Analysis, Fix & Improve, Enhancement, and Utility. Click any command to insert it into your AI chat.
+### 🎛️ Command Center Sidebar
 
-### Zero-Defect Mode
+Browse all 21 Maestro commands organized into four categories — **Analysis**, **Fix & Improve**, **Enhancement**, and **Utility**. Click any command to instantly inject it into your AI chat panel.
 
-Toggle maximum-precision mode from the status bar or sidebar. When active, Maestro's 8 precision rules are automatically injected into every AI prompt — no manual copy-paste needed.
+![Command Center](media/sidebar-preview.png)
 
-- **VS Code / Antigravity**: Injects via Chat Participant system message
-- **Cursor**: Auto-generates `.cursorrules` with precision rules
-- **Claude Code**: Auto-generates `CLAUDE.md` with precision rules
+### 🛡️ Zero-Defect Mode
 
-### `@maestro` Chat Participant
+Toggle maximum-precision mode from the status bar or sidebar. When active, Maestro's **8 precision rules** are automatically injected into every AI prompt — no manual copy-paste needed.
+
+| Editor | How It Works |
+|--------|-------------|
+| **VS Code / Antigravity** | Injected via Chat Participant system message |
+| **Cursor** | Auto-generates `.cursorrules` with precision rules |
+| **Claude Code** | Auto-generates `CLAUDE.md` with precision rules |
+
+### 💬 `@maestro` Chat Participant
 
 Use `@maestro` directly in VS Code chat with slash commands:
 
-```
+```text
 @maestro /diagnose my authentication flow
 @maestro /fortify the error handling in this module
 @maestro /zero-defect activate maximum precision
 ```
 
-### `.maestro.md` Auto-Detection
+### 📄 `.maestro.md` Auto-Detection
 
-Maestro automatically detects your project's `.maestro.md` context file and includes it in every command execution for project-aware AI guidance.
+Maestro automatically detects your project's `.maestro.md` context file and includes it in every command execution for project-aware AI guidance. A status indicator shows whether the file is detected, and you can initialize one with a single click.
 
-## Commands
+### 🔄 Multi-Provider Skill Sync
 
-| Category | Command | Description |
-|----------|---------|-------------|
-| Analysis | `/diagnose` | Systematic workflow quality audit |
-| Analysis | `/evaluate` | Interaction quality review |
-| Fix | `/refine` | Final quality pass |
-| Fix | `/streamline` | Remove complexity and cruft |
-| Fix | `/calibrate` | Align to project conventions |
-| Fix | `/fortify` | Add error handling and retry logic |
-| Fix | `/zero-defect` | Maximum precision enforcement |
-| Enhancement | `/amplify` | Handle more complex cases |
-| Enhancement | `/chain` | Multi-step processing pipelines |
-| Enhancement | `/compose` | Multi-agent coordination |
-| Enhancement | `/enrich` | Add knowledge sources |
-| Enhancement | `/guard` | Safety constraints and validation |
-| Enhancement | `/iterate` | Self-correction feedback loops |
-| Enhancement | `/accelerate` | Optimize for performance |
-| Enhancement | `/turbocharge` | Advanced performance techniques |
-| Utility | `/teach-maestro` | Generate `.maestro.md` for your project |
-| Utility | `/onboard-agent` | Set up a new project |
-| Utility | `/adapt-workflow` | Port to a different AI provider |
-| Utility | `/specialize` | Domain-specific expertise |
-| Utility | `/extract-pattern` | Build reusable templates |
-| Utility | `/temper` | Remove over-engineering |
+On every activation, Maestro syncs all 22 bundled skills into **10 AI provider directories** simultaneously:
 
-## Settings
+`.agents/` · `.cursor/` · `.claude/` · `.gemini/` · `.codex/` · `.kiro/` · `.trae/` · `.trae-cn/` · `.opencode/` · `.pi/`
+
+Your skills are always available regardless of which AI tool you use.
+
+---
+
+## 📋 All 21 Commands
+
+### Analysis — read-only, generate reports
+
+| Command | Description |
+|---------|-------------|
+| `/diagnose` | Systematic workflow quality audit with scored dimensions |
+| `/evaluate` | Holistic review of workflow interaction quality |
+
+### Fix & Improve — make targeted changes
+
+| Command | Description |
+|---------|-------------|
+| `/refine` | Final quality pass on prompts, tools, and configuration |
+| `/streamline` | Remove unnecessary complexity, flatten over-engineering |
+| `/calibrate` | Align workflow components to project conventions |
+| `/fortify` | Add error handling, retries, fallbacks, circuit breakers |
+| `/zero-defect` | Activate maximum precision mode — zero mistakes allowed |
+
+### Enhancement — add capabilities
+
+| Command | Description |
+|---------|-------------|
+| `/amplify` | Boost capabilities with better tools and context |
+| `/chain` | Build effective tool chains and pipelines |
+| `/compose` | Design multi-agent orchestration and delegation |
+| `/enrich` | Add knowledge sources, RAG, and grounding |
+| `/guard` | Add safety constraints and security boundaries |
+| `/iterate` | Set up feedback loops and evaluation cycles |
+| `/accelerate` | Optimize for speed, reduce latency and cost |
+| `/turbocharge` | Push past conventional limits — advanced techniques |
+| `/temper` | Reduce over-engineering, simplify overbuilt workflows |
+
+### Utility
+
+| Command | Description |
+|---------|-------------|
+| `/teach-maestro` | Generate `.maestro.md` for your project |
+| `/onboard-agent` | Set up a new project from scratch |
+| `/adapt-workflow` | Port to a different AI provider |
+| `/specialize` | Domain-specific expertise (legal, medical, etc.) |
+| `/extract-pattern` | Build reusable templates from working workflows |
+
+---
+
+## ⚙️ Settings
 
 | Setting | Default | Description |
 |---------|---------|-------------|
 | `maestro.zeroDefectAutoInject` | `false` | Auto-inject precision rules into every prompt |
-| `maestro.editorAdapter` | `auto` | Editor adapter: `auto`, `vscode`, `cursor`, `claude-code` |
+| `maestro.editorAdapter` | `auto` | Editor adapter: `auto`, `vscode`, `cursor`, `antigravity`, `claude-code` |
+
+---
+
+## 🔗 Ecosystem
+
+| Component | Description |
+|-----------|-------------|
+| [MCP Server](https://www.npmjs.com/package/maestro-workflow-mcp) | Use Maestro as a live MCP server — `npx maestro-workflow-mcp` |
+| [Website](https://maestroskills.dev) | Interactive showcase and documentation |
+| [GitHub](https://github.com/sharpdeveye/maestro) | Source code, skills, and contributions |
+
+---
 
 ## Requirements
 
-- VS Code 1.95+ (or compatible fork)
+- VS Code 1.95+ (or compatible fork: Cursor, Antigravity, Windsurf)
 - No additional dependencies required
-
-## Links
-
-- [Maestro Website](https://maestroskills.dev)
-- [GitHub Repository](https://github.com/sharpdeveye/maestro)
-- [MCP Server (npm)](https://www.npmjs.com/package/maestro-workflow-mcp)
 
 ## License
 
-MIT
+MIT — [view license](./LICENSE)

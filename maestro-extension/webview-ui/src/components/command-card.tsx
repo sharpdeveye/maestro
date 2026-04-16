@@ -6,6 +6,7 @@ interface CommandCardProps {
   name: string;
   description: string;
   isNew?: boolean;
+  used?: boolean;
   onClick: () => void;
   onHover: (desc: string) => void;
   onLeave: () => void;
@@ -15,6 +16,7 @@ export function CommandCard({
   name,
   description,
   isNew,
+  used,
   onClick,
   onHover,
   onLeave,
@@ -43,6 +45,13 @@ export function CommandCard({
         movementDuration={0.8}
       />
       <div className="relative flex items-center gap-2 rounded-md px-3 py-2">
+        <span
+          className={cn(
+            "inline-block h-1.5 w-1.5 shrink-0 rounded-full transition-colors",
+            used ? "bg-emerald-500" : "bg-muted-foreground/20"
+          )}
+          title={used ? "Used this session" : ""}
+        />
         <span className="font-mono text-xs font-medium text-foreground">
           /{name}
         </span>

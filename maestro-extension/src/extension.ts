@@ -2,6 +2,7 @@ import * as vscode from 'vscode';
 import { SkillLoader } from './core/skills';
 import { ContextManager } from './core/context';
 import { StateManager } from './core/state';
+import { HistoryManager } from './core/history';
 import { StatusBarManager } from './statusbar/manager';
 import { SidebarProvider } from './sidebar/provider';
 import {
@@ -14,6 +15,7 @@ import { registerChatParticipant } from './chat/participant';
 
 let statusBar: StatusBarManager;
 let sidebarProvider: SidebarProvider;
+let history: HistoryManager;
 
 export async function activate(
   context: vscode.ExtensionContext
@@ -22,6 +24,7 @@ export async function activate(
   const skills = new SkillLoader();
   const state = new StateManager(context);
   const ctxManager = new ContextManager();
+  history = new HistoryManager(context);
 
   await ctxManager.initialize();
 
@@ -102,10 +105,62 @@ export async function activate(
     const commandId = `maestro.${toCamelCase(skill.name)}`;
     context.subscriptions.push(
       vscode.commands.registerCommand(commandId, async () => {
+        history.record(skill.name);
+        sidebarProvider.syncState();
         await injectSlashCommand(skill.name);
       })
     );
   }
+
+  // Quick Pick command — search and run any Maestro command
+  context.subscriptions.push(
+    vscode.commands.registerCommand('maestro.quickPick', async () => {
+      const recentEntries = history.getRecent(5);
+      const recentNames = new Set(recentEntries.map(e => e.name));
+
+      const items: vscode.QuickPickItem[] = [];
+
+      // Add recent commands first
+      if (recentEntries.length > 0) {
+        items.push({ label: 'Recent', kind: vscode.QuickPickItemKind.Separator });
+        for (const entry of recentEntries) {
+          const skill = invocableSkills.find(s => s.name === entry.name);
+          if (skill) {
+            items.push({
+              label: `$(history) /${skill.name}`,
+              description: skill.description,
+              detail: `Last used ${new Date(entry.timestamp).toLocaleTimeString()}`,
+            });
+          }
+        }
+        items.push({ label: 'All Commands', kind: vscode.QuickPickItemKind.Separator });
+      }
+
+      // Add all commands (skip recent duplicates for cleanliness)
+      for (const skill of invocableSkills) {
+        if (!recentNames.has(skill.name)) {
+          items.push({
+            label: `/${skill.name}`,
+            description: skill.description,
+          });
+        }
+      }
+
+      const picked = await vscode.window.showQuickPick(items, {
+        title: 'Maestro Commands',
+        placeHolder: 'Search and run a Maestro command...',
+        matchOnDescription: true,
+      });
+
+      if (picked) {
+        // Extract skill name from label (remove icon prefix and slash)
+        const name = picked.label.replace(/^\$\([^)]+\)\s*\//, '').replace(/^\//, '');
+        history.record(name);
+        sidebarProvider.syncState();
+        await injectSlashCommand(name);
+      }
+    })
+  );
 
   // --- Chat Participant (@maestro) ---
   // registerChatParticipant has its own guard: if (!vscode.chat?.createChatParticipant) return;

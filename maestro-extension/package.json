@@ -77,7 +77,8 @@
       { "command": "maestro.specialize", "title": "Maestro: Specialize — Domain expertise" },
       { "command": "maestro.extractPattern", "title": "Maestro: Extract Pattern — Build templates" },
       { "command": "maestro.temper", "title": "Maestro: Temper — Remove over-engineering" },
-      { "command": "maestro.debugChatCommands", "title": "Maestro: Debug — Show available chat commands" }
+      { "command": "maestro.debugChatCommands", "title": "Maestro: Debug — Show available chat commands" },
+      { "command": "maestro.quickPick", "title": "Maestro: Quick Pick — Search commands" }
     ],
     "chatParticipants": [
       {
@@ -137,11 +138,16 @@
     "watch:webview": "cd webview-ui && npm run dev",
     "dev": "npm run bundle-skills && concurrently \"npm:watch:ext\" \"npm:watch:webview\"",
     "package": "npm run build && npx -y @vscode/vsce package --no-dependencies",
-    "publish": "npm run build && npx -y @vscode/vsce publish --no-dependencies"
+    "publish": "npm run build && npx -y @vscode/vsce publish --no-dependencies",
+    "test": "npm run build:ext && node dist/test/runTest.js"
   },
   "devDependencies": {
     "@types/vscode": "^1.95.0",
     "@types/node": "^22.0.0",
+    "@types/mocha": "^10.0.0",
+    "@vscode/test-electron": "^2.4.0",
+    "mocha": "^10.0.0",
+    "glob": "^11.0.0",
     "esbuild": "^0.24.0",
     "typescript": "^5.7.0",
     "concurrently": "^9.0.0"
