@@ -22,3 +22,12 @@ mcp-server/node_modules/
 .pi/
 .trae/
 .trae-cn/
+
+# VS Code extension build artifacts
+maestro-extension/dist/
+maestro-extension/src/generated/
+maestro-extension/node_modules/
+maestro-extension/webview-ui/dist/
+maestro-extension/webview-ui/node_modules/
+maestro-extension/*.vsix
+

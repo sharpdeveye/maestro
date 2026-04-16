@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+/*
+ * Maestro Extension — Design Tokens
+ * Hybrid theming: VS Code CSS vars for backgrounds/text,
+ * Maestro brand color for accents/interactive elements.
+ */
+
+@theme inline {
+  --font-heading: "Outfit", var(--font-sans);
+  --font-sans: "Outfit", system-ui, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, monospace;
+
+  --color-background: var(--vscode-sideBar-background, #1e1e1e);
+  --color-foreground: var(--vscode-sideBar-foreground, #cccccc);
+  --color-card: var(--vscode-editorWidget-background, #252526);
+  --color-card-foreground: var(--vscode-editorWidget-foreground, #cccccc);
+  --color-border: var(--vscode-panel-border, #3c3c3c);
+  --color-input: var(--vscode-input-background, #3c3c3c);
+  --color-input-foreground: var(--vscode-input-foreground, #cccccc);
+
+  /* Maestro brand — warm amber accent */
+  --color-primary: oklch(0.6724 0.1308 38.76);
+  --color-primary-foreground: #1a1a1a;
+
+  --color-muted: var(--vscode-textBlockQuote-background, #2d2d2d);
+  --color-muted-foreground: var(--vscode-descriptionForeground, #8b8b8b);
+
+  --color-accent: var(--vscode-list-hoverBackground, #2a2d2e);
+  --color-accent-foreground: var(--vscode-list-hoverForeground, #cccccc);
+
+  --color-destructive: var(--vscode-errorForeground, #f48771);
+  --color-success: var(--vscode-testing-iconPassed, #73c991);
+
+  --color-ring: oklch(0.6724 0.1308 38.76);
+
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Import Google Fonts */
+  @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap");
+}
+
+/* Scrollbar styling to match VS Code */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--vscode-scrollbarSlider-background, #424242);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--vscode-scrollbarSlider-hoverBackground, #555555);
+}
