@@ -1,13 +1,15 @@
+import { useState } from "react";
 import { Header } from "@/components/header";
 import { ModeToggle } from "@/components/mode-toggle";
 import { CommandList } from "@/components/command-list";
 import { ContextStatus } from "@/components/context-status";
 import { Separator } from "@/components/ui/separator";
 import { useVsCode } from "@/hooks/use-vscode";
-import { ExternalLink, Settings } from "lucide-react";
+import { ExternalLink, Settings, MessageCircleQuestionMark } from "lucide-react";
 
 export default function App() {
   const { state, runCommand, toggleMode, initContext, openLink } = useVsCode();
+  const [hoveredDescription, setHoveredDescription] = useState<string | null>(null);
 
   return (
     <div className="flex h-screen flex-col overflow-hidden">
@@ -23,7 +25,12 @@ export default function App() {
         <Separator />
 
         {/* Command List */}
-        <CommandList skills={state.skills} onRunCommand={runCommand} />
+        <CommandList
+          skills={state.skills}
+          onRunCommand={runCommand}
+          onHover={setHoveredDescription}
+          onLeave={() => setHoveredDescription(null)}
+        />
 
         <Separator />
 
@@ -55,6 +62,14 @@ export default function App() {
             maestroskills.dev
           </button>
         </div>
+      </div>
+
+      {/* Global Hover Description Footer */}
+      <div className="border-t px-3 h-[80px] flex items-center transition-colors shrink-0">
+        <MessageCircleQuestionMark className="min-w-[14px] h-3.5 w-3.5 mr-2 shrink-0 text-muted-foreground" />
+        <p className="text-[11px] leading-relaxed text-muted-foreground line-clamp-4">
+          {hoveredDescription || "Hover over any command to see its description."}
+        </p>
       </div>
     </div>
   );

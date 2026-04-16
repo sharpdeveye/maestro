@@ -117,7 +117,7 @@ export async function activate(
 
 /**
  * Install Maestro skills into the workspace on every activation.
- * Writes bundled skill files directly to .agents/skills/ — no CLI, no prompts.
+ * Writes bundled skill files to ALL known AI provider directories.
  */
 async function autoInstallSkills(
   _context: vscode.ExtensionContext,
@@ -126,18 +126,26 @@ async function autoInstallSkills(
   const workspaceRoot = vscode.workspace.workspaceFolders?.[0]?.uri.fsPath;
   if (!workspaceRoot) return;
 
+  const PROVIDERS = [
+    '.agents/skills',
+    '.claude/skills',
+    '.cursor/skills',
+    '.gemini/skills',
+    '.codex/skills',
+    '.kiro/skills',
+    '.trae/skills',
+    '.trae-cn/skills',
+    '.opencode/skills',
+    '.pi/skills',
+  ];
+
   try {
     const allSkills = skills.getAll();
     const fs = await import('fs');
     const path = await import('path');
 
     for (const skill of allSkills) {
-      const skillDir = path.join(workspaceRoot, '.agents', 'skills', skill.name);
-      if (!fs.existsSync(skillDir)) {
-        fs.mkdirSync(skillDir, { recursive: true });
-      }
-
-      // Reconstruct SKILL.md with frontmatter
+      // Reconstruct SKILL.md with frontmatter once per skill
       const frontmatter = [
         '---',
         `name: ${skill.name}`,
@@ -150,11 +158,23 @@ async function autoInstallSkills(
       ].filter(Boolean).join('\n');
 
       const fileContent = `${frontmatter}\n\n${skill.content}\n`;
-      fs.writeFileSync(path.join(skillDir, 'SKILL.md'), fileContent, 'utf-8');
+
+      // Distribute to all provider directories
+      for (const provider of PROVIDERS) {
+        // e.g. provider = '.claude/skills', split by '/' to be OS-agnostic path join
+        const providerParts = provider.split('/');
+        const skillDir = path.join(workspaceRoot, ...providerParts, skill.name);
+        
+        if (!fs.existsSync(skillDir)) {
+          fs.mkdirSync(skillDir, { recursive: true });
+        }
+        
+        fs.writeFileSync(path.join(skillDir, 'SKILL.md'), fileContent, 'utf-8');
+      }
     }
 
     vscode.window.showInformationMessage(
-      `Maestro: ${allSkills.length} skills installed to .agents/skills/`
+      `Maestro: ${allSkills.length} skills synchronized across ${PROVIDERS.length} AI providers.`
     );
   } catch (err) {
     vscode.window.showWarningMessage(

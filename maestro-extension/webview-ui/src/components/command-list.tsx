@@ -51,9 +51,11 @@ const CATEGORY_ORDER = ["analysis", "fix", "enhancement", "utility"];
 interface CommandListProps {
   skills: SkillInfo[];
   onRunCommand: (command: string) => void;
+  onHover: (desc: string) => void;
+  onLeave: () => void;
 }
 
-export function CommandList({ skills, onRunCommand }: CommandListProps) {
+export function CommandList({ skills, onRunCommand, onHover, onLeave }: CommandListProps) {
   const [expanded, setExpanded] = useState<Record<string, boolean>>({
     analysis: true,
     fix: true,
@@ -110,6 +112,8 @@ export function CommandList({ skills, onRunCommand }: CommandListProps) {
                     description={skill.description}
                     isNew={skill.name === "zero-defect"}
                     onClick={() => onRunCommand(skill.name)}
+                    onHover={onHover}
+                    onLeave={onLeave}
                   />
                 ))}
               </div>
