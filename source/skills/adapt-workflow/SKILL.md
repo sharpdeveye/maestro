@@ -9,7 +9,7 @@ user-invocable: true
 
 ## MANDATORY PREPARATION
 
-Invoke {{command_prefix}}agent-workflow — it contains workflow principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no workflow context exists yet, you MUST run {{command_prefix}}teach-maestro first. Additionally gather: what the workflow is being adapted to.
+Invoke /agent-workflow — it contains workflow principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no workflow context exists yet, you MUST run /teach-maestro first. Additionally gather: what the workflow is being adapted to.
 
 ---
 
@@ -51,7 +51,7 @@ Adapt a working workflow for a different context.
 
 ### Recommended Next Step
 
-After adaptation, run `{{command_prefix}}evaluate` to verify the workflow performs correctly in the target environment, then `{{command_prefix}}diagnose` for a full health check.
+After adaptation, run `/evaluate` to verify the workflow performs correctly in the target environment, then `/diagnose` for a full health check.
 
 **NEVER**:
 

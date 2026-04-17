@@ -9,7 +9,7 @@ user-invocable: true
 
 ## MANDATORY PREPARATION
 
-Invoke {{command_prefix}}agent-workflow — it contains workflow principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no workflow context exists yet, you MUST run {{command_prefix}}teach-maestro first.
+Invoke /agent-workflow — it contains workflow principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no workflow context exists yet, you MUST run /teach-maestro first.
 Consult the agent-architecture reference in the agent-workflow skill for topology patterns and when multi-agent is justified.
 
 
@@ -70,7 +70,7 @@ TEMPERED: config.yaml (20 lines, essential params only, sensible defaults)
 
 ### Recommended Next Step
 
-After tempering, run `{{command_prefix}}evaluate` to confirm quality is preserved, or `{{command_prefix}}diagnose` for a full health check.
+After tempering, run `/evaluate` to confirm quality is preserved, or `/diagnose` for a full health check.
 
 **NEVER**:
 

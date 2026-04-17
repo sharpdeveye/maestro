@@ -9,7 +9,7 @@ user-invocable: true
 
 ## MANDATORY PREPARATION
 
-Invoke {{command_prefix}}agent-workflow — it contains workflow principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no workflow context exists yet, you MUST run {{command_prefix}}teach-maestro first.
+Invoke /agent-workflow — it contains workflow principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no workflow context exists yet, you MUST run /teach-maestro first.
 Consult the tool-orchestration reference in the agent-workflow skill for composition patterns and error handling.
 
 
@@ -60,7 +60,7 @@ Max retries per step: 3
 
 ### Recommended Next Step
 
-After building the chain, run `{{command_prefix}}fortify` to add error handling at each step, then `{{command_prefix}}evaluate` to test the full pipeline.
+After building the chain, run `/fortify` to add error handling at each step, then `/evaluate` to test the full pipeline.
 
 **NEVER**:
 

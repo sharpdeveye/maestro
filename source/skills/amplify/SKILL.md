@@ -9,7 +9,7 @@ user-invocable: true
 
 ## MANDATORY PREPARATION
 
-Invoke {{command_prefix}}agent-workflow — it contains workflow principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no workflow context exists yet, you MUST run {{command_prefix}}teach-maestro first.
+Invoke /agent-workflow — it contains workflow principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no workflow context exists yet, you MUST run /teach-maestro first.
 Consult the tool-orchestration reference in the agent-workflow skill for adding tools effectively.
 
 
@@ -74,7 +74,7 @@ Take a working workflow and make it more capable. Amplification adds new abiliti
 
 ### Recommended Next Step
 
-After amplification, run `{{command_prefix}}evaluate` to verify the new capability works, or `{{command_prefix}}iterate` to set up quality monitoring for the enhanced workflow.
+After amplification, run `/evaluate` to verify the new capability works, or `/iterate` to set up quality monitoring for the enhanced workflow.
 
 **NEVER**:
 

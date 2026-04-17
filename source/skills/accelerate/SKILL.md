@@ -9,7 +9,7 @@ user-invocable: true
 
 ## MANDATORY PREPARATION
 
-Invoke {{command_prefix}}agent-workflow — it contains workflow principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no workflow context exists yet, you MUST run {{command_prefix}}teach-maestro first.
+Invoke /agent-workflow — it contains workflow principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no workflow context exists yet, you MUST run /teach-maestro first.
 Consult the context-management reference in the agent-workflow skill for window optimization and budget strategies.
 
 
@@ -85,7 +85,7 @@ For each optimization:
 
 ### Recommended Next Step
 
-After optimization, run `{{command_prefix}}evaluate` to verify quality didn't degrade, or `{{command_prefix}}iterate` to set up continuous monitoring.
+After optimization, run `/evaluate` to verify quality didn't degrade, or `/iterate` to set up continuous monitoring.
 
 **NEVER**:
 

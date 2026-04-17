@@ -9,7 +9,7 @@ user-invocable: true
 
 ## MANDATORY PREPARATION
 
-Invoke {{command_prefix}}agent-workflow — it contains workflow principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no workflow context exists yet, you MUST run {{command_prefix}}teach-maestro first.
+Invoke /agent-workflow — it contains workflow principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no workflow context exists yet, you MUST run /teach-maestro first.
 Consult the agent-architecture reference in the agent-workflow skill for topology patterns and when multi-agent is justified.
 
 ---
@@ -24,7 +24,7 @@ Answer these before proceeding:
 2. **What specific limitation requires multiple agents?** (If you can't name it, you don't need multi-agent)
 3. **Is the cost/latency increase justified?** (Multi-agent = 2-10x cost and latency)
 
-If you can't articulate a specific limitation, use {{command_prefix}}amplify on the single agent instead.
+If you can't articulate a specific limitation, use /amplify on the single agent instead.
 
 ### Step 2: Design the Topology
 
@@ -75,7 +75,7 @@ Every multi-agent system needs a supervisor:
 
 ### Recommended Next Step
 
-After composition, run `{{command_prefix}}fortify` to add error handling at every handoff, then `{{command_prefix}}evaluate` to test the multi-agent system end-to-end.
+After composition, run `/fortify` to add error handling at every handoff, then `/evaluate` to test the multi-agent system end-to-end.
 
 **NEVER**:
 

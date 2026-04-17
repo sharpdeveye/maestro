@@ -9,7 +9,7 @@ user-invocable: true
 
 ## MANDATORY PREPARATION
 
-Invoke {{command_prefix}}agent-workflow — it contains workflow principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no workflow context exists yet, you MUST run {{command_prefix}}teach-maestro first.
+Invoke /agent-workflow — it contains workflow principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no workflow context exists yet, you MUST run /teach-maestro first.
 
 Consult the feedback-loops reference in the agent-workflow skill for evaluation patterns and self-correction strategies.
 
@@ -86,7 +86,7 @@ For production workflows:
 
 ### Recommended Next Step
 
-After setting up feedback loops, run `{{command_prefix}}evaluate` to validate the loop with real scenarios, then `{{command_prefix}}refine` for final polish.
+After setting up feedback loops, run `/evaluate` to validate the loop with real scenarios, then `/refine` for final polish.
 
 **NEVER**:
 

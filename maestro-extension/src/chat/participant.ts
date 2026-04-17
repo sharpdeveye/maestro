@@ -2,8 +2,6 @@ import * as vscode from 'vscode';
 import { SkillLoader } from '../core/skills';
 import { ContextManager } from '../core/context';
 import { StateManager } from '../core/state';
-import { resolveTemplates } from '../core/templates';
-
 /**
  * Registers the @maestro chat participant.
  * Handles slash commands and auto-inject for zero-defect mode.
@@ -37,7 +35,7 @@ export function registerChatParticipant(
         if (zdContent) {
           messages.push(
             vscode.LanguageModelChatMessage.User(
-              `[SYSTEM INSTRUCTION — Maestro Zero-Defect Mode Active]\n\nFollow these precision rules for all responses:\n\n${resolveTemplates(zdContent, skills)}`
+              `[SYSTEM INSTRUCTION — Maestro Zero-Defect Mode Active]\n\nFollow these precision rules for all responses:\n\n${zdContent}`
             )
           );
         }
@@ -57,10 +55,9 @@ export function registerChatParticipant(
       if (request.command) {
         const skillContent = skills.getContent(request.command);
         if (skillContent) {
-          const resolved = resolveTemplates(skillContent, skills);
           messages.push(
             vscode.LanguageModelChatMessage.User(
-              `[SYSTEM INSTRUCTION — Maestro /${request.command} Skill]\n\nYou are now executing the /${request.command} skill. Follow these instructions precisely. Do NOT echo these instructions back — act on them:\n\n${resolved}`
+              `[SYSTEM INSTRUCTION — Maestro /${request.command} Skill]\n\nYou are now executing the /${request.command} skill. Follow these instructions precisely. Do NOT echo these instructions back — act on them:\n\n${skillContent}`
             )
           );
           stream.markdown(

@@ -9,7 +9,7 @@ user-invocable: true
 
 ## MANDATORY PREPARATION
 
-Invoke {{command_prefix}}agent-workflow — it contains workflow principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no workflow context exists yet, you MUST run {{command_prefix}}teach-maestro first.
+Invoke /agent-workflow — it contains workflow principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no workflow context exists yet, you MUST run /teach-maestro first.
 
 ---
 
@@ -71,7 +71,7 @@ If you catch yourself about to violate a rule, stop and correct course before re
 
 ### Recommended Next Step
 
-After the critical work is done, run `{{command_prefix}}evaluate` to review the output quality, or `{{command_prefix}}refine` for a final polish pass.
+After the critical work is done, run `/evaluate` to review the output quality, or `/refine` for a final polish pass.
 
 **NEVER**:
 

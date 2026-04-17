@@ -9,7 +9,7 @@ user-invocable: true
 
 ## MANDATORY PREPARATION
 
-Invoke {{command_prefix}}agent-workflow — it contains workflow principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no workflow context exists yet, you MUST run {{command_prefix}}teach-maestro first.
+Invoke /agent-workflow — it contains workflow principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no workflow context exists yet, you MUST run /teach-maestro first.
 Consult the prompt-engineering reference in the agent-workflow skill for naming and style consistency patterns.
 
 
@@ -74,7 +74,7 @@ Ensure consistency across all workflow components. Inconsistency creates confusi
 
 ### Recommended Next Step
 
-After calibration, run `{{command_prefix}}refine` for a final polish pass, or `{{command_prefix}}evaluate` to verify consistency improvements.
+After calibration, run `/refine` for a final polish pass, or `/evaluate` to verify consistency improvements.
 
 **NEVER**:
 

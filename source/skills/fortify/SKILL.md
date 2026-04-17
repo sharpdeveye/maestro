@@ -9,7 +9,7 @@ user-invocable: true
 
 ## MANDATORY PREPARATION
 
-Invoke {{command_prefix}}agent-workflow — it contains workflow principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no workflow context exists yet, you MUST run {{command_prefix}}teach-maestro first.
+Invoke /agent-workflow — it contains workflow principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no workflow context exists yet, you MUST run /teach-maestro first.
 Consult the guardrails-safety reference in the agent-workflow skill for defense-in-depth patterns and error boundary design.
 
 ---
@@ -77,7 +77,7 @@ For each component, verify:
 
 ### Recommended Next Step
 
-After fortification, run `{{command_prefix}}evaluate` to verify error handling works under realistic failure scenarios.
+After fortification, run `/evaluate` to verify error handling works under realistic failure scenarios.
 
 **NEVER**:
 

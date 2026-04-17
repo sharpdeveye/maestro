@@ -9,7 +9,7 @@ user-invocable: true
 
 ## MANDATORY PREPARATION
 
-Invoke {{command_prefix}}agent-workflow — it contains workflow principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no workflow context exists yet, you MUST run {{command_prefix}}teach-maestro first.
+Invoke /agent-workflow — it contains workflow principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no workflow context exists yet, you MUST run /teach-maestro first.
 Consult the knowledge-systems reference in the agent-workflow skill for RAG architecture, chunking strategies, and retrieval patterns.
 
 ---
@@ -68,7 +68,7 @@ For live information:
 
 ### Recommended Next Step
 
-After enrichment, run `{{command_prefix}}evaluate` to test retrieval quality, or `{{command_prefix}}iterate` to set up continuous monitoring of knowledge freshness.
+After enrichment, run `/evaluate` to test retrieval quality, or `/iterate` to set up continuous monitoring of knowledge freshness.
 
 **NEVER**:
 

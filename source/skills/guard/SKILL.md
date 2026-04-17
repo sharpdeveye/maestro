@@ -9,7 +9,7 @@ user-invocable: true
 
 ## MANDATORY PREPARATION
 
-Invoke {{command_prefix}}agent-workflow — it contains workflow principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no workflow context exists yet, you MUST run {{command_prefix}}teach-maestro first.
+Invoke /agent-workflow — it contains workflow principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no workflow context exists yet, you MUST run /teach-maestro first.
 
 Consult the guardrails-safety reference in the agent-workflow skill for the full defense-in-depth framework.
 
@@ -88,7 +88,7 @@ For every tool call:
 
 ### Recommended Next Step
 
-After adding guards, run `{{command_prefix}}evaluate` with adversarial test scenarios to verify guards hold under attack.
+After adding guards, run `/evaluate` with adversarial test scenarios to verify guards hold under attack.
 
 **NEVER**:
 

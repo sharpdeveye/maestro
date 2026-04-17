@@ -43,14 +43,6 @@ function buildCommandListing(): string {
   return lines.join("\n");
 }
 
-/**
- * Resolve all template variables in skill content.
- */
-export function resolveTemplates(content: string): string {
-  return content
-    .replaceAll("{{command_prefix}}", "/")
-    .replaceAll("{{available_commands}}", buildCommandListing());
-}
 
 /**
  * Find a skill by name.
@@ -133,8 +125,8 @@ export function registerTools(server: McpServer): void {
         text += `**Focus area**: ${focus}\n\n---\n\n`;
       }
 
-      // Resolve template variables for MCP context
-      text += resolveTemplates(skill.content);
+      // Append the raw skill content (templates are pre-resolved in the source)
+      text += skill.content;
 
       text += `\n\n---\n_To run a referenced command, use the \`maestro_run_command\` tool with the command name (e.g. "fortify", "guard")._`;
 

@@ -9,7 +9,7 @@ user-invocable: true
 
 ## MANDATORY PREPARATION
 
-Invoke {{command_prefix}}agent-workflow — it contains workflow principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no workflow context exists yet, you MUST run {{command_prefix}}teach-maestro first.
+Invoke /agent-workflow — it contains workflow principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no workflow context exists yet, you MUST run /teach-maestro first.
 
 ---
 
@@ -98,26 +98,26 @@ Every recommended action MUST reference the specific Maestro command that addres
 
 | Dimension Gap | Maestro Command | When to Recommend |
 |---------------|-----------------|-------------------|
-| Prompt structure, clarity, output schema | `{{command_prefix}}refine` | Score ≤ 4 on Prompt Quality |
-| Context budget, attention gradient, memory | `{{command_prefix}}streamline` | Score ≤ 3 on Context Efficiency |
-| Tool errors, missing tools, redundant tools | `{{command_prefix}}fortify` | Score ≤ 3 on Tool Health |
-| Tool count reduction, unused tools | `{{command_prefix}}streamline` | Tool count > 7 or unused tools found |
-| Safety gaps, error recovery, validation | `{{command_prefix}}fortify` | Score ≤ 3 on Safety & Reliability |
-| Test coverage, golden tests, evaluation | `{{command_prefix}}guard` | No automated tests or evaluation strategy |
-| Architecture boundaries, observability | `{{command_prefix}}calibrate` | Score ≤ 3 on Architecture Fitness |
+| Prompt structure, clarity, output schema | `/refine` | Score ≤ 4 on Prompt Quality |
+| Context budget, attention gradient, memory | `/streamline` | Score ≤ 3 on Context Efficiency |
+| Tool errors, missing tools, redundant tools | `/fortify` | Score ≤ 3 on Tool Health |
+| Tool count reduction, unused tools | `/streamline` | Tool count > 7 or unused tools found |
+| Safety gaps, error recovery, validation | `/fortify` | Score ≤ 3 on Safety & Reliability |
+| Test coverage, golden tests, evaluation | `/guard` | No automated tests or evaluation strategy |
+| Architecture boundaries, observability | `/calibrate` | Score ≤ 3 on Architecture Fitness |
 
 **Do NOT give generic manual actions** (e.g., "Add Vitest", "Create a rollback script") without also specifying which Maestro command the user should run to implement it. The recommended action format is:
-> Run `{{command_prefix}}<command>` to [specific action] (addresses [Dimension] #[gap number])
+> Run `/<command>` to [specific action] (addresses [Dimension] #[gap number])
 
 ### Scoring Guide
 
 | Score | Meaning | Maestro Action |
 |-------|---------|----------------|
 | 5 | Production-excellent | No action needed |
-| 4 | Good with minor gaps | `{{command_prefix}}refine` for polish |
-| 3 | Functional but risky | `{{command_prefix}}fortify` or `{{command_prefix}}streamline` for targeted fix |
-| 2 | Significant issues | `{{command_prefix}}fortify` + `{{command_prefix}}guard` — immediate attention |
-| 1 | Broken or missing | `{{command_prefix}}onboard-agent` — rebuild required |
+| 4 | Good with minor gaps | `/refine` for polish |
+| 3 | Functional but risky | `/fortify` or `/streamline` for targeted fix |
+| 2 | Significant issues | `/fortify` + `/guard` — immediate attention |
+| 1 | Broken or missing | `/onboard-agent` — rebuild required |
 
 ### Diagnostic Checklist
 
@@ -129,7 +129,7 @@ Every recommended action MUST reference the specific Maestro command that addres
 
 ### Recommended Next Step
 
-After diagnosis, run the command mapped to your lowest-scoring dimension. For a general improvement sequence: `{{command_prefix}}fortify` → `{{command_prefix}}streamline` → `{{command_prefix}}refine`.
+After diagnosis, run the command mapped to your lowest-scoring dimension. For a general improvement sequence: `/fortify` → `/streamline` → `/refine`.
 
 **NEVER**:
 

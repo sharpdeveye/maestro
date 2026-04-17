@@ -93,7 +93,7 @@ Save this file to the project root as `.maestro.md`.
 
 ### Recommended Next Step
 
-After creating `.maestro.md`, run `{{command_prefix}}diagnose` for a baseline health check of your workflow.
+After creating `.maestro.md`, run `/diagnose` for a baseline health check of your workflow.
 
 **NEVER**:
 

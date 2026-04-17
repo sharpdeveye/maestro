@@ -9,7 +9,7 @@ user-invocable: true
 
 ## MANDATORY PREPARATION
 
-Invoke {{command_prefix}}agent-workflow — it contains workflow principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no workflow context exists yet, you MUST run {{command_prefix}}teach-maestro first.
+Invoke /agent-workflow — it contains workflow principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no workflow context exists yet, you MUST run /teach-maestro first.
 
 ---
 
@@ -69,7 +69,7 @@ project/
 
 ### Recommended Next Step
 
-After onboarding, run `{{command_prefix}}diagnose` for a baseline health check, then `{{command_prefix}}fortify` to add production-grade error handling.
+After onboarding, run `/diagnose` for a baseline health check, then `/fortify` to add production-grade error handling.
 
 **NEVER**:
 

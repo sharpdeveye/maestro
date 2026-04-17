@@ -9,7 +9,7 @@ user-invocable: true
 
 ## MANDATORY PREPARATION
 
-Invoke {{command_prefix}}agent-workflow — it contains workflow principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no workflow context exists yet, you MUST run {{command_prefix}}teach-maestro first.
+Invoke /agent-workflow — it contains workflow principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no workflow context exists yet, you MUST run /teach-maestro first.
 Consult the feedback-loops reference in the agent-workflow skill for evaluation patterns, golden test sets, and regression detection.
 
 ---
@@ -81,7 +81,7 @@ Produce a structured report with:
 
 ### Recommended Next Step
 
-After evaluation, run `{{command_prefix}}fortify` to address error behavior gaps, `{{command_prefix}}refine` for output quality improvements, or `{{command_prefix}}iterate` to set up continuous quality monitoring.
+After evaluation, run `/fortify` to address error behavior gaps, `/refine` for output quality improvements, or `/iterate` to set up continuous quality monitoring.
 
 **NEVER**:
 

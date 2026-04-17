@@ -9,7 +9,7 @@ user-invocable: true
 
 ## MANDATORY PREPARATION
 
-Invoke {{command_prefix}}agent-workflow — it contains workflow principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no workflow context exists yet, you MUST run {{command_prefix}}teach-maestro first.
+Invoke /agent-workflow — it contains workflow principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no workflow context exists yet, you MUST run /teach-maestro first.
 
 ---
 
@@ -58,7 +58,7 @@ Transform the specific solution into a reusable template:
 
 ### Recommended Next Step
 
-After extracting patterns, run `{{command_prefix}}calibrate` to ensure the new patterns are consistent with existing project conventions.
+After extracting patterns, run `/calibrate` to ensure the new patterns are consistent with existing project conventions.
 
 **NEVER**:
 

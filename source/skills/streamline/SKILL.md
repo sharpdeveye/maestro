@@ -9,7 +9,7 @@ user-invocable: true
 
 ## MANDATORY PREPARATION
 
-Invoke {{command_prefix}}agent-workflow — it contains workflow principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no workflow context exists yet, you MUST run {{command_prefix}}teach-maestro first.
+Invoke /agent-workflow — it contains workflow principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no workflow context exists yet, you MUST run /teach-maestro first.
 Consult the agent-architecture reference in the agent-workflow skill for complexity assessment and topology simplification.
 
 
@@ -79,7 +79,7 @@ For each recommendation:
 
 ### Recommended Next Step
 
-After streamlining, run `{{command_prefix}}evaluate` to verify functionality is preserved, then `{{command_prefix}}refine` for final polish.
+After streamlining, run `/evaluate` to verify functionality is preserved, then `/refine` for final polish.
 
 **NEVER**:
 

@@ -9,7 +9,7 @@ user-invocable: true
 
 ## MANDATORY PREPARATION
 
-Invoke {{command_prefix}}agent-workflow — it contains workflow principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no workflow context exists yet, you MUST run {{command_prefix}}teach-maestro first.
+Invoke /agent-workflow — it contains workflow principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no workflow context exists yet, you MUST run /teach-maestro first.
 
 ---
 
@@ -70,7 +70,7 @@ Every turbocharge technique must degrade gracefully. The workflow without the en
 
 ### Recommended Next Step
 
-After turbocharging, run `{{command_prefix}}evaluate` to verify the enhancement works and degrades gracefully.
+After turbocharging, run `/evaluate` to verify the enhancement works and degrades gracefully.
 
 **NEVER**:
 

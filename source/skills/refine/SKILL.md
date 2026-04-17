@@ -9,7 +9,7 @@ user-invocable: true
 
 ## MANDATORY PREPARATION
 
-Invoke {{command_prefix}}agent-workflow — it contains workflow principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no workflow context exists yet, you MUST run {{command_prefix}}teach-maestro first.
+Invoke /agent-workflow — it contains workflow principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no workflow context exists yet, you MUST run /teach-maestro first.
 
 ---
 
@@ -69,13 +69,13 @@ For each checklist item that fails, provide:
 
 | Priority | Criteria | Maestro Action |
 |----------|---------|----------------|
-| Critical | Affects correctness or safety | `{{command_prefix}}fortify` or `{{command_prefix}}guard` before shipping |
-| Important | Affects quality or maintainability | `{{command_prefix}}calibrate` in current cycle |
-| Nice-to-have | Cosmetic or minor inconsistency | Note for next `{{command_prefix}}refine` pass |
+| Critical | Affects correctness or safety | `/fortify` or `/guard` before shipping |
+| Important | Affects quality or maintainability | `/calibrate` in current cycle |
+| Nice-to-have | Cosmetic or minor inconsistency | Note for next `/refine` pass |
 
 ### Recommended Next Step
 
-After refinement is complete, run `{{command_prefix}}evaluate` to verify the polished workflow against realistic scenarios.
+After refinement is complete, run `/evaluate` to verify the polished workflow against realistic scenarios.
 
 **NEVER**:
 

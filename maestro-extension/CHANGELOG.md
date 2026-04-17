@@ -5,6 +5,11 @@ All notable changes to the **Maestro — AI Workflow Fluency** extension will be
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.4.2] - 2026-04-17
+
+### Fixed
+- **Template engine removed** — `{{command_prefix}}` and `{{available_commands}}` were removed in favor of hardcoding `/` within all `.agents/skills` source files. This fixes a bug where users using `npx skills add` received raw, unresolved templates. All downstream consumers (MCP, VS Code extension, Chat Participant) now load the raw templates directly.
+
 ## [1.4.1] - 2026-04-17
 
 ### Fixed

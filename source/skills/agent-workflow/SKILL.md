@@ -12,7 +12,7 @@ Before applying any workflow guidance, gather context:
 
 1. **Check for `.maestro.md`** in the project root
    - If it exists → read it and use the workflow context within
-   - If it doesn't exist → tell the user: *"No workflow context found. Run {{command_prefix}}teach-maestro to set up project-specific context for better results."*
+   - If it doesn't exist → tell the user: *"No workflow context found. Run /teach-maestro to set up project-specific context for better results."*
 
 2. **Minimum viable context** (if no `.maestro.md`):
    - What AI model(s) are being used?

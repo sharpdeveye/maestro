@@ -9,7 +9,7 @@ user-invocable: true
 
 ## MANDATORY PREPARATION
 
-Invoke {{command_prefix}}agent-workflow — it contains workflow principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no workflow context exists yet, you MUST run {{command_prefix}}teach-maestro first.
+Invoke /agent-workflow — it contains workflow principles, anti-patterns, and the **Context Gathering Protocol**. Follow the protocol before proceeding — if no workflow context exists yet, you MUST run /teach-maestro first.
 
 ---
 
@@ -52,7 +52,7 @@ Transform a general-purpose workflow into a domain expert.
 
 ### Recommended Next Step
 
-After specialization, run `{{command_prefix}}evaluate` with domain-specific scenarios, then `{{command_prefix}}guard` to add domain-appropriate safety guardrails.
+After specialization, run `/evaluate` with domain-specific scenarios, then `/guard` to add domain-appropriate safety guardrails.
 
 **NEVER**:
 

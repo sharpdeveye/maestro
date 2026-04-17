@@ -1,6 +1,6 @@
 {
   "name": "maestro-workflow-mcp",
-  "version": "1.3.1",
+  "version": "1.4.2",
   "description": "MCP server for Maestro — exposes 22 workflow skills as tools, prompts, and resources for any MCP-compatible AI client",
   "type": "module",
   "bin": {
