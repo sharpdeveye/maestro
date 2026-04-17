@@ -3,6 +3,8 @@ name: Build Extension
 on:
   push:
     branches: [main]
+    tags:
+      - 'ext-v*'
     paths:
       - 'maestro-extension/**'
   pull_request:
@@ -44,3 +46,9 @@ jobs:
           name: maestro-workflow-vsix
           path: maestro-extension/*.vsix
           retention-days: 30
+
+      # Publish to Open VSX Registry on tag push
+      - name: Publish to Open VSX
+        if: startsWith(github.ref, 'refs/tags/ext-v')
+        run: npx -y ovsx publish *.vsix -p ${{ secrets.VSX_TOKEN }}
+        working-directory: maestro-extension
