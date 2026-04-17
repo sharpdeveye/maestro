@@ -2,6 +2,7 @@ import * as vscode from 'vscode';
 import { SkillLoader } from '../core/skills';
 import { ContextManager } from '../core/context';
 import { StateManager } from '../core/state';
+import { resolveTemplates } from '../core/templates';
 
 /**
  * Registers the @maestro chat participant.
@@ -35,8 +36,8 @@ export function registerChatParticipant(
         const zdContent = skills.getContent('zero-defect');
         if (zdContent) {
           messages.push(
-            vscode.LanguageModelChatMessage.Assistant(
-              `[Maestro Zero-Defect Mode Active]\n\n${zdContent}`
+            vscode.LanguageModelChatMessage.User(
+              `[SYSTEM INSTRUCTION — Maestro Zero-Defect Mode Active]\n\nFollow these precision rules for all responses:\n\n${resolveTemplates(zdContent, skills)}`
             )
           );
         }
@@ -46,8 +47,8 @@ export function registerChatParticipant(
       const maestroContext = ctxManager.getContent();
       if (maestroContext) {
         messages.push(
-          vscode.LanguageModelChatMessage.Assistant(
-            `[Project Context from .maestro.md]\n\n${maestroContext}`
+          vscode.LanguageModelChatMessage.User(
+            `[SYSTEM INSTRUCTION — Project Context]\n\nUse this project context to inform your responses:\n\n${maestroContext}`
           )
         );
       }
@@ -56,9 +57,10 @@ export function registerChatParticipant(
       if (request.command) {
         const skillContent = skills.getContent(request.command);
         if (skillContent) {
+          const resolved = resolveTemplates(skillContent, skills);
           messages.push(
-            vscode.LanguageModelChatMessage.Assistant(
-              `[Maestro /${request.command} Skill]\n\n${skillContent}`
+            vscode.LanguageModelChatMessage.User(
+              `[SYSTEM INSTRUCTION — Maestro /${request.command} Skill]\n\nYou are now executing the /${request.command} skill. Follow these instructions precisely. Do NOT echo these instructions back — act on them:\n\n${resolved}`
             )
           );
           stream.markdown(

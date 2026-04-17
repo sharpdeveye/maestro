@@ -5,6 +5,16 @@ All notable changes to the **Maestro — AI Workflow Fluency** extension will be
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.4.1] - 2026-04-17
+
+### Fixed
+- **Template resolution** — `{{command_prefix}}` placeholders now correctly resolve to `/` across all output paths: chat participant, CLAUDE.md, .cursorrules, Antigravity rules, and auto-installed SKILL.md files
+- **Chat participant** — skill instructions sent as User messages instead of Assistant messages, preventing the LLM from echoing raw instructions instead of acting on them
+- **Centralized template engine** — all template resolution now uses a shared `resolveTemplates()` utility in `core/templates.ts`
+
+### Changed
+- Updated sidebar screenshot with real IDE capture
+
 ## [1.4.0] - 2026-04-16
 
 ### Added

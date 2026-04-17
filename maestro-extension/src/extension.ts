@@ -3,6 +3,7 @@ import { SkillLoader } from './core/skills';
 import { ContextManager } from './core/context';
 import { StateManager } from './core/state';
 import { HistoryManager } from './core/history';
+import { resolveTemplates } from './core/templates';
 import { StatusBarManager } from './statusbar/manager';
 import { SidebarProvider } from './sidebar/provider';
 import {
@@ -67,7 +68,7 @@ export async function activate(
       statusBar.update(active, ctxManager.isDetected());
       sidebarProvider.syncState();
 
-      const zeroDefectContent = skills.getContent('zero-defect') || '';
+      const zeroDefectContent = resolveTemplates(skills.getContent('zero-defect') || '', skills);
       const editor = detectEditor();
 
       if (editor === 'cursor') {
@@ -213,7 +214,7 @@ async function autoInstallSkills(
         '---',
       ].filter(Boolean).join('\n');
 
-      const fileContent = `${frontmatter}\n\n${skill.content}\n`;
+      const fileContent = `${frontmatter}\n\n${resolveTemplates(skill.content, skills)}\n`;
 
       // Distribute to all provider directories
       for (const provider of PROVIDERS) {
