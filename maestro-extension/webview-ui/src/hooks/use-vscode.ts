@@ -6,6 +6,7 @@ export interface ExtensionMessage {
   type:
     | "skills"
     | "state"
+    | "history"
     | "context-status";
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   data: any;
@@ -25,6 +26,7 @@ export interface MaestroState {
   contextDetected: boolean;
   contextInfo: string | null;
   skills: SkillInfo[];
+  recentCommands: string[];
 }
 
 export interface SkillInfo {
@@ -39,6 +41,7 @@ const DEFAULT_STATE: MaestroState = {
   contextDetected: false,
   contextInfo: null,
   skills: [],
+  recentCommands: [],
 };
 
 /**
@@ -56,6 +59,9 @@ export function useVsCode() {
           break;
         case "skills":
           setState((prev) => ({ ...prev, skills: msg.data }));
+          break;
+        case "history":
+          setState((prev) => ({ ...prev, recentCommands: msg.data }));
           break;
         case "context-status":
           setState((prev) => ({

@@ -2,6 +2,7 @@ import * as vscode from 'vscode';
 import { SkillLoader } from '../core/skills';
 import { StateManager } from '../core/state';
 import { ContextManager } from '../core/context';
+import { HistoryManager } from '../core/history';
 
 /**
  * WebviewViewProvider for the Maestro sidebar panel.
@@ -13,7 +14,8 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
     private readonly extensionUri: vscode.Uri,
     private readonly skills: SkillLoader,
     private readonly state: StateManager,
-    private readonly context: ContextManager
+    private readonly context: ContextManager,
+    private readonly history?: HistoryManager
   ) {}
 
   resolveWebviewView(
@@ -71,6 +73,13 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
       type: 'skills',
       data: this.skills.toJSON(),
     });
+    // Send command history to webview
+    if (this.history) {
+      this.view?.webview.postMessage({
+        type: 'history',
+        data: this.history.getRecent(10).map(e => e.name),
+      });
+    }
   }
 
   private toCamelCase(name: string): string {

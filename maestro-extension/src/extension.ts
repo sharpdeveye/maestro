@@ -41,7 +41,8 @@ export async function activate(
     context.extensionUri,
     skills,
     state,
-    ctxManager
+    ctxManager,
+    history
   );
 
   context.subscriptions.push(

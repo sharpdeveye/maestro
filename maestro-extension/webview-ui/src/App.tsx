@@ -27,6 +27,7 @@ export default function App() {
         {/* Command List */}
         <CommandList
           skills={state.skills}
+          usedCommands={state.recentCommands}
           onRunCommand={runCommand}
           onHover={setHoveredDescription}
           onLeave={() => setHoveredDescription(null)}
