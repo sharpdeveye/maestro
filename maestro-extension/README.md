@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="media/maestro-icon.png" alt="Maestro" width="128" />
+<img src="https://raw.githubusercontent.com/sharpdeveye/maestro/main/maestro-extension/media/maestro-icon.png" alt="Maestro" width="128" />
 
 # Maestro — AI Workflow Fluency
 
@@ -23,7 +23,7 @@
 
 Browse all 21 Maestro commands organized into four categories — **Analysis**, **Fix & Improve**, **Enhancement**, and **Utility**. Click any command to instantly inject it into your AI chat panel.
 
-![Command Center](media/sidebar-preview.png)
+![Command Center](https://raw.githubusercontent.com/sharpdeveye/maestro/main/maestro-extension/media/sidebar-preview.png)
 
 ### 🛡️ Zero-Defect Mode
 
