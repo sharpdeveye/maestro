@@ -1,6 +1,6 @@
 import { FileText, AlertCircle } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { cn } from "@/lib/utils";
+import { StarButton } from "@/components/ui/star-button";
 
 interface ContextStatusProps {
   detected: boolean;
@@ -24,16 +24,17 @@ export function ContextStatus({ detected, info, onInit }: ContextStatusProps) {
           <>
             <AlertCircle className="h-3.5 w-3.5 text-muted-foreground" />
             <span className="text-muted-foreground">No context file</span>
-            <button
-              type="button"
+            <StarButton
               onClick={onInit}
-              className={cn(
-                "ml-auto rounded-md border border-border/50 bg-card px-2 py-0.5 text-[10px] font-medium text-muted-foreground transition-colors",
-                "hover:border-primary/40 hover:text-primary"
-              )}
+              className="ml-auto h-6 px-2.5 border border-border/50 bg-card"
+              lightColor="var(--color-primary)"
+              backgroundColor="var(--color-card)"
+              duration={4}
+              lightWidth={80}
+              borderWidth={1}
             >
               Initialize
-            </button>
+            </StarButton>
           </>
         )}
       </div>

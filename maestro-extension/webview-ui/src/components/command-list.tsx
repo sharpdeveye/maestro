@@ -90,7 +90,7 @@ export function CommandList({ skills, usedCommands = [], onRunCommand, onHover, 
             <button
               type="button"
               onClick={() => toggle(catId)}
-              className="flex w-full items-center gap-2 rounded-md px-2 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground"
+              className="flex w-full items-center gap-2 rounded-md px-2 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
             >
               <ChevronRight
                 className={cn(
