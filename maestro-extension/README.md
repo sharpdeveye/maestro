@@ -1,10 +1,6 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/sharpdeveye/maestro/main/maestro-extension/media/maestro-icon.png" alt="Maestro" width="128" />
-
-# Maestro — AI Workflow Fluency
-
-**21 commands for production-grade AI agent workflows.**
+<img src="https://raw.githubusercontent.com/sharpdeveye/maestro/main/assets/banner.png" alt="Maestro — AI Workflow Fluency" width="100%">
 
 [![VS Code](https://img.shields.io/visual-studio-marketplace/v/sharpdeveye.maestro-workflow?label=Marketplace&color=007ACC&logo=visual-studio-code)](https://marketplace.visualstudio.com/items?itemName=sharpdeveye.maestro-workflow)
 [![Installs](https://img.shields.io/visual-studio-marketplace/i/sharpdeveye.maestro-workflow?color=blue)](https://marketplace.visualstudio.com/items?itemName=sharpdeveye.maestro-workflow)

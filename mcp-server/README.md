@@ -1,6 +1,16 @@
-# maestro-workflow-mcp
+<div align="center">
 
-MCP server for [Maestro](https://github.com/sharpdeveye/maestro) — exposes 22 workflow skills as tools, prompts, and resources for any MCP-compatible AI client.
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/sharpdeveye/maestro/main/assets/banner.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/sharpdeveye/maestro/main/assets/banner.svg">
+  <img src="https://raw.githubusercontent.com/sharpdeveye/maestro/main/assets/banner.svg" alt="Maestro" width="100%">
+</picture>
+
+<br>
+
+**MCP server for [Maestro](https://github.com/sharpdeveye/maestro) — exposes 22 workflow skills as tools, prompts, and resources for any MCP-compatible AI client.**
+
+</div>
 
 ## Installation
 
