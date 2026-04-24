@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 300" fill="none">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;display=swap');
+      .ascii {margin:0 auto; font-family: 'JetBrains Mono', 'Cascadia Code', 'Fira Code', monospace; fill: #d87656; }
+      .logo-stroke { stroke: #d87656; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="300" rx="12" fill="#0d1117"/>
+
+  <!-- Subtle grid -->
+  <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
+    <path d="M 24 0 L 0 0 0 24" fill="none" stroke="rgba(255,255,255,0.025)" stroke-width="0.5"/>
+  </pattern>
+  <rect width="960" height="300" rx="12" fill="url(#grid)"/>
+
+  <!-- Logo (audio-lines icon) -->
+  <g transform="translate(426, 20) scale(4.5)">
+    <path d="M3 11V13M6 8V16M9 10V14M12 7V17M15 4V20M18 9V15M21 11V13" class="logo-stroke"/>
+  </g>
+
+  <!-- ASCII Art - MAESTRO -->
+  <text class="ascii" xml:space="preserve">
+    <tspan x="144" dy="150">███╗   ███╗  █████╗  ███████╗ ███████╗ ████████╗ ██████╗   ██████╗</tspan>
+    <tspan x="144" dy="14">████╗ ████║ ██╔══██╗ ██╔════╝ ██╔════╝ ╚══██╔══╝ ██╔══██╗ ██╔═══██╗</tspan>
+    <tspan x="144" dy="14">██╔████╔██║ ███████║ █████╗   ███████╗    ██║    ██████╔╝ ██║   ██║</tspan>
+    <tspan x="144" dy="14">██║╚██╔╝██║ ██╔══██║ ██╔══╝   ╚════██║    ██║    ██╔══██╗ ██║   ██║</tspan>
+    <tspan x="144" dy="14">██║ ╚═╝ ██║ ██║  ██║ ███████╗ ███████║    ██║    ██║  ██║ ╚██████╔╝</tspan>
+    <tspan x="144" dy="14">╚═╝     ╚═╝ ╚═╝  ╚═╝ ╚══════╝ ╚══════╝    ╚═╝    ╚═╝  ╚═╝  ╚═════╝</tspan>
+  </text>
+</svg>

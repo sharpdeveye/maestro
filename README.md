@@ -1,10 +1,12 @@
 <div align="center">
 
-<img src="assets/logo.svg" alt="Maestro" width="80" />
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/banner.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/banner.svg">
+  <img src="assets/banner.svg" alt="Maestro — Workflow fluency for AI coding agents" width="100%">
+</picture>
 
-# Maestro
-
-**Workflow fluency for AI coding agents.**
+<br>
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Version](https://img.shields.io/badge/version-1.4.2-brightgreen.svg)](https://github.com/sharpdeveye/maestro/releases)
