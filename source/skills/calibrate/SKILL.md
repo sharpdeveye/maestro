@@ -3,7 +3,7 @@ name: calibrate
 description: "Use when workflow components are inconsistent, naming conventions vary, or a new team member's work needs alignment to project standards."
 argument-hint: "[target area]"
 category: fix
-version: 1.3.1
+version: 2.0.0
 user-invocable: true
 ---
 

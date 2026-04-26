@@ -11,7 +11,7 @@ const CATEGORY_META: Record<
   analysis: {
     label: "Analysis",
     icon: <Search className="h-3.5 w-3.5" />,
-    skills: ["diagnose", "evaluate"],
+    skills: ["diagnose", "evaluate", "reflect"],
   },
   fix: {
     label: "Fix & Improve",
@@ -42,6 +42,8 @@ const CATEGORY_META: Record<
       "specialize",
       "extract-pattern",
       "temper",
+      "capture",
+      "recap",
     ],
   },
 };
@@ -112,7 +114,7 @@ export function CommandList({ skills, usedCommands = [], onRunCommand, onHover, 
                     key={skill.name}
                     name={skill.name}
                     description={skill.description}
-                    isNew={skill.name === "zero-defect"}
+                    isNew={["capture", "recap", "reflect"].includes(skill.name)}
                     used={usedSet.has(skill.name)}
                     onClick={() => onRunCommand(skill.name)}
                     onHover={onHover}

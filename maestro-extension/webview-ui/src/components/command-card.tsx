@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { AnimatePresence, motion } from "motion/react";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
@@ -21,10 +23,16 @@ export function CommandCard({
   onHover,
   onLeave,
 }: CommandCardProps) {
+  const [executing, setExecuting] = useState(false);
+
   return (
     <button
       type="button"
-      onClick={onClick}
+      onClick={() => {
+        setExecuting(true);
+        setTimeout(() => setExecuting(false), 1200);
+        onClick();
+      }}
       onMouseEnter={() => onHover(description)}
       onMouseLeave={onLeave}
       className={cn(
@@ -44,6 +52,20 @@ export function CommandCard({
         blur={0}
         movementDuration={0.8}
       />
+
+      {/* Ripple animation on execute */}
+      <AnimatePresence>
+        {executing && (
+          <motion.div
+            className="absolute inset-0 rounded-lg bg-primary/10"
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1.05, opacity: 1 }}
+            exit={{ scale: 1.1, opacity: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          />
+        )}
+      </AnimatePresence>
+
       <div className="relative flex items-center gap-2 rounded-md px-3 py-2">
         <span
           className={cn(

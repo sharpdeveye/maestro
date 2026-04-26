@@ -7,7 +7,9 @@ export interface ExtensionMessage {
     | "skills"
     | "state"
     | "history"
-    | "context-status";
+    | "context-status"
+    | "token-budget"
+    | "wave-state";
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   data: any;
 }
@@ -20,6 +22,25 @@ export type WebviewMessage =
   | { type: "open-link"; url: string }
   | { type: "ready" };
 
+/** Token budget data from the context slicer */
+export interface TokenBudgetData {
+  lastEstimate: number;
+  fullEstimate: number;
+  savings: number;
+}
+
+/** Wave phase state for progress visualization */
+export interface WavePhaseInfo {
+  name: string;
+  status: "pending" | "running" | "passed" | "failed";
+}
+
+/** Active wave state */
+export interface ActiveWave {
+  phases: WavePhaseInfo[];
+  currentPhase: string;
+}
+
 /** State managed by the extension host, synced to webview */
 export interface MaestroState {
   zeroDefectActive: boolean;
@@ -27,6 +48,8 @@ export interface MaestroState {
   contextInfo: string | null;
   skills: SkillInfo[];
   recentCommands: string[];
+  tokenBudget: TokenBudgetData | null;
+  activeWave: ActiveWave | null;
 }
 
 export interface SkillInfo {
@@ -42,6 +65,8 @@ const DEFAULT_STATE: MaestroState = {
   contextInfo: null,
   skills: [],
   recentCommands: [],
+  tokenBudget: null,
+  activeWave: null,
 };
 
 /**
@@ -69,6 +94,12 @@ export function useVsCode() {
             contextDetected: msg.data.detected,
             contextInfo: msg.data.info,
           }));
+          break;
+        case "token-budget":
+          setState((prev) => ({ ...prev, tokenBudget: msg.data }));
+          break;
+        case "wave-state":
+          setState((prev) => ({ ...prev, activeWave: msg.data }));
           break;
       }
     };

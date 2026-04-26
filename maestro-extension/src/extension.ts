@@ -3,6 +3,8 @@ import { SkillLoader } from './core/skills';
 import { ContextManager } from './core/context';
 import { StateManager } from './core/state';
 import { HistoryManager } from './core/history';
+import { WorkspaceIndexer } from './core/workspace-indexer';
+import { ContextSlicer } from './core/context-slicer';
 import { StatusBarManager } from './statusbar/manager';
 import { SidebarProvider } from './sidebar/provider';
 import {
@@ -11,6 +13,7 @@ import {
   syncClaudeMd,
   syncAntigravityRule,
 } from './adapters/editor';
+import { autoConfigureMcpServer } from './adapters/mcp-config';
 import { registerChatParticipant } from './chat/participant';
 
 let statusBar: StatusBarManager;
@@ -25,11 +28,18 @@ export async function activate(
   const state = new StateManager(context);
   const ctxManager = new ContextManager();
   history = new HistoryManager(context);
+  const indexer = new WorkspaceIndexer();
+  const slicer = new ContextSlicer(indexer, ctxManager);
 
   await ctxManager.initialize();
+  // Indexer runs in the background — does not block activation
+  indexer.initialize();
 
   // --- Auto-install Maestro skills into the workspace ---
   await autoInstallSkills(context, skills);
+
+  // --- Auto-configure MCP server ---
+  autoConfigureMcpServer();
 
   // --- Status Bar ---
   statusBar = new StatusBarManager();
@@ -42,7 +52,8 @@ export async function activate(
     skills,
     state,
     ctxManager,
-    history
+    history,
+    slicer
   );
 
   context.subscriptions.push(
@@ -165,10 +176,11 @@ export async function activate(
 
   // --- Chat Participant (@maestro) ---
   // registerChatParticipant has its own guard: if (!vscode.chat?.createChatParticipant) return;
-  registerChatParticipant(context, skills, ctxManager, state);
+  registerChatParticipant(context, skills, ctxManager, state, slicer);
 
   // --- Context cleanup ---
   context.subscriptions.push(ctxManager);
+  context.subscriptions.push(indexer);
 }
 
 /**

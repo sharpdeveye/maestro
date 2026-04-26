@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Header } from "@/components/header";
 import { CommandList } from "@/components/command-list";
 import { ContextStatus } from "@/components/context-status";
+import { TokenBudget } from "@/components/token-budget";
+import { WaveProgress } from "@/components/wave-progress";
 import { useVsCode } from "@/hooks/use-vscode";
 import { ExternalLink, Settings, MessageCircleQuestionMark } from "lucide-react";
 
@@ -10,7 +12,10 @@ export default function App() {
   const [hoveredDescription, setHoveredDescription] = useState<string | null>(null);
 
   return (
-    <div className="flex h-screen flex-col overflow-hidden">
+    <div
+      className="flex h-screen flex-col overflow-hidden transition-colors duration-500"
+      data-mode={state.zeroDefectActive ? "strict" : "default"}
+    >
       <Header
         zeroDefectActive={state.zeroDefectActive}
         onToggle={() => toggleMode("zero-defect")}
@@ -19,6 +24,14 @@ export default function App() {
       />
 
       <div className="flex flex-1 flex-col gap-3 overflow-y-auto pb-4">
+        {/* Wave Progress — shown when a wave is active */}
+        {state.activeWave && (
+          <WaveProgress
+            phases={state.activeWave.phases}
+            currentPhase={state.activeWave.currentPhase}
+          />
+        )}
+
         {/* Command List */}
         <CommandList
           skills={state.skills}
@@ -31,6 +44,13 @@ export default function App() {
 
       {/* Sticky bottom section */}
       <div className="mt-auto shrink-0 border-t border-border/50">
+        {/* Token Budget */}
+        {state.tokenBudget && (
+          <div className="px-4 py-2 border-b border-border/30">
+            <TokenBudget {...state.tokenBudget} />
+          </div>
+        )}
+
         {/* Context File Status */}
         <div className="py-2">
           <ContextStatus

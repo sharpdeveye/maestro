@@ -2,7 +2,7 @@
 name: agent-workflow
 description: "Use when any Maestro command is invoked — provides foundational workflow design principles across prompt engineering, context management, tool orchestration, agent architecture, feedback loops, knowledge systems, and guardrails."
 category: core
-version: 1.3.1
+version: 2.0.0
 user-invocable: false
 ---
 
@@ -10,9 +10,15 @@ user-invocable: false
 
 Before applying any workflow guidance, gather context:
 
-1. **Check for `.maestro.md`** in the project root
+1. **Check for Maestro context** in the project root
+   - First check `.maestro/context.md` (v2 layout)
+   - Then check `.maestro.md` (v1 layout — backward compatible)
    - If it exists → read it and use the workflow context within
    - If it doesn't exist → tell the user: *"No workflow context found. Run /teach-maestro to set up project-specific context for better results."*
+
+2. **Check for decision history** (optional)
+   - If `.maestro/decisions.jsonl` exists → read the last 5 decisions for session continuity
+   - If it doesn't exist → proceed without it (no error)
 
 2. **Minimum viable context** (if no `.maestro.md`):
    - What AI model(s) are being used?

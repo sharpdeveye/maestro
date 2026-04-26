@@ -3,7 +3,7 @@ name: amplify
 description: "Use when the workflow works but needs to handle more complex cases or produce higher-quality output through better tools, context, prompts, or models."
 argument-hint: "[target area]"
 category: enhancement
-version: 1.3.1
+version: 2.0.0
 user-invocable: true
 ---
 

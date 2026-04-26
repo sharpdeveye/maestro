@@ -3,7 +3,7 @@ name: evaluate
 description: "Use when the user wants a quality review, interaction audit, or to test the workflow against realistic scenarios."
 argument-hint: "[workflow or scenario]"
 category: analysis
-version: 1.3.1
+version: 2.0.0
 user-invocable: true
 ---
 

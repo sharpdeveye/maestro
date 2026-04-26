@@ -41,12 +41,35 @@
   --animate-star-btn: star-btn calc(var(--duration) * 1s) linear infinite;
 }
 
+/*
+ * Strict Mode — Visual identity shift
+ * When zero-defect is active, the entire color palette shifts
+ * from warm amber to a hot red-orange with deepened backgrounds.
+ */
+[data-mode="strict"] {
+  --color-primary: oklch(0.65 0.18 25) !important;
+  --color-ring: oklch(0.65 0.18 25) !important;
+  --color-background: oklch(0.13 0.01 250) !important;
+  --color-card: oklch(0.16 0.015 250) !important;
+  --color-border: oklch(0.25 0.02 250) !important;
+  --color-accent: oklch(0.20 0.015 250) !important;
+}
+
 @keyframes star-btn {
   0% {
     offset-distance: 0%;
   }
   100% {
     offset-distance: 100%;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
   }
 }
 
@@ -60,13 +83,29 @@
     @apply bg-background text-foreground font-sans;
     margin: 0;
     padding: 0;
-    font-size: 13px;
-    line-height: 1.5;
+    font-size: 12.5px;
+    letter-spacing: 0.01em;
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
   }
+}
 
-  /* Import Google Fonts */
-  @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap");
+/* Monospace — refined weight for command names */
+.font-mono {
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+/* Skeleton shimmer for loading states */
+.skeleton-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--color-muted) 25%,
+    var(--color-accent) 50%,
+    var(--color-muted) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
 }
 
 /* Scrollbar styling to match VS Code */
@@ -86,3 +125,4 @@
 ::-webkit-scrollbar-thumb:hover {
   background: var(--vscode-scrollbarSlider-hoverBackground, #555555);
 }
+

@@ -8,7 +8,7 @@
 
 <br>
 
-**MCP server for [Maestro](https://github.com/sharpdeveye/maestro) — exposes 22 workflow skills as tools, prompts, and resources for any MCP-compatible AI client.**
+**MCP server for [Maestro](https://github.com/sharpdeveye/maestro) — exposes 25 workflow skills as tools, prompts, and resources for any MCP-compatible AI client.**
 
 </div>
 
@@ -74,16 +74,22 @@ Clients connect to `http://your-server:3001/mcp`. Health check at `/health`.
 
 | Tool | Description |
 |------|-------------|
-| `maestro_list_commands` | List all 21 commands grouped by category |
+| `maestro_list_commands` | List all 25 commands grouped by category |
 | `maestro_run_command` | Get full instructions for a specific command |
-| `maestro_read_context` | Read `.maestro.md` from a project path |
+| `maestro_read_context` | Read `.maestro/context.md` or `.maestro.md` from a project |
 | `maestro_init` | Generate a `.maestro.md` template |
+| `maestro_wave_start` | Start a multi-phase wave execution |
+| `maestro_wave_advance` | Advance a wave by submitting phase output |
+| `maestro_wave_status` | Get current wave progress |
+| `maestro_write_decision` | Append a decision to `.maestro/decisions.jsonl` |
+| `maestro_read_decisions` | Read recent decisions from the log |
+| `maestro_read_audit` | Read audit trail with duration and cost |
 
 ### Prompts
 
-21 prompt templates — one per command. Select from your client's prompt picker:
+25 prompt templates — one per command. Select from your client's prompt picker:
 
-`diagnose` · `evaluate` · `refine` · `streamline` · `calibrate` · `fortify` · `zero-defect` · `amplify` · `compose` · `enrich` · `accelerate` · `chain` · `guard` · `iterate` · `temper` · `turbocharge` · `extract-pattern` · `adapt-workflow` · `onboard-agent` · `specialize` · `teach-maestro`
+`diagnose` · `evaluate` · `reflect` · `refine` · `streamline` · `calibrate` · `fortify` · `zero-defect` · `amplify` · `compose` · `enrich` · `accelerate` · `chain` · `guard` · `iterate` · `temper` · `turbocharge` · `extract-pattern` · `adapt-workflow` · `onboard-agent` · `specialize` · `teach-maestro` · `capture` · `recap`
 
 ### Resources
 

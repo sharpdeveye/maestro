@@ -18,6 +18,7 @@ mcp-server/node_modules/
 .claude/
 .codex/
 .cursor/
+.vscode/
 .gemini/
 .kiro/
 .opencode/

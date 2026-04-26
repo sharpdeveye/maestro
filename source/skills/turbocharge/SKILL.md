@@ -3,7 +3,7 @@ name: turbocharge
 description: "Use when the user wants to push past conventional workflow limits with advanced performance techniques like parallel orchestration, streaming pipelines, or adaptive routing."
 argument-hint: "[target]"
 category: enhancement
-version: 1.3.1
+version: 2.0.0
 user-invocable: true
 ---
 

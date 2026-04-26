@@ -3,6 +3,8 @@ import { SkillLoader } from '../core/skills';
 import { StateManager } from '../core/state';
 import { ContextManager } from '../core/context';
 import { HistoryManager } from '../core/history';
+import { ContextSlicer } from '../core/context-slicer';
+import { lastTokenBudget } from '../chat/participant';
 
 /**
  * WebviewViewProvider for the Maestro sidebar panel.
@@ -15,7 +17,8 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
     private readonly skills: SkillLoader,
     private readonly state: StateManager,
     private readonly context: ContextManager,
-    private readonly history?: HistoryManager
+    private readonly history?: HistoryManager,
+    private readonly slicer?: ContextSlicer
   ) {}
 
   resolveWebviewView(
@@ -42,6 +45,8 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
           break;
         case 'run-command':
           await vscode.commands.executeCommand(`maestro.${this.toCamelCase(msg.command)}`);
+          // Sync token budget after command execution
+          setTimeout(() => this.syncTokenBudget(), 500);
           break;
         case 'toggle-mode':
           await vscode.commands.executeCommand('maestro.toggleZeroDefect');
@@ -80,6 +85,29 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
         data: this.history.getRecent(10).map(e => e.name),
       });
     }
+    // Send token budget if available
+    this.syncTokenBudget();
+  }
+
+  /** Send token budget data to webview */
+  syncTokenBudget(): void {
+    if (lastTokenBudget) {
+      this.view?.webview.postMessage({
+        type: 'token-budget',
+        data: lastTokenBudget,
+      });
+    }
+  }
+
+  /** Send wave state to webview */
+  syncWaveState(wave: {
+    phases: Array<{ name: string; status: string }>;
+    currentPhase: string;
+  }): void {
+    this.view?.webview.postMessage({
+      type: 'wave-state',
+      data: wave,
+    });
   }
 
   private toCamelCase(name: string): string {
@@ -103,6 +131,9 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src ${webview.cspSource} 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'nonce-${nonce}'; img-src ${webview.cspSource} data:;" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" />
   <link rel="stylesheet" href="${styleUri}" />
   <title>Maestro</title>
 </head>

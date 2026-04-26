@@ -3,7 +3,7 @@ name: diagnose
 description: "Use when the user wants to find problems, audit workflow quality, or get a comprehensive health check on their AI workflow."
 argument-hint: "[target area]"
 category: analysis
-version: 1.3.1
+version: 2.0.0
 user-invocable: true
 ---
 

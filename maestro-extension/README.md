@@ -17,7 +17,7 @@
 
 ### 🎛️ Command Center Sidebar
 
-Browse all 21 Maestro commands organized into four categories — **Analysis**, **Fix & Improve**, **Enhancement**, and **Utility**. Click any command to instantly inject it into your AI chat panel.
+Browse all 25 Maestro commands organized into four categories — **Analysis**, **Fix & Improve**, **Enhancement**, and **Utility**. Click any command to instantly inject it into your AI chat panel.
 
 ![Command Center](https://raw.githubusercontent.com/sharpdeveye/maestro/main/maestro-extension/media/sidebar-preview.png)
 
@@ -41,13 +41,13 @@ Use `@maestro` directly in VS Code chat with slash commands:
 @maestro /zero-defect activate maximum precision
 ```
 
-### 📄 `.maestro.md` Auto-Detection
+### 📄 Context Auto-Detection
 
-Maestro automatically detects your project's `.maestro.md` context file and includes it in every command execution for project-aware AI guidance. A status indicator shows whether the file is detected, and you can initialize one with a single click.
+Maestro automatically detects your project context — checking `.maestro/context.md` first, then `.maestro.md` (backward compatible). A status indicator shows whether the file is detected, and you can initialize one with a single click.
 
 ### 🔄 Multi-Provider Skill Sync
 
-On every activation, Maestro syncs all 22 bundled skills into **10 AI provider directories** simultaneously:
+On every activation, Maestro syncs all 25 bundled skills into **10 AI provider directories** simultaneously:
 
 `.agents/` · `.cursor/` · `.claude/` · `.gemini/` · `.codex/` · `.kiro/` · `.trae/` · `.trae-cn/` · `.opencode/` · `.pi/`
 
@@ -55,7 +55,7 @@ Your skills are always available regardless of which AI tool you use.
 
 ---
 
-## 📋 All 21 Commands
+## 📋 All 25 Commands
 
 ### Analysis — read-only, generate reports
 
@@ -63,6 +63,7 @@ Your skills are always available regardless of which AI tool you use.
 |---------|-------------|
 | `/diagnose` | Systematic workflow quality audit with scored dimensions |
 | `/evaluate` | Holistic review of workflow interaction quality |
+| `/reflect` | 🆕 Analyze command history — which skills work, which fail |
 
 ### Fix & Improve — make targeted changes
 
@@ -97,6 +98,8 @@ Your skills are always available regardless of which AI tool you use.
 | `/adapt-workflow` | Port to a different AI provider |
 | `/specialize` | Domain-specific expertise (legal, medical, etc.) |
 | `/extract-pattern` | Build reusable templates from working workflows |
+| `/capture` | 🆕 Save a session summary — persist decisions and next steps |
+| `/recap` | 🆕 Quick summary of the last session |
 
 ---
 

@@ -3,7 +3,7 @@ name: onboard-agent
 description: "Use when starting a new project, adding a new agent to an existing system, or setting up workflow infrastructure from scratch."
 argument-hint: "[project or agent name]"
 category: utility
-version: 1.3.1
+version: 2.0.0
 user-invocable: true
 ---
 

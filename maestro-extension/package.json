@@ -1,8 +1,8 @@
 {
   "name": "maestro-workflow",
   "displayName": "Maestro — AI Workflow Fluency",
-  "description": "21 commands for production-grade AI agent workflows. Auto-inject precision rules, browse commands, and manage workflow context.",
-  "version": "1.4.2",
+  "description": "25 commands for production-grade AI agent workflows. Memory, audit trails, cost tracking, and precision rules.",
+  "version": "2.0.0",
   "publisher": "sharpdeveye",
   "license": "MIT",
   "icon": "media/maestro-icon.png",
@@ -53,62 +53,228 @@
       ]
     },
     "commands": [
-      { "command": "maestro.toggleZeroDefect", "title": "Maestro: Toggle Zero-Defect Mode", "icon": "$(shield)" },
-      { "command": "maestro.openCommandCenter", "title": "Maestro: Open Command Center" },
-      { "command": "maestro.initContext", "title": "Maestro: Initialize .maestro.md" },
-      { "command": "maestro.diagnose", "title": "Maestro: Diagnose — Workflow quality audit" },
-      { "command": "maestro.evaluate", "title": "Maestro: Evaluate — Interaction quality review" },
-      { "command": "maestro.refine", "title": "Maestro: Refine — Final quality pass" },
-      { "command": "maestro.streamline", "title": "Maestro: Streamline — Remove complexity" },
-      { "command": "maestro.calibrate", "title": "Maestro: Calibrate — Align to conventions" },
-      { "command": "maestro.fortify", "title": "Maestro: Fortify — Add error handling" },
-      { "command": "maestro.zeroDefect", "title": "Maestro: Zero-Defect — Maximum precision" },
-      { "command": "maestro.amplify", "title": "Maestro: Amplify — Handle complex cases" },
-      { "command": "maestro.chain", "title": "Maestro: Chain — Multi-step processing" },
-      { "command": "maestro.compose", "title": "Maestro: Compose — Multi-agent coordination" },
-      { "command": "maestro.enrich", "title": "Maestro: Enrich — Add knowledge sources" },
-      { "command": "maestro.guard", "title": "Maestro: Guard — Safety constraints" },
-      { "command": "maestro.iterate", "title": "Maestro: Iterate — Self-correction loops" },
-      { "command": "maestro.accelerate", "title": "Maestro: Accelerate — Optimize performance" },
-      { "command": "maestro.turbocharge", "title": "Maestro: Turbocharge — Advanced techniques" },
-      { "command": "maestro.teachMaestro", "title": "Maestro: Teach — Generate .maestro.md" },
-      { "command": "maestro.onboardAgent", "title": "Maestro: Onboard — Set up new project" },
-      { "command": "maestro.adaptWorkflow", "title": "Maestro: Adapt — Port to different provider" },
-      { "command": "maestro.specialize", "title": "Maestro: Specialize — Domain expertise" },
-      { "command": "maestro.extractPattern", "title": "Maestro: Extract Pattern — Build templates" },
-      { "command": "maestro.temper", "title": "Maestro: Temper — Remove over-engineering" },
-      { "command": "maestro.debugChatCommands", "title": "Maestro: Debug — Show available chat commands" },
-      { "command": "maestro.quickPick", "title": "Maestro: Quick Pick — Search commands" }
+      {
+        "command": "maestro.toggleZeroDefect",
+        "title": "Maestro: Toggle Zero-Defect Mode",
+        "icon": "$(shield)"
+      },
+      {
+        "command": "maestro.openCommandCenter",
+        "title": "Maestro: Open Command Center"
+      },
+      {
+        "command": "maestro.initContext",
+        "title": "Maestro: Initialize .maestro.md"
+      },
+      {
+        "command": "maestro.diagnose",
+        "title": "Maestro: Diagnose — Workflow quality audit"
+      },
+      {
+        "command": "maestro.evaluate",
+        "title": "Maestro: Evaluate — Interaction quality review"
+      },
+      {
+        "command": "maestro.refine",
+        "title": "Maestro: Refine — Final quality pass"
+      },
+      {
+        "command": "maestro.streamline",
+        "title": "Maestro: Streamline — Remove complexity"
+      },
+      {
+        "command": "maestro.calibrate",
+        "title": "Maestro: Calibrate — Align to conventions"
+      },
+      {
+        "command": "maestro.fortify",
+        "title": "Maestro: Fortify — Add error handling"
+      },
+      {
+        "command": "maestro.zeroDefect",
+        "title": "Maestro: Zero-Defect — Maximum precision"
+      },
+      {
+        "command": "maestro.amplify",
+        "title": "Maestro: Amplify — Handle complex cases"
+      },
+      {
+        "command": "maestro.chain",
+        "title": "Maestro: Chain — Multi-step processing"
+      },
+      {
+        "command": "maestro.compose",
+        "title": "Maestro: Compose — Multi-agent coordination"
+      },
+      {
+        "command": "maestro.enrich",
+        "title": "Maestro: Enrich — Add knowledge sources"
+      },
+      {
+        "command": "maestro.guard",
+        "title": "Maestro: Guard — Safety constraints"
+      },
+      {
+        "command": "maestro.iterate",
+        "title": "Maestro: Iterate — Self-correction loops"
+      },
+      {
+        "command": "maestro.accelerate",
+        "title": "Maestro: Accelerate — Optimize performance"
+      },
+      {
+        "command": "maestro.turbocharge",
+        "title": "Maestro: Turbocharge — Advanced techniques"
+      },
+      {
+        "command": "maestro.teachMaestro",
+        "title": "Maestro: Teach — Generate .maestro.md"
+      },
+      {
+        "command": "maestro.onboardAgent",
+        "title": "Maestro: Onboard — Set up new project"
+      },
+      {
+        "command": "maestro.adaptWorkflow",
+        "title": "Maestro: Adapt — Port to different provider"
+      },
+      {
+        "command": "maestro.specialize",
+        "title": "Maestro: Specialize — Domain expertise"
+      },
+      {
+        "command": "maestro.extractPattern",
+        "title": "Maestro: Extract Pattern — Build templates"
+      },
+      {
+        "command": "maestro.temper",
+        "title": "Maestro: Temper — Remove over-engineering"
+      },
+      {
+        "command": "maestro.debugChatCommands",
+        "title": "Maestro: Debug — Show available chat commands"
+      },
+      {
+        "command": "maestro.quickPick",
+        "title": "Maestro: Quick Pick — Search commands"
+      },
+      {
+        "command": "maestro.capture",
+        "title": "Maestro: Capture — Save session summary"
+      },
+      {
+        "command": "maestro.reflect",
+        "title": "Maestro: Reflect — Analyze effectiveness"
+      },
+      {
+        "command": "maestro.recap",
+        "title": "Maestro: Recap — Last session summary"
+      }
     ],
     "chatParticipants": [
       {
         "id": "maestro.chat",
         "fullName": "Maestro",
         "name": "maestro",
-        "description": "AI workflow fluency — 21 commands for reliable, production-grade workflows",
+        "description": "AI workflow fluency — 25 commands for reliable, production-grade workflows",
         "isSticky": false,
         "commands": [
-          { "name": "diagnose", "description": "Systematic workflow quality audit" },
-          { "name": "evaluate", "description": "Interaction quality review" },
-          { "name": "refine", "description": "Final quality pass" },
-          { "name": "streamline", "description": "Remove complexity" },
-          { "name": "calibrate", "description": "Align to conventions" },
-          { "name": "fortify", "description": "Add error handling" },
-          { "name": "zero-defect", "description": "Maximum precision mode" },
-          { "name": "amplify", "description": "Handle complex cases" },
-          { "name": "chain", "description": "Multi-step processing" },
-          { "name": "compose", "description": "Multi-agent coordination" },
-          { "name": "enrich", "description": "Add knowledge sources" },
-          { "name": "guard", "description": "Safety constraints" },
-          { "name": "iterate", "description": "Self-correction loops" },
-          { "name": "accelerate", "description": "Optimize performance" },
-          { "name": "turbocharge", "description": "Advanced techniques" },
-          { "name": "teach-maestro", "description": "Generate .maestro.md" },
-          { "name": "onboard-agent", "description": "Set up new project" },
-          { "name": "adapt-workflow", "description": "Port to different provider" },
-          { "name": "specialize", "description": "Domain expertise" },
-          { "name": "extract-pattern", "description": "Build templates" },
-          { "name": "temper", "description": "Remove over-engineering" }
+          {
+            "name": "diagnose",
+            "description": "Systematic workflow quality audit"
+          },
+          {
+            "name": "evaluate",
+            "description": "Interaction quality review"
+          },
+          {
+            "name": "refine",
+            "description": "Final quality pass"
+          },
+          {
+            "name": "streamline",
+            "description": "Remove complexity"
+          },
+          {
+            "name": "calibrate",
+            "description": "Align to conventions"
+          },
+          {
+            "name": "fortify",
+            "description": "Add error handling"
+          },
+          {
+            "name": "zero-defect",
+            "description": "Maximum precision mode"
+          },
+          {
+            "name": "amplify",
+            "description": "Handle complex cases"
+          },
+          {
+            "name": "chain",
+            "description": "Multi-step processing"
+          },
+          {
+            "name": "compose",
+            "description": "Multi-agent coordination"
+          },
+          {
+            "name": "enrich",
+            "description": "Add knowledge sources"
+          },
+          {
+            "name": "guard",
+            "description": "Safety constraints"
+          },
+          {
+            "name": "iterate",
+            "description": "Self-correction loops"
+          },
+          {
+            "name": "accelerate",
+            "description": "Optimize performance"
+          },
+          {
+            "name": "turbocharge",
+            "description": "Advanced techniques"
+          },
+          {
+            "name": "teach-maestro",
+            "description": "Generate .maestro.md"
+          },
+          {
+            "name": "onboard-agent",
+            "description": "Set up new project"
+          },
+          {
+            "name": "adapt-workflow",
+            "description": "Port to different provider"
+          },
+          {
+            "name": "specialize",
+            "description": "Domain expertise"
+          },
+          {
+            "name": "extract-pattern",
+            "description": "Build templates"
+          },
+          {
+            "name": "temper",
+            "description": "Remove over-engineering"
+          },
+          {
+            "name": "capture",
+            "description": "Save session summary"
+          },
+          {
+            "name": "reflect",
+            "description": "Analyze skill effectiveness"
+          },
+          {
+            "name": "recap",
+            "description": "Last session summary"
+          }
         ]
       }
     ],
@@ -122,7 +288,13 @@
         },
         "maestro.editorAdapter": {
           "type": "string",
-          "enum": ["auto", "vscode", "cursor", "antigravity", "claude-code"],
+          "enum": [
+            "auto",
+            "vscode",
+            "cursor",
+            "antigravity",
+            "claude-code"
+          ],
           "default": "auto",
           "description": "Which editor adapter to use for AI integration."
         }
@@ -142,14 +314,17 @@
     "test": "npm run build:ext && node dist/test/runTest.js"
   },
   "devDependencies": {
-    "@types/vscode": "^1.95.0",
-    "@types/node": "^22.0.0",
     "@types/mocha": "^10.0.0",
+    "@types/node": "^22.0.0",
+    "@types/vscode": "^1.95.0",
     "@vscode/test-electron": "^2.4.0",
-    "mocha": "^10.0.0",
-    "glob": "^11.0.0",
+    "concurrently": "^9.0.0",
     "esbuild": "^0.24.0",
-    "typescript": "^5.7.0",
-    "concurrently": "^9.0.0"
+    "glob": "^11.0.0",
+    "mocha": "^10.0.0",
+    "typescript": "^5.7.0"
+  },
+  "dependencies": {
+    "@maestro/core": "file:../packages/core"
   }
 }

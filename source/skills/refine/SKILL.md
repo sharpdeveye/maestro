@@ -3,7 +3,7 @@ name: refine
 description: "Use when the workflow works but needs polish, or as the final step in a diagnose → fix → refine cycle before shipping."
 argument-hint: "[target area]"
 category: fix
-version: 1.3.1
+version: 2.0.0
 user-invocable: true
 ---
 
