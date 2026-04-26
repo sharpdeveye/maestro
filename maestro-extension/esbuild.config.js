@@ -15,6 +15,9 @@ const config = {
   target: 'node20',
   sourcemap: true,
   minify: !isWatch,
+  alias: {
+    '@maestro/core': path.join(__dirname, '..', 'packages', 'core', 'src', 'index.ts'),
+  },
 };
 
 async function main() {
