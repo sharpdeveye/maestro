@@ -71,7 +71,8 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
       type: 'state',
       data: {
         ...this.state.getState(),
-        ...this.context.getStatus(),
+        contextDetected: this.context.isDetected(),
+        contextInfo: this.context.getStatus().info,
       },
     });
     this.view?.webview.postMessage({
