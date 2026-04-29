@@ -24,12 +24,12 @@ export class HistoryManager {
     // Trim to max
     const trimmed = filtered.slice(0, MAX_HISTORY);
 
-    this.context.globalState.update(HISTORY_KEY, trimmed);
+    this.context.workspaceState.update(HISTORY_KEY, trimmed);
   }
 
   /** Get all history entries */
   getAll(): HistoryEntry[] {
-    return this.context.globalState.get<HistoryEntry[]>(HISTORY_KEY) || [];
+    return this.context.workspaceState.get<HistoryEntry[]>(HISTORY_KEY) || [];
   }
 
   /** Get the N most recent entries */
@@ -39,6 +39,6 @@ export class HistoryManager {
 
   /** Clear history */
   clear(): void {
-    this.context.globalState.update(HISTORY_KEY, []);
+    this.context.workspaceState.update(HISTORY_KEY, []);
   }
 }
